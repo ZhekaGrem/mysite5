@@ -43,17 +43,17 @@ export default async function RootLayout({
   const messages = await getMessages();
   return (
     <NextIntlClientProvider messages={messages}>
-
-      <ThemeProvider
+    <ThemeProvider 
       attribute="class"
-      enableSystem
-      disableTransitionOnChange>
-      <main
-        className={`${plexSans.variable} ${plexMono.variable} antialiased`}
-        >
+      defaultTheme="system"
+      enableSystem={true}
+      disableTransitionOnChange
+      storageKey="theme-preference"
+    >
+      <main className={`${plexSans.variable} ${plexMono.variable} antialiased `}>
         {children}
       </main>
-        </ThemeProvider>
-    </NextIntlClientProvider>
+    </ThemeProvider>
+  </NextIntlClientProvider>
   );
 }
