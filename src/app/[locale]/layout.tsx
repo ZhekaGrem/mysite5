@@ -1,25 +1,23 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans ,IBM_Plex_Mono  } from "next/font/google";
+import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/shared/i18n/routing';
-import {LocaleType} from '@/shared/types/index.type'
-
+import { LocaleType } from '@/shared/types/index.type';
+import { ThemeProvider } from 'next-themes';
 
 const plexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
-  weight:['700'],
+  weight: ['700'],
   subsets: ['latin']
-  
 });
 
 const plexMono = IBM_Plex_Mono({
   variable: "--font-plex-mono",
-  weight:['400','600'],
+  weight: ['400', '600'],
   subsets: ['latin']
-
 });
 
 export const metadata: Metadata = {
@@ -34,18 +32,24 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: LocaleType };
 }>) {
-  const { locale } = await params;
+  const { locale } = params;
 
   if (!routing.locales.includes(locale as LocaleType)) {
     notFound();
   }
   const messages = await getMessages();
   return (
-    <NextIntlClientProvider messages={messages}>
-   
-      <main className={`${plexSans.variable} ${plexMono.variable} antialiased `}>
-        {children}
-      </main>
-  </NextIntlClientProvider>
+    <html lang={locale} suppressHydrationWarning >
+      <body className={`${plexSans.variable} ${plexMono.variable} antialiased`}>
+        <ThemeProvider  attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+          </NextIntlClientProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 
 const Hero = () => {
   const [isDark, setIsDark] = useState(false);
