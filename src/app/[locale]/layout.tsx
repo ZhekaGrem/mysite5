@@ -6,7 +6,6 @@ import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/shared/i18n/routing';
 import {LocaleType} from '@/shared/types/index.type'
-import { ThemeProvider } from 'next-themes'
 
 
 const plexSans = IBM_Plex_Sans({
@@ -43,17 +42,10 @@ export default async function RootLayout({
   const messages = await getMessages();
   return (
     <NextIntlClientProvider messages={messages}>
-    <ThemeProvider 
-      attribute="class"
-      defaultTheme="system"
-      enableSystem={true}
-      disableTransitionOnChange
-      storageKey="theme-preference"
-    >
+   
       <main className={`${plexSans.variable} ${plexMono.variable} antialiased `}>
         {children}
       </main>
-    </ThemeProvider>
   </NextIntlClientProvider>
   );
 }
