@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
+import { IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import { NextIntlClientProvider,hasLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
@@ -11,15 +11,10 @@ import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';
 import SocialLinks from '@/features/SocialLinks/SocialLinks';
 
-const plexSans = IBM_Plex_Sans({
-  variable: "--font-plex-sans",
-  weight: ['700'],
-  subsets: ['latin']
-});
+
 
 const plexMono = IBM_Plex_Mono({
-  variable: "--font-plex-mono",
-  weight: ['400', '600'],
+  weight: ['400'],
   subsets: ['latin']
 });
 
@@ -44,7 +39,7 @@ export default async function RootLayout({
 
     return (
       <html lang={locale} suppressHydrationWarning>
-        <body className={`${plexSans.variable} ${plexMono.variable} antialiased min-h-screen dark:bg-primary-dark  bg-primary-light`}>
+        <body className={` ${plexMono.className} antialiased min-h-screen dark:bg-primary-dark  bg-primary-light`}>
           <ThemeProvider
             attribute="class"
             defaultTheme="system"

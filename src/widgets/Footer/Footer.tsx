@@ -4,6 +4,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/shared/i18n/routing';
 import SocialLinks from '@/features/SocialLinks/SocialLinks';
+import Logo from '@/shared/ui/Logo'
 
 const Footer = () => {
   const t = useTranslations('navigation');
@@ -18,14 +19,7 @@ const Footer = () => {
         { href: '/contact', label: t('contact') },
       ]
     },
-    {
-      title: 'Social',
-      links: [
-        { href: 'https://github.com', label: 'GitHub' },
-        { href: 'https://linkedin.com', label: 'LinkedIn' },
-        { href: 'https://twitter.com', label: 'Twitter' },
-      ]
-    },
+    
     {
       title: 'Contact',
       links: [
@@ -44,10 +38,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] px-6 py-12">
           {/* Brand Section */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="font-mono text-xl font-semibold tracking-tighter">
-              LOGO
+            <Link href="/" className="  text-xl font-semibold tracking-tighter h-8 w-16">
+              <Logo />
             </Link>
-            <p className="font-mono text-sm leading-relaxed max-w-md">
+            <p className="  text-sm leading-relaxed max-w-md">
               Створюємо передові технологічні рішення, поєднуючи функціональність 
               та естетику відповідно до принципів швейцарського стилю.
             </p>
@@ -55,15 +49,15 @@ const Footer = () => {
           </div>
           <div>
 
-          <h3 className="font-mono text-sm font-semibold uppercase tracking-widest">
+          <h3 className="  text-sm font-semibold uppercase tracking-widest">
           Social
               </h3>
           <SocialLinks position="footer"  />
           </div>
           {/* Navigation Sections */}
-          {sections.slice(2).map((section) => (
+          {sections.slice(1).map((section) => (
             <div key={section.title} className="flex flex-col gap-4">
-              <h3 className="font-mono text-sm font-semibold uppercase tracking-widest">
+              <h3 className="  text-sm font-semibold uppercase tracking-widest">
                 {section.title}
               </h3>
               <ul className="flex flex-col gap-2">
@@ -71,7 +65,7 @@ const Footer = () => {
                   <li key={link.label}>
                     <Link 
                       href={link.href}
-                      className="font-mono text-sm transition-colors hover:text-primary-dark dark:hover:text-primary-light"
+                      className="  text-sm transition-colors hover:text-primary-dark dark:hover:text-primary-light"
                     >
                       {link.label}
                     </Link>
@@ -84,7 +78,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className=" flex flex-col gap-4 border-t pt-6 md:flex-row md:items-center md:justify-between px-6 pb-6">
-          <p className="font-mono text-sm">
+          <p className="  text-sm">
             © {currentYear} Your Company. All rights reserved.
           </p>
           
@@ -94,7 +88,7 @@ const Footer = () => {
               <li key={label}>
                 <Link 
                   href="#"
-                  className="font-mono text-sm transition-colors hover:text-primary-dark dark:hover:text-primary-light"
+                  className="  text-sm transition-colors hover:text-primary-dark dark:hover:text-primary-light"
                 >
                   {label}
                 </Link>

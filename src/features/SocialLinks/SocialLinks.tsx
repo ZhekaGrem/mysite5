@@ -3,12 +3,15 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Facebook, Github, Linkedin, Twitter } from 'lucide-react';
+import Whatsapp from './Whatsapp'
 
 const socialLinks = [
-  { Icon: Github, href: 'https://github.com', label: 'GitHub' },
-  { Icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { Icon: Twitter, href: 'https://twitter.com', label: 'Twitter' }
+  { Icon: Github,   href: 'https://github.com', label: 'GitHub' },
+  { Icon: Linkedin,  href: 'https://linkedin.com', label: 'LinkedIn' },
+  { Icon: Twitter,  href: 'https://twitter.com', label: 'Twitter' },
+  { Icon: Whatsapp,  href: 'https://whatsapp.com', label: 'whatsapp' },
+  { Icon: Facebook,  href: 'https://telegram.com', label: 'Telegram' }
 ];
 
 interface SocialLinksProps {
@@ -105,7 +108,7 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
             className="text-current transition-colors hover:text-primary-dark dark:hover:text-primary-light"
             aria-label={label}
           >
-            <Icon size={24} />
+            <Icon size={20} />
           </motion.a>
         ))}
       </motion.div>
@@ -134,7 +137,7 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
               className="text-current transition-colors hover:text-primary-dark dark:hover:text-primary-light"
               aria-label={label}
             >
-              <Icon size={24} />
+              <Icon size={20} />
             </motion.a>
           ))}
         </motion.div>

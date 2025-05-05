@@ -3,6 +3,27 @@
     "navigation": {
         "home": "Home",
         "about": "About",
-        "contact": "Contact"
+        "resume": "Resume",
+        "contact": "Contact",
+        "projects":"Projects"
+    },
+    "home":{
+
+    },
+    "about":{
+
+    },
+    "resume":{
+
+    },
+    "contact":{
+
+    },
+    "projects":{
+
+    },
+    "footer":{
+        
     }
+
 }

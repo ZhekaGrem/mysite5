@@ -5,15 +5,21 @@ import { Link } from '@/shared/i18n/routing';
 import SwitchTheme from '@/features/SwitchTheme/SwitchTheme';
 import { useState } from 'react';
 import SwitchLang from '@/features/SwitchLang/SwitchLang';
+import Logo from '@/shared/ui/Logo';
+
 
 const Header = () => {
   const t = useTranslations('navigation');
   const [isOpen, setIsOpen] = useState(false);
 
+
+  
   // Navigation items using translation
   const navItems = [
     { href: '/', label: t('home') },
-    { href: '/projects', label: t('about') },
+    { href: '/about', label: t('about') },
+    { href: '/projects', label: t('projects') },
+    { href: '/resume', label: t('resume') },
     { href: '/contact', label: t('contact') },
   ];
 
@@ -23,9 +29,9 @@ const Header = () => {
         {/* Logo Area - Left Aligned */}
         <Link 
           href="/"
-          className="font-mono text-xl font-semibold tracking-tighter"
+          className="  text-xl font-semibold tracking-tighter text-surface-light/80 dark:text-surface-dark/80"
         >
-          LOGO
+          <Logo/>
         </Link>
 
         {/* Mobile Menu Button - Visible on Small Screens */}
@@ -37,17 +43,24 @@ const Header = () => {
         </button>
 
         {/* Navigation - Center Aligned on Desktop */}
+       
+
+        {/* Actions Area - Right Aligned */}
+        <div className="hidden items-center justify-end gap-4 md:flex">
+          <SwitchTheme />
+          <SwitchLang />
+        </div>
         <nav className={`
           ${isOpen ? 'block' : 'hidden'} 
           absolute left-0 right-0 top-full bg-background/80 backdrop-blur-sm
           md:static md:block md:bg-transparent md:backdrop-blur-none
         `}>
-          <ul className="flex flex-col items-center gap-6 p-4 md:flex-row md:p-0">
+          <ul className="flex flex-col items-center justify-end gap-6 p-4 md:flex-row md:p-0">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link 
                   href={item.href}
-                  className="font-mono text-base uppercase tracking-widest transition-colors hover:text-primary-dark dark:hover:text-primary-light"
+                  className="  text-base uppercase tracking-widest transition-colors hover:text-primary-dark dark:hover:text-primary-light"
                 >
                   {item.label}
                 </Link>
@@ -55,12 +68,6 @@ const Header = () => {
             ))}
           </ul>
         </nav>
-
-        {/* Actions Area - Right Aligned */}
-        <div className="hidden items-center justify-end gap-4 md:flex">
-          <SwitchTheme />
-          <SwitchLang />
-        </div>
       </div>
     </header>
   );
