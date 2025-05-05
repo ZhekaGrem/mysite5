@@ -1,65 +1,31 @@
-import type { Config } from "tailwindcss";
-
-const config: Config = {
-  darkMode: ["class"],
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/widgets/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/shared/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/providers/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    extend: {
-      colors: {
-        border: "hsl(var(--border) / <alpha-value>)",
-        input: "hsl(var(--input) / <alpha-value>)",
-        ring: "hsl(var(--ring) / <alpha-value>)",
-        background: "hsl(var(--background) / <alpha-value>)",
-        foreground: "hsl(var(--foreground) / <alpha-value>)",
-        primary: {
-          DEFAULT: "hsl(var(--primary) / <alpha-value>)",
-          foreground: "hsl(var(--primary-foreground) / <alpha-value>)",
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: [
+      './src/**/*.{js,ts,jsx,tsx,mdx}',
+    ],
+    darkMode: 'class', // Enable dark mode variant
+    theme: {
+      extend: {
+        colors: {
+          // Dark theme
+          //bg
+          'primary-dark': 'rgb(60, 22, 66)',
+          'secondary-dark': 'rgb(8, 99, 117)',
+          'accent-dark': 'rgb(29, 211, 176)',
+          'highlight-dark': 'rgb(175, 252, 65)',
+          'surface-dark': 'rgb(178, 255, 158)',
+          
+          // Light theme
+          //bg
+          'primary-light': 'rgb(231, 111, 81)',
+          'secondary-light': 'rgb(244, 162, 97)',
+          'accent-light': 'rgb(233, 196, 106)',
+          'highlight-light': 'rgb(42, 157, 143)',
+          'surface-light': 'rgb(38, 70, 83)',
+          
+          
         },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary) / <alpha-value>)",
-          foreground: "hsl(var(--secondary-foreground) / <alpha-value>)",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive) / <alpha-value>)",
-          foreground: "hsl(var(--destructive-foreground) / <alpha-value>)",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted) / <alpha-value>)",
-          foreground: "hsl(var(--muted-foreground) / <alpha-value>)",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent) / <alpha-value>)",
-          foreground: "hsl(var(--accent-foreground) / <alpha-value>)",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover) / <alpha-value>)",
-          foreground: "hsl(var(--popover-foreground) / <alpha-value>)",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card) / <alpha-value>)",
-          foreground: "hsl(var(--card-foreground) / <alpha-value>)",
-        },
-      },
-      fontFamily: {
-        sans: ['var(--font-plex-sans)'],
-        mono: ['var(--font-plex-mono)'],
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
       },
     },
-  },
-  plugins: [],
-};
-
-export default config;
+    plugins: [],
+  }

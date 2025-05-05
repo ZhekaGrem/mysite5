@@ -1,0 +1,110 @@
+// src/widgets/Footer/Footer.tsx
+'use client';
+
+import { useTranslations } from 'next-intl';
+import { Link } from '@/shared/i18n/routing';
+import SocialLinks from '@/features/SocialLinks/SocialLinks';
+
+const Footer = () => {
+  const t = useTranslations('navigation');
+  
+  // Footer sections using grid system
+  const sections = [
+    {
+      title: 'Navigation',
+      links: [
+        { href: '/', label: t('home') },
+        { href: '/projects', label: t('about') },
+        { href: '/contact', label: t('contact') },
+      ]
+    },
+    {
+      title: 'Social',
+      links: [
+        { href: 'https://github.com', label: 'GitHub' },
+        { href: 'https://linkedin.com', label: 'LinkedIn' },
+        { href: 'https://twitter.com', label: 'Twitter' },
+      ]
+    },
+    {
+      title: 'Contact',
+      links: [
+        { href: 'mailto:info@example.com', label: 'info@example.com' },
+        { href: 'tel:+380123456789', label: '+38 (012) 345-67-89' },
+      ]
+    }
+  ];
+
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer className="mt-auto border-t bg-background/80 backdrop-blur-sm mx-auto max-w-7xl">
+      <div className="  ">
+        {/* Main Footer Grid */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr] px-6 py-12">
+          {/* Brand Section */}
+          <div className="flex flex-col gap-4">
+            <Link href="/" className="font-mono text-xl font-semibold tracking-tighter">
+              LOGO
+            </Link>
+            <p className="font-mono text-sm leading-relaxed max-w-md">
+              Створюємо передові технологічні рішення, поєднуючи функціональність 
+              та естетику відповідно до принципів швейцарського стилю.
+            </p>
+            
+          </div>
+          <div>
+
+          <h3 className="font-mono text-sm font-semibold uppercase tracking-widest">
+          Social
+              </h3>
+          <SocialLinks position="footer"  />
+          </div>
+          {/* Navigation Sections */}
+          {sections.slice(2).map((section) => (
+            <div key={section.title} className="flex flex-col gap-4">
+              <h3 className="font-mono text-sm font-semibold uppercase tracking-widest">
+                {section.title}
+              </h3>
+              <ul className="flex flex-col gap-2">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <Link 
+                      href={link.href}
+                      className="font-mono text-sm transition-colors hover:text-primary-dark dark:hover:text-primary-light"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Bar */}
+        <div className=" flex flex-col gap-4 border-t pt-6 md:flex-row md:items-center md:justify-between px-6 pb-6">
+          <p className="font-mono text-sm">
+            © {currentYear} Your Company. All rights reserved.
+          </p>
+          
+          {/* Bottom Links */}
+          <ul className="flex flex-wrap gap-6">
+            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((label) => (
+              <li key={label}>
+                <Link 
+                  href="#"
+                  className="font-mono text-sm transition-colors hover:text-primary-dark dark:hover:text-primary-light"
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

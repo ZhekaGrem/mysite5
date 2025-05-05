@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { NextIntlClientProvider } from 'next-intl';
+import { NextIntlClientProvider,hasLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/shared/i18n/routing';
 import { LocaleType } from '@/shared/types/index.type';
 import { ThemeProvider } from 'next-themes';
+import Header from '@/widgets/Header/Header';
+import Footer from '@/widgets/Footer/Footer';
+import SocialLinks from '@/features/SocialLinks/SocialLinks';
 
 const plexSans = IBM_Plex_Sans({
   variable: "--font-plex-sans",
@@ -32,24 +35,33 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: LocaleType };
 }>) {
-  const { locale } = params;
 
-  if (!routing.locales.includes(locale as LocaleType)) {
+  const {locale} = await params;
+  if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-  const messages = await getMessages();
-  return (
-    <html lang={locale} suppressHydrationWarning >
-      <body className={`${plexSans.variable} ${plexMono.variable} antialiased`}>
-        <ThemeProvider  attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange>
-          <NextIntlClientProvider messages={messages}>
-            {children}
-          </NextIntlClientProvider>
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+    const messages = await getMessages();
+
+    return (
+      <html lang={locale} suppressHydrationWarning>
+        <body className={`${plexSans.variable} ${plexMono.variable} antialiased min-h-screen dark:bg-primary-dark  bg-primary-light`}>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange>
+            <NextIntlClientProvider messages={messages}>
+              <Header/>
+              <SocialLinks position="side" />
+              <main>
+
+              {children}
+              </main>
+              <Footer/>
+            </NextIntlClientProvider>
+          </ThemeProvider>
+        </body>
+      </html>
+    );
+  
 }

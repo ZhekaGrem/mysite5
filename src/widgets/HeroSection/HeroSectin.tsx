@@ -1,78 +1,121 @@
-'use client'
-import React, { useState } from 'react';
+// src/widgets/HeroSection/HeroSection.tsx
+'use client';
 
-const Hero = () => {
-  const [isDark, setIsDark] = useState(false);
+import { useCallback, useEffect, useState } from 'react';
+import { motion, Variants } from 'framer-motion';
+import ParticlesBackground from './ParticlesBackground';
+import type { Engine } from '@tsparticles/engine';
+import { loadSlim } from '@tsparticles/slim';
 
-  // Theme configuration
-  const theme = {
-    light: {
-      bg: 'rgb(60, 22, 66)',
-      particle: 'rgb(175, 252, 65)',
-      text: 'rgb(178, 255, 158)',
-      lines: 'rgba(175, 252, 65, 0.5)'
-    },
-    dark: {
-      bg: 'rgb(231, 111, 81)',
-      particle: 'rgb(42, 157, 143)',
-      text: 'rgb(233, 196, 106)',
-      lines: 'rgba(42, 157, 143, 0.5)'
+const title = 'INNOVATION';
+const subtitle = 'DESIGN';
+
+const HeroSection = () => {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const particlesInit = useCallback(async (engine: Engine) => {
+    try {
+      await loadSlim(engine);
+    } catch (error) {
+      console.error('Error initializing particles:', error);
     }
+  }, []);
+
+  // Animation for each letter with fixed ease
+  const letterVariants: Variants = {
+    hidden: (i: number) => ({
+      opacity: 0,
+      y: i % 2 === 0 ? -100 : 100,
+    }),
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        delay: i * 0.1,
+        ease: [0.215, 0.61, 0.355, 1], // Proper easing values
+      },
+    }),
   };
 
-  // Particles configuration
- 
-
-  // Initialize particles using hook
+  if (!mounted) return null;
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
-      {/* Content overlay */}
-      <div className="relative z-10 flex flex-col items-start justify-center h-full px-8 md:px-16 max-w-7xl mx-auto">
-        <div className="w-full md:w-3/4 lg:w-2/3">
-          <h1 
-            className="font-sans text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight"
-            style={{ color: isDark ? theme.dark.text : theme.light.text }}
-          >
-            Інноваційні Рішення
-          </h1>
-          
-          <p 
-            className="font-sans text-xl md:text-2xl max-w-2xl mb-8 leading-relaxed"
-            style={{ color: isDark ? theme.dark.text : theme.light.text }}
-          >
-            Створюємо передові технологічні рішення, 
-            поєднуючи функціональність та естетику
-          </p>
+    <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-primary-light dark:bg-primary-dark">
+      {/* Particles Background */}
+      <ParticlesBackground/>
 
-          <div className="flex gap-4">
-            <button
-              onClick={() => setIsDark(!isDark)}
-              className="px-6 py-3 rounded-none font-sans text-lg transition-all 
-                       hover:transform hover:translate-y-[-2px]"
-              style={{
-                backgroundColor: isDark ? theme.dark.particle : theme.light.particle,
-                color: isDark ? theme.dark.bg : theme.light.bg
-              }}
-            >
-              {isDark ? 'Світла тема' : 'Темна тема'}
-            </button>
+      <div className="relative z-10 grid gap-16 px-4">
+        <div className="grid place-items-center">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            className="flex flex-wrap justify-center overflow-hidden text-center font-sans text-6xl font-bold tracking-wider text-surface-light dark:text-surface-dark md:text-8xl lg:text-9xl"
+          >
+            {title.split('').map((letter, i) => (
+              <motion.span
+                key={`${letter}-${i}`}
+                custom={i}
+                variants={letterVariants}
+                className="inline-block transform-gpu"
+                style={{ 
+                  marginLeft: letter === ' ' ? '1rem' : '0.1em',
+                  textShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
+                }}
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </motion.div>
 
-            <button
-              className="px-6 py-3 rounded-none font-sans text-lg border-2 transition-all
-                       hover:transform hover:translate-y-[-2px]"
-              style={{
-                borderColor: isDark ? theme.dark.particle : theme.light.particle,
-                color: isDark ? theme.dark.text : theme.light.text
-              }}
-            >
-              Дізнатись більше
-            </button>
-          </div>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            className="mt-8 flex justify-center overflow-hidden text-center font-mono text-2xl font-light tracking-[0.25em] text-surface-light/80 dark:text-surface-dark/80 md:text-4xl"
+          >
+            {subtitle.split('').map((letter, i) => (
+              <motion.span
+                key={`${letter}-${i}`}
+                custom={i + title.length + 2} // Extra delay after main text
+                variants={letterVariants}
+                className="inline-block transform-gpu"
+                style={{ 
+                  marginLeft: letter === ' ' ? '1rem' : '0.15em'
+                }}
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </motion.div>
         </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            delay: (title.length + subtitle.length) * 0.1 + 0.5,
+            duration: 0.8,
+            ease: [0.215, 0.61, 0.355, 1]
+          }}
+          className="flex justify-center gap-8"
+        >
+          <button 
+            className="group relative overflow-hidden border-2 border-surface-light px-8 py-4 font-mono text-lg uppercase tracking-[0.2em] text-surface-light transition-all duration-300 hover:bg-surface-light hover:text-primary-light dark:border-surface-dark dark:text-surface-dark dark:hover:bg-surface-dark dark:hover:text-primary-dark"
+          >
+            <span className="relative z-10">Explore</span>
+          </button>
+          <button 
+            className="group relative overflow-hidden bg-surface-light px-8 py-4 font-mono text-lg uppercase tracking-[0.2em] text-primary-light transition-all duration-300 hover:bg-transparent hover:text-surface-light dark:bg-surface-dark dark:text-primary-dark dark:hover:bg-transparent dark:hover:text-surface-dark"
+          >
+            <span className="relative z-10">Contact</span>
+          </button>
+        </motion.div>
       </div>
     </div>
   );
 };
 
-export default Hero;
+export default HeroSection;

@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 100%;
+  --background: rgb(231, 111, 81);
   --foreground: 240 10% 3.9%;
 }
 
 .dark {
-  --background: 240 10% 3.9%;
+  --background: rgb(60, 22, 66);
   --foreground: 0 0% 98%;
 }
 
@@ -79,4 +79,8 @@ button, [type='button'], [type='reset'], [type='submit'] {
   -webkit-appearance: button;
   background-color: transparent;
   background-image: none;
+}
+
+main{
+  padding-top: 70px;
 }
