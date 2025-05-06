@@ -2,7 +2,7 @@
 
 import { H } from '@/shared/ui/Htag';
 import Section from '@/shared/ui/Section';
-import { ProjectFilter } from '@/features/ProjectFilter/ProjectFilter'
+import { ProjectFilter } from '@/features/ProjectFilter/ProjectFilter';
 import { ProjectList } from '@/widgets/ProjectList/ProjectList';
 import { motion } from 'framer-motion';
 import { ProjectType } from '@/shared/types/index.types';
@@ -52,12 +52,11 @@ const ProjectsPage = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="mb-12 text-center"
-      >
+        className="mb-12 text-center">
         <H h="h1">My Projects</H>
         <p className="mt-4 text-lg text-gray-600 dark:text-gray-400">
-          Explore my latest work and side projects.
-          Each project represents my commitment to clean code and innovative solutions.
+          Explore my latest work and side projects. Each project represents my commitment to clean code and
+          innovative solutions.
         </p>
       </motion.div>
 

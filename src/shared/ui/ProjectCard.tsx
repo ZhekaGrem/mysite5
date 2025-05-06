@@ -17,8 +17,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-lg transition-all hover:shadow-xl dark:bg-gray-800"
-    >
+      className="group relative flex flex-col overflow-hidden rounded-lg bg-white shadow-lg transition-all hover:shadow-xl dark:bg-gray-800">
       {/* Project Image */}
       <div className="relative h-48 overflow-hidden">
         <Image
@@ -36,9 +35,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-gray-100 px-3 py-1 text-sm text
--gray-600 dark:bg-gray-700 dark:text-gray-300"
-            >
+              className="text -gray-600 rounded-full bg-gray-100 px-3 py-1 text-sm dark:bg-gray-700 dark:text-gray-300">
               {tag}
             </span>
           ))}
@@ -48,15 +45,17 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
 
         {/* Description */}
-        <p className="mb-4 flex-1 text-gray-600 dark:text-gray-400">
-          {project.description}
-        </p>
+        <p className="mb-4 flex-1 text-gray-600 dark:text-gray-400">{project.description}</p>
 
         {/* Links */}
         <div className="mt-auto flex gap-4">
           {project.demoUrl && (
             <Button variant="outline" asChild>
-              <Link href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <Link
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2">
                 <LinkIcon size={16} />
                 Live Demo
               </Link>
@@ -64,7 +63,11 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
           )}
           {project.githubUrl && (
             <Button variant="outline" asChild>
-              <Link href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+              <Link
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2">
                 <Github size={16} />
                 Code
               </Link>

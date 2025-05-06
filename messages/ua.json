@@ -1,28 +1,15 @@
 {
-    
-    "navigation": {
-        "home": "Дім",
-        "about": "Про мене",
-        "resume": "Резюме",
-        "contact": "Контакти",
-        "projects":"Проекти"
-    },
-    "home":{
-
-    },
-    "about":{
-
-    },
-    "resume":{
-
-    },
-    "contact":{
-
-    },
-    "projects":{
-
-    },
-    "footer":{
-        
-    }
+  "navigation": {
+    "home": "Дім",
+    "about": "Про мене",
+    "resume": "Резюме",
+    "contact": "Контакти",
+    "projects": "Проекти"
+  },
+  "home": {},
+  "about": {},
+  "resume": {},
+  "contact": {},
+  "projects": {},
+  "footer": {}
 }

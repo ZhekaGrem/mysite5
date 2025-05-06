@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from 'react';
 import Particles, { initParticlesEngine } from '@tsparticles/react';
-import {  type ISourceOptions } from '@tsparticles/engine';
+import { type ISourceOptions } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
 
 interface ParticlesBackgroundProps {
@@ -32,10 +32,10 @@ const ParticlesBackground = ({ className = '' }: ParticlesBackgroundProps) => {
       },
       particles: {
         color: {
-          value: "#ffffff",
+          value: '#ffffff',
         },
         links: {
-          color: "#ffffff",
+          color: '#ffffff',
           distance: 150,
           enable: true,
           opacity: 0.5,
@@ -47,7 +47,7 @@ const ParticlesBackground = ({ className = '' }: ParticlesBackgroundProps) => {
         move: {
           enable: true,
           outModes: {
-            default: "bounce",
+            default: 'bounce',
           },
           random: false,
           speed: 2,
@@ -64,7 +64,7 @@ const ParticlesBackground = ({ className = '' }: ParticlesBackgroundProps) => {
           value: 0.5,
         },
         shape: {
-          type: "circle",
+          type: 'circle',
         },
         size: {
           value: { min: 1, max: 3 },
@@ -82,7 +82,7 @@ const ParticlesBackground = ({ className = '' }: ParticlesBackgroundProps) => {
         id="swiss-particles"
         particlesLoaded={particlesLoaded}
         options={options}
-        className={`absolute inset-0 w-full h-full z-0 ${className}`}
+        className={`absolute inset-0 z-0 h-full w-full ${className}`}
       />
     );
   }

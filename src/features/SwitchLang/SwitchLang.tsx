@@ -33,11 +33,9 @@ export default function SwitchLang() {
           <span className="sr-only">Change Language</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" >
+      <DropdownMenuContent align="end">
         {Object.entries(LANGS).map(([key, label]) => (
-          <DropdownMenuItem
-            key={key}
-            onClick={() => switchLanguage(key as keyof typeof LANGS)} >
+          <DropdownMenuItem key={key} onClick={() => switchLanguage(key as keyof typeof LANGS)}>
             {label}
           </DropdownMenuItem>
         ))}

@@ -12,42 +12,41 @@ const ContactPage = () => {
       icon: <Phone className="h-6 w-6" />,
       title: 'Phone',
       value: '+380 93 123 4567',
-      link: 'tel:+380931234567'
+      link: 'tel:+380931234567',
     },
     {
       icon: <Mail className="h-6 w-6" />,
       title: 'Email',
       value: 'your.email@gmail.com',
-      link: 'mailto:your.email@gmail.com'
+      link: 'mailto:your.email@gmail.com',
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: 'Location',
       value: 'Kyiv, Ukraine',
-      link: 'https://maps.google.com/?q=Kyiv,Ukraine'
-    }
+      link: 'https://maps.google.com/?q=Kyiv,Ukraine',
+    },
   ];
 
   const socialLinks = [
     { name: 'LinkedIn', url: 'https://linkedin.com/in/your-profile' },
     { name: 'GitHub', url: 'https://github.com/your-profile' },
-    { name: 'Telegram', url: 'https://t.me/your-username' }
+    { name: 'Telegram', url: 'https://t.me/your-username' },
   ];
 
   return (
-    <Section className="py-16 min-h-screen">
+    <Section className="min-h-screen py-16">
       <div className="grid gap-16 md:grid-cols-2">
         {/* Contact Information */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-8"
-        >
+          className="space-y-8">
           <H h="h1">Contact Me</H>
           <p className="text-lg">
-            I'm always open to new opportunities and interesting projects.
-            Feel free to reach out through any of these channels:
+            I'm always open to new opportunities and interesting projects. Feel free to reach out through any
+            of these channels:
           </p>
 
           {/* Contact Methods */}
@@ -61,8 +60,7 @@ const ContactPage = () => {
                 className="flex items-center gap-4 p-4 transition-colors hover:bg-gray-100 dark:hover:bg-gray-800"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
+                transition={{ delay: index * 0.1 }}>
                 {info.icon}
                 <div>
                   <h3 className="text-sm font-semibold uppercase">{info.title}</h3>
@@ -85,8 +83,7 @@ const ContactPage = () => {
                   className="rounded-lg border border-gray-200 px-4 py-2 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                >
+                  transition={{ delay: index * 0.1 }}>
                   {social.name}
                 </motion.a>
               ))}

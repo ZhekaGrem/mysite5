@@ -6,12 +6,12 @@ import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
 // Initialize fonts
 const plexSans = IBM_Plex_Sans({
   weight: ['700'],
-  subsets: ['latin']
+  subsets: ['latin'],
 });
 
 const plexMono = IBM_Plex_Mono({
-  weight: [ '600'],
-  subsets: ['latin']
+  weight: ['600'],
+  subsets: ['latin'],
 });
 
 // Configuration for sizes and fonts

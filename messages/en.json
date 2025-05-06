@@ -1,29 +1,15 @@
 {
-    
-    "navigation": {
-        "home": "Home",
-        "about": "About",
-        "resume": "Resume",
-        "contact": "Contact",
-        "projects":"Projects"
-    },
-    "home":{
-
-    },
-    "about":{
-
-    },
-    "resume":{
-
-    },
-    "contact":{
-
-    },
-    "projects":{
-
-    },
-    "footer":{
-        
-    }
-
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "resume": "Resume",
+    "contact": "Contact",
+    "projects": "Projects"
+  },
+  "home": {},
+  "about": {},
+  "resume": {},
+  "contact": {},
+  "projects": {},
+  "footer": {}
 }

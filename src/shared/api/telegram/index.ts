@@ -1,32 +1,26 @@
-import { ContactFormData } from '@/features/ContactForm/contact-form.types';
+// src/shared/api/telegram/index.ts
 
-const token = process.env.TELEGRAM_BOT_TOKEN;
-const id = process.env.TELEGRAM_CHAT_ID;
+import { ContactFormData } from '@/features/ContactForm/contact-form.types';
 
 export const sendTelegramMessage = async (data: ContactFormData): Promise<boolean> => {
   try {
-    const message = `
-      New message from website:
-      Name: ${data.name}
-      Email: ${data.email}
-      Message: ${data.message}
-    `;
-
-    const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}`, {
+    const response = await fetch('/api/telegram/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        chat_id: id,
-        text: message,
-        parse_mode: 'HTML',
-      }),
+      body: JSON.stringify(data),
     });
 
-    return response.ok;
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || 'Failed to send message');
+    }
+
+    const result = await response.json();
+    return result.success;
   } catch (error) {
-    console.error('Telegram API Error:', error);
+    console.error('Error sending message:', error);
     return false;
   }
 };
