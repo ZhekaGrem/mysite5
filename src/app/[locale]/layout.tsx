@@ -5,7 +5,7 @@ import { NextIntlClientProvider,hasLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/shared/i18n/routing';
-import { LocaleType } from '@/shared/types/index.type';
+import { LocaleType } from '@/shared/types/index.types';
 import { ThemeProvider } from 'next-themes';
 import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';

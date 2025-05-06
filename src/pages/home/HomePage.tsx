@@ -5,10 +5,11 @@ import { H } from '@/shared/ui/Htag'
 import Marquee from "react-fast-marquee";
 import { Button } from '@/shared/ui/button';
 import Link from 'next/link';
-import { join } from 'path';
 const HomePage = () => {
-  return (
-    <>
+
+ 
+return (
+  <>
   <HeroSection/>
     <Section className="overflow-visible">
       <div className="grid grid-cols-4 gap-4 w-full">
