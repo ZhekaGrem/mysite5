@@ -47,7 +47,7 @@ svg {
 }
 
 :focus-visible {
-  outline-offset: 2px;
+  outline: none;
 }
 
 ol,

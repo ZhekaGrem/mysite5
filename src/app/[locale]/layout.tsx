@@ -37,7 +37,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={` ${plexMono.className} min-h-screen bg-primary-light antialiased dark:bg-primary-dark`}>
+        className={` ${plexMono.className} min-h-screen bg-primary-light antialiased dark:bg-primary-dark text-text-light dark:text-text-dark`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
             <Header />

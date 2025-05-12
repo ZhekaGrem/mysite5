@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Whatsapp() {
+function WhatsappIcon() {
   return (
     <>
       <svg
@@ -41,4 +41,4 @@ function Whatsapp() {
   );
 }
 
-export default Whatsapp;
+export default WhatsappIcon;

@@ -26,7 +26,7 @@ const ResumePage = () => {
   if (!mounted) {
     return (
       <div className="flex h-[800px] items-center justify-center">
-        <div className="-primary-light h-16 w-16 animate-spin rounded-full border border-4 border-t-transparent"></div>
+        <div className="-primary-light h-16 w-16 animate-spin rounded-full  border-t-transparent"></div>
       </div>
     );
   }
@@ -34,27 +34,27 @@ const ResumePage = () => {
   return (
     <Section className="py-8">
       {/* Top Header with Title and Download Button */}
-      <div className="mb-8 flex items-center justify-between">
+      <div className="mb-8 flex flex-col items-center ">
         <H h="h1">My Resume</H>
-        <Button onClick={downloadResume} className="gap-2">
+        <Button onClick={downloadResume} variant='ghost' className="gap-2 mt-5">
           <Download size={20} />
-          Download PDF
+          Download CV
         </Button>
       </div>
 
       {/* PDF Viewer */}
-      <div className="flex flex-col items-center">
-        <div className="mb-4 w-full max-w-4xl rounded-lg bg-gray-100 p-4 dark:bg-gray-800">
+      <div className="flex flex-col items-center max-w-4xl w-full">
+        <div className="mb-4 w-full   bg-gray-100 p-4 dark:bg-gray-800">
           <iframe
             src={`${pdfUrl}#view=FitH`}
-            className="h-[800px] w-full rounded-lg border-none"
+            className="h-[800px] w-full  border-none"
             title="Resume PDF"
           />
         </div>
 
         {/* Bottom Download Button */}
-        <Button onClick={downloadResume} size="lg" className="mt-8 gap-2">
-          <Download size={20} />
+        <Button onClick={downloadResume} size="lg" className="mt-5 gap-2" variant='ghost' >
+          <Download size={20}  />
           Download Resume
         </Button>
       </div>

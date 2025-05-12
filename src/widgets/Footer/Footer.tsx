@@ -32,10 +32,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background/80 mx-auto mt-auto max-w-7xl border-t backdrop-blur-sm">
+    <footer className="bg-background/80 mx-auto mt-auto max-w-7xl border-t backdrop-blur-sm border-border-light dark:border-border-dark">
       <div className=" ">
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 gap-8 px-6 py-12 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
+        <div className="grid grid-cols-1 gap-8 px-6 py-12 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Brand Section */}
           <div className="flex flex-col gap-4">
             <Link href="/" className="h-8 w-16 text-xl font-semibold tracking-tighter">
@@ -48,10 +48,10 @@ const Footer = () => {
           </div>
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-widest">Social</h3>
-            <SocialLinks position="footer" />
+            <SocialLinks position="footer"  />
           </div>
           {/* Navigation Sections */}
-          {sections.slice(1).map((section) => (
+          {sections.map((section) => (
             <div key={section.title} className="flex flex-col gap-4">
               <h3 className="text-sm font-semibold uppercase tracking-widest">{section.title}</h3>
               <ul className="flex flex-col gap-2">
@@ -59,7 +59,7 @@ const Footer = () => {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm transition-colors hover:text-primary-dark dark:hover:text-primary-light">
+                      className="text-sm transition-colors ">
                       {link.label}
                     </Link>
                   </li>
@@ -70,7 +70,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col gap-4 border-t px-6 pb-6 pt-6 md:flex-row md:items-center md:justify-between">
+        <div className="flex flex-col gap-4 border-t px-6 pb-6 pt-6 md:flex-row md:items-center md:justify-between border-border-light dark:border-border-dark">
           <p className="text-sm">© {currentYear} Your Company. All rights reserved.</p>
 
           {/* Bottom Links */}

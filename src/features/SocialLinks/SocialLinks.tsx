@@ -4,14 +4,15 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Facebook, Github, Linkedin, Twitter } from 'lucide-react';
-import Whatsapp from './Whatsapp';
+import WhatsappIcon from './WhatsappIcon';
+import TelegramIcon from './TelegramIcon';
 
 const socialLinks = [
-  { Icon: Github, href: 'https://github.com', label: 'GitHub' },
   { Icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
+  { Icon: TelegramIcon, href: 'https://telegram.com', label: 'Telegram' },
+  { Icon: Github, href: 'https://github.com', label: 'GitHub' },
   { Icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { Icon: Whatsapp, href: 'https://whatsapp.com', label: 'whatsapp' },
-  { Icon: Facebook, href: 'https://telegram.com', label: 'Telegram' },
+  { Icon: WhatsappIcon, href: 'https://whatsapp.com', label: 'whatsapp' },
 ];
 
 interface SocialLinksProps {
@@ -94,17 +95,18 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
         initial="hidden"
         animate={isVisible ? 'visible' : 'hidden'}
         variants={footerVariants}
-        className="flex items-center gap-6 pt-5">
+        className=" items-center gap-6 pt-5 grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2  ">
         {socialLinks.map(({ Icon, href, label }) => (
           <motion.a
             key={label}
             href={href}
             target="_blank"
+            title={label}
             rel="noopener noreferrer"
             variants={itemVariants}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className="text-current transition-colors hover:text-primary-dark dark:hover:text-primary-light"
+            className="text-current transition-colors hover:text-primary-dark dark:hover:text-primary-light "
             aria-label={label}>
             <Icon size={20} />
           </motion.a>
@@ -126,6 +128,7 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
             <motion.a
               key={label}
               href={href}
+              title={label}
               target="_blank"
               rel="noopener noreferrer"
               variants={itemVariants}

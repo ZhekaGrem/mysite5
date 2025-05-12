@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { Languages } from 'lucide-react';
 import { useRouter, usePathname } from '@/shared/i18n/routing';
-
+import LangIcon from './LangIcon';
 import { Button } from '@/shared/ui/button';
 import {
   DropdownMenu,
@@ -28,14 +28,16 @@ export default function SwitchLang() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="icon">
-          <Languages className="h-[1.2rem] w-[1.2rem]" />
+        <Button variant="secondary" size="icon">
+          <div className="h-[1.2rem] w-[1.2rem]">
+            <LangIcon />
+          </div>
           <span className="sr-only">Change Language</span>
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         {Object.entries(LANGS).map(([key, label]) => (
-          <DropdownMenuItem key={key} onClick={() => switchLanguage(key as keyof typeof LANGS)}>
+          <DropdownMenuItem key={key} onClick={() => switchLanguage(key as keyof typeof LANGS)} className="">
             {label}
           </DropdownMenuItem>
         ))}

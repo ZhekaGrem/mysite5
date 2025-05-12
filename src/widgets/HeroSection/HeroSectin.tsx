@@ -8,6 +8,7 @@ import type { Engine } from '@tsparticles/engine';
 import { loadSlim } from '@tsparticles/slim';
 import { H } from '@/shared/ui/Htag';
 import Section from '@/shared/ui/Section';
+import { Button } from '@/shared/ui/button';
 const title = 'INNOVATION';
 const subtitle = 'DESIGN';
 
@@ -100,12 +101,13 @@ const HeroSection = () => {
             ease: [0.215, 0.61, 0.355, 1],
           }}
           className="flex justify-center gap-8">
-          <button className="group relative overflow-hidden border-2 border-surface-light px-8 py-4 text-lg uppercase tracking-[0.2em] text-surface-light transition-all duration-300 hover:bg-surface-light hover:text-primary-light dark:border-surface-dark dark:text-surface-dark dark:hover:bg-surface-dark dark:hover:text-primary-dark">
+          <Button variant="ghost" className="px-8 py-4">
             <span className="relative z-10">Explore</span>
-          </button>
-          <button className="group relative overflow-hidden bg-surface-light px-8 py-4 text-lg uppercase tracking-[0.2em] text-primary-light transition-all duration-300 hover:bg-transparent hover:text-surface-light dark:bg-surface-dark dark:text-primary-dark dark:hover:bg-transparent dark:hover:text-surface-dark">
+          </Button>
+
+          <Button variant="btn_primary_outline">
             <span className="relative z-10">Contact</span>
-          </button>
+          </Button>
         </motion.div>
       </div>
     </Section>
