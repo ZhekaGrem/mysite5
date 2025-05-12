@@ -15,7 +15,7 @@ const CookiePolicy = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
           className="col-span-12 lg:col-span-3">
-          <div className="sticky top-24 space-y-4">
+          <div className="fixed  top-24 space-y-4 pt-10">
             <h2 className="text-xl font-bold">Quick Navigation</h2>
             <nav className="space-y-2">
               {['What Are Cookies', 'Types of Cookies', 'Cookie Usage', 'Managing Cookies', 'Updates'].map(

@@ -96,9 +96,10 @@ const ContactPage = () => {
 
   return (
     <Section className="relative min-h-screen py-16">
+      
       {/* Swiss-style animated grid overlay */}
       <motion.div
-        className="absolute inset-0 grid grid-cols-12"
+        className="absolute inset-0 grid grid-cols-12 "
         variants={gridVariants}
         initial="initial"
         animate="animate"
@@ -106,12 +107,13 @@ const ContactPage = () => {
         {Array(12).fill(null).map((_, i) => (
           <motion.div
             key={i}
-            className="border-l border-surface-light dark:border-surface-dark"
+            className="border-x  border-border-light dark:border-border-dark "
             variants={lineVariants}
           />
         ))}
+     
       </motion.div>
-
+     
       {/* Main content */}
       <div className="relative grid gap-16 md:grid-cols-2">
         {/* Left Column - Contact Information */}

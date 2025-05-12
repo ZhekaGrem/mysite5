@@ -32,8 +32,8 @@ module.exports = {
 
         // Light theme
         //bg
-        'primary-light': 'rgb(231, 111, 81)',
-        'secondary-light': 'rgb(244, 162, 97)',
+        'primary-light': 'rgb(244, 162, 97)',
+        'secondary-light': 'rgb(231, 111, 81)',
         'accent-light': 'rgb(233, 196, 106)',
         'highlight-light': 'rgb(42, 157, 143)',
         'border-light': 'rgb(42, 157, 143)',

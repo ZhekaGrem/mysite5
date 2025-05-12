@@ -4,10 +4,31 @@ import Image from 'next/image';
 import { H } from '@/shared/ui/Htag';
 import Marquee from 'react-fast-marquee';
 import { Button } from '@/shared/ui/button';
+import DownloadResumeButton from '@/shared/ui/DownloadResumeButton/DownloadResumeButton';
 import Link from 'next/link';
 import { Download, ArrowBigRightDash } from 'lucide-react';
 
-import {CssIcon, FigmaIcon,FirebaseIcon,GitHubIcon, GitIcon, GoIcon, HtmlIcon, JestIcon, JQueryIcon, JsIcon, MongodbIcon, NextIcon, PhpIcon, PostgreIcon, PythonIcon,ReactIcon, TailwindIcon,TsIcon, RedisIcon } from '@/shared/ui/icons/index'
+import {
+  CssIcon,
+  FigmaIcon,
+  FirebaseIcon,
+  GitHubIcon,
+  GitIcon,
+  GoIcon,
+  HtmlIcon,
+  JestIcon,
+  JQueryIcon,
+  JsIcon,
+  MongodbIcon,
+  NextIcon,
+  PhpIcon,
+  PostgreIcon,
+  PythonIcon,
+  ReactIcon,
+  TailwindIcon,
+  TsIcon,
+  RedisIcon,
+} from '@/shared/ui/icons/index';
 
 const HomePage = () => {
   return (
@@ -69,7 +90,10 @@ const HomePage = () => {
           <div className="p-4">
             <H h="h3">МОЄ Резуме</H>
             <div className="pt-5">
-              <Button variant='ghost' className="items-center p-5">скачати <Download size={20} /></Button>
+              <DownloadResumeButton variant="ghost" className="items-center p-5">
+              
+                скачати <Download size={20} />{' '}
+              </DownloadResumeButton>
             </div>
           </div>
         </div>
@@ -89,8 +113,10 @@ const Contacts = () => {
         Let's connect and explore how I can help you build high-quality, responsive, and scalable web
         solutions.
       </p>
-      <Link href="/contact"  >
-        <Button variant='ghost' className='p-5'>Написати <ArrowBigRightDash size={20} className='animate-bounce-x' /> </Button>
+      <Link href="/contact">
+        <Button variant="ghost" className="p-5">
+          Написати <ArrowBigRightDash size={20} className="animate-bounce-x" />{' '}
+        </Button>
       </Link>
     </Section>
   );
@@ -99,26 +125,64 @@ const Contacts = () => {
 const MarqueeSkills = () => {
   return (
     <Section className="py-10">
-      <Marquee className=''>
-        <div className='p-10'><CssIcon/></div>
-        <div className='p-10'><HtmlIcon/></div>
-        <div className='p-10'><ReactIcon/></div>
-        <div className='p-10'><JsIcon/></div>
-        <div className='p-10'><TailwindIcon/></div>
-        <div className='p-10'><TsIcon/></div>
-        <div className='p-10'><FigmaIcon/></div>
-        <div className='p-10'><NextIcon/></div>
-        <div className='p-10'><GitHubIcon/></div>
-        <div className='p-10'><FirebaseIcon/></div>
-        <div className='p-10'><GitIcon/></div>
-        <div className='p-10'><JestIcon/></div>
-        <div className='p-10'><MongodbIcon/></div>
-        <div className='p-10'><PhpIcon/></div>
-        <div className='p-10'><JQueryIcon/></div>
-        <div className='p-10'><GoIcon/></div>
-        <div className='p-10'><PostgreIcon/></div>
-        <div className='p-10'><PythonIcon/></div>
-        <div className='p-10'><RedisIcon/></div>
+      <Marquee className="">
+        <div className="p-10">
+          <CssIcon />
+        </div>
+        <div className="p-10">
+          <HtmlIcon />
+        </div>
+        <div className="p-10">
+          <ReactIcon />
+        </div>
+        <div className="p-10">
+          <JsIcon />
+        </div>
+        <div className="p-10">
+          <TailwindIcon />
+        </div>
+        <div className="p-10">
+          <TsIcon />
+        </div>
+        <div className="p-10">
+          <FigmaIcon />
+        </div>
+        <div className="p-10">
+          <NextIcon />
+        </div>
+        <div className="p-10">
+          <GitHubIcon />
+        </div>
+        <div className="p-10">
+          <FirebaseIcon />
+        </div>
+        <div className="p-10">
+          <GitIcon />
+        </div>
+        <div className="p-10">
+          <JestIcon />
+        </div>
+        <div className="p-10">
+          <MongodbIcon />
+        </div>
+        <div className="p-10">
+          <PhpIcon />
+        </div>
+        <div className="p-10">
+          <JQueryIcon />
+        </div>
+        <div className="p-10">
+          <GoIcon />
+        </div>
+        <div className="p-10">
+          <PostgreIcon />
+        </div>
+        <div className="p-10">
+          <PythonIcon />
+        </div>
+        <div className="p-10">
+          <RedisIcon />
+        </div>
       </Marquee>
     </Section>
   );
