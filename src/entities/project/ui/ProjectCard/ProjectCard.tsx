@@ -4,12 +4,10 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { Github, Link as LinkIcon } from 'lucide-react';
 import { Button } from '@/shared/ui/button';
-import { ProjectType } from '@/shared/types/index.types';
+import { ProjectCardProps } from '@/entities/project/model/types';
 import Link from 'next/link';
 
-interface ProjectCardProps {
-  project: ProjectType;
-}
+
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (

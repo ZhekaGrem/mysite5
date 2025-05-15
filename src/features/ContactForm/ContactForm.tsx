@@ -53,39 +53,38 @@ export const ContactForm = () => {
 
   // Swiss-style form field animation
   const fieldVariants = {
-    focused: { 
+    focused: {
       scale: 1.02,
-      transition: { duration: 0.3 }
+      transition: { duration: 0.3 },
     },
     filled: {
       borderColor: '#2dd4bf',
-      transition: { duration: 0.3 }
-    }
+      transition: { duration: 0.3 },
+    },
   };
 
   // Progress indicator animation
   const progressVariants = {
     initial: { width: '0%' },
-    animate: { 
+    animate: {
       width: `${(Object.values(formValues).filter(Boolean).length / 3) * 100}%`,
-      transition: { duration: 0.5 }
-    }
+      transition: { duration: 0.5 },
+    },
   };
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="relative overflow-hidden rounded-none border-l-4 border-surface-light bg-transparent p-8 dark:border-surface-dark"
-    >
+      className="relative overflow-hidden rounded-none border-l-4 border-surface-light bg-transparent p-8 dark:border-surface-dark">
       {/* Swiss-style geometric accents */}
-      <motion.div 
+      <motion.div
         className="absolute -right-4 top-0 h-16 w-1 bg-surface-light dark:bg-surface-dark"
         initial={{ height: 0 }}
         animate={{ height: '100%' }}
         transition={{ duration: 1 }}
       />
-      <motion.div 
+      <motion.div
         className="absolute right-0 top-0 h-1 w-16 bg-surface-light dark:bg-surface-dark"
         initial={{ width: 0 }}
         animate={{ width: 64 }}
@@ -93,7 +92,7 @@ export const ContactForm = () => {
       />
 
       {/* Progress bar */}
-      <motion.div 
+      <motion.div
         className="absolute left-0 top-0 h-1 bg-surface-light dark:bg-surface-dark"
         variants={progressVariants}
         initial="initial"
@@ -105,8 +104,7 @@ export const ContactForm = () => {
         <motion.div
           animate={focusedField === 'name' ? 'focused' : formValues.name ? 'filled' : 'initial'}
           variants={fieldVariants}
-          className="relative"
-        >
+          className="relative">
           <label htmlFor="name" className="mb-2 block text-sm font-bold uppercase tracking-wider">
             Name
           </label>
@@ -128,8 +126,7 @@ export const ContactForm = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="mt-2 text-sm text-red-500"
-              >
+                className="mt-2 text-sm text-red-500">
                 {errors.name.message}
               </motion.p>
             )}
@@ -140,8 +137,7 @@ export const ContactForm = () => {
         <motion.div
           animate={focusedField === 'email' ? 'focused' : formValues.email ? 'filled' : 'initial'}
           variants={fieldVariants}
-          className="relative"
-        >
+          className="relative">
           <label htmlFor="email" className="mb-2 block text-sm font-bold uppercase tracking-wider">
             Email
           </label>
@@ -163,8 +159,7 @@ export const ContactForm = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="mt-2 text-sm text-red-500"
-              >
+                className="mt-2 text-sm text-red-500">
                 {errors.email.message}
               </motion.p>
             )}
@@ -175,8 +170,7 @@ export const ContactForm = () => {
         <motion.div
           animate={focusedField === 'message' ? 'focused' : formValues.message ? 'filled' : 'initial'}
           variants={fieldVariants}
-          className="relative"
-        >
+          className="relative">
           <label htmlFor="message" className="mb-2 block text-sm font-bold uppercase tracking-wider">
             Message
           </label>
@@ -198,8 +192,7 @@ export const ContactForm = () => {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="mt-2 text-sm text-red-500"
-              >
+                className="mt-2 text-sm text-red-500">
                 {errors.message.message}
               </motion.p>
             )}
@@ -207,30 +200,24 @@ export const ContactForm = () => {
         </motion.div>
 
         {/* Submit Button */}
-        <motion.div
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <Button 
-            type="submit" 
+        <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          <Button
+            type="submit"
             disabled={isSubmitting}
-            className="relative w-full overflow-hidden bg-surface-light py-4 dark:bg-surface-dark"
-          >
+            className="relative w-full overflow-hidden bg-surface-light py-4 dark:bg-surface-dark">
             {isSubmitting ? (
-              <motion.div 
+              <motion.div
                 className="flex items-center justify-center gap-2"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
+                animate={{ opacity: 1 }}>
                 <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
                 Sending...
               </motion.div>
             ) : (
-              <motion.div 
+              <motion.div
                 className="flex items-center justify-center gap-2"
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-              >
+                animate={{ opacity: 1 }}>
                 <Send className="h-5 w-5" />
                 Send Message
               </motion.div>
@@ -245,15 +232,10 @@ export const ContactForm = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className={`text-center ${
-                submitStatus === 'success' ? 'text-green-500' : 'text-red-500'
-              }`}
-            >
-              {submitStatus === 'success' ? (
-                "Message sent successfully! I'll get back to you soon."
-              ) : (
-                "Failed to send message. Please try again later."
-              )}
+              className={`text-center ${submitStatus === 'success' ? 'text-green-500' : 'text-red-500'}`}>
+              {submitStatus === 'success'
+                ? "Message sent successfully! I'll get back to you soon."
+                : 'Failed to send message. Please try again later.'}
             </motion.div>
           )}
         </AnimatePresence>

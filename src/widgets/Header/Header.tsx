@@ -21,7 +21,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="bg-background/80 fixed left-0 right-0 top-0 z-50 mx-auto max-w-7xl border-b backdrop-blur-sm border-border-light dark:border-border-dark">
+    <header className="bg-background/80 fixed left-0 right-0 top-0 z-50 mx-auto max-w-7xl border-b border-border-light backdrop-blur-sm dark:border-border-dark">
       <div className="mx-auto grid max-w-7xl grid-cols-2 items-center px-6 py-4 md:grid-cols-[1fr_auto_1fr]">
         {/* Logo Area - Left Aligned */}
         <Link

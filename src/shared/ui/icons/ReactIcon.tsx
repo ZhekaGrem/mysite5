@@ -9,7 +9,6 @@ const ReactIcon = () => {
       </svg>
     </>
   );
-
 };
 
 export default ReactIcon;

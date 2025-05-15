@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { Button } from '../button';
 import { cn } from '@/shared//lib/utils';
 import { DownloadResumeButtonProps } from '@/shared/types/index.types';

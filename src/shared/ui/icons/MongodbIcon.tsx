@@ -1,5 +1,3 @@
- 
-
 const MongodbIcon = () => {
   return (
     <>

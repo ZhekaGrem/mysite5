@@ -9,7 +9,8 @@ import { LocaleType } from '@/shared/types/index.types';
 import { ThemeProvider } from 'next-themes';
 import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';
-import SocialLinks from '@/features/SocialLinks/SocialLinks';
+
+import Sidebar from '@/widgets/Sidebar/Sidebar';
 
 const plexMono = IBM_Plex_Mono({
   weight: ['400'],
@@ -37,11 +38,11 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <body
-        className={` ${plexMono.className} min-h-screen bg-primary-light antialiased dark:bg-primary-dark text-text-light dark:text-text-dark`}>
+        className={` ${plexMono.className} min-h-screen bg-primary-light text-text-light antialiased dark:bg-primary-dark dark:text-text-dark`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
             <Header />
-            <SocialLinks position="side" />
+            <Sidebar  />
             <main>{children}</main>
             <Footer />
           </NextIntlClientProvider>

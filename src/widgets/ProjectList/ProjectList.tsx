@@ -1,13 +1,11 @@
 'use client';
 
-import { ProjectCard } from '@/shared/ui/ProjectCard';
-import { ProjectType } from '@/shared/types/index.types';
+import { ProjectCard } from '@/entities/project/ui/ProjectCard/ProjectCard';
+import { ProjectListProps } from '@/entities/project/model/types';
 import { useProjectFilter } from '@/features/ProjectFilter/project-filter.store';
 import { AnimatePresence, motion } from 'framer-motion';
 
-interface ProjectListProps {
-  projects: ProjectType[];
-}
+
 
 export const ProjectList = ({ projects }: ProjectListProps) => {
   const { category } = useProjectFilter();

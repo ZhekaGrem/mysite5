@@ -3,7 +3,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Facebook, Github, Linkedin, Twitter } from 'lucide-react';
+import {  Github, Linkedin, Twitter } from 'lucide-react';
 import WhatsappIcon from './WhatsappIcon';
 import TelegramIcon from './TelegramIcon';
 
@@ -21,7 +21,7 @@ interface SocialLinksProps {
 
 const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
   const [isVisible, setIsVisible] = useState(true);
-  const footerRef = useRef<HTMLDivElement>(null);
+  const footerRef = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,35 +90,38 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
 
   if (position === 'footer') {
     return (
-      <motion.div
+      <motion.ul
         ref={footerRef}
         initial="hidden"
         animate={isVisible ? 'visible' : 'hidden'}
         variants={footerVariants}
-        className=" items-center gap-6 pt-5 grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-2  ">
+        className="grid grid-cols-1 items-center gap-6 pt-5 lg:grid-cols-2 lg:grid-rows-2">
         {socialLinks.map(({ Icon, href, label }) => (
-          <motion.a
+          <motion.li
             key={label}
-            href={href}
-            target="_blank"
-            title={label}
-            rel="noopener noreferrer"
             variants={itemVariants}
             whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-            className="text-current transition-colors hover:text-primary-dark dark:hover:text-primary-light "
-            aria-label={label}>
-            <Icon size={20} />
-          </motion.a>
+            whileTap={{ scale: 0.95 }}>
+            <motion.a
+              href={href}
+              target="_blank"
+              title={label}
+              rel="noopener noreferrer"
+              className="text-current transition-colors hover:text-primary-dark dark:hover:text-primary-light"
+              role="navigation"
+              aria-label="Social media links">
+              <Icon size={20} />
+            </motion.a>
+          </motion.li>
         ))}
-      </motion.div>
+      </motion.ul>
     );
   }
 
   return (
     <AnimatePresence>
       {isVisible && (
-        <motion.div
+        <motion.aside
           initial="hidden"
           animate="visible"
           exit="exit"
@@ -135,11 +138,12 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="text-current transition-colors hover:text-primary-dark dark:hover:text-primary-light"
-              aria-label={label}>
+              role="navigation"
+              aria-label="Social media links">
               <Icon size={20} />
             </motion.a>
           ))}
-        </motion.div>
+        </motion.aside>
       )}
     </AnimatePresence>
   );

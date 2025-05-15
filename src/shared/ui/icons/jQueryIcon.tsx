@@ -1,5 +1,3 @@
- 
-
 const JQueryIcon = () => {
   return (
     <>

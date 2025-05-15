@@ -1,11 +1,10 @@
 // src/widgets/HeroSection/HeroSection.tsx
 'use client';
 
-import { useCallback, useEffect, useState } from 'react';
+import {  useEffect, useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import ParticlesBackground from './ParticlesBackground';
-import type { Engine } from '@tsparticles/engine';
-import { loadSlim } from '@tsparticles/slim';
+
 import { H } from '@/shared/ui/Htag';
 import Section from '@/shared/ui/Section';
 import { Button } from '@/shared/ui/button';
@@ -19,13 +18,7 @@ const HeroSection = () => {
     setMounted(true);
   }, []);
 
-  const particlesInit = useCallback(async (engine: Engine) => {
-    try {
-      await loadSlim(engine);
-    } catch (error) {
-      console.error('Error initializing particles:', error);
-    }
-  }, []);
+
 
   // Animation for each letter with fixed ease
   const letterVariants: Variants = {
