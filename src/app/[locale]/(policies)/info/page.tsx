@@ -1,11 +1,17 @@
 // src/app/[locale]/(policies)/info/page.tsx
-import { getTranslations } from 'next-intl/server';
-import InfoClient from './InfoClient';
 import { Metadata } from 'next';
+import InfoClient from './InfoClient';
+import { getTranslations } from 'next-intl/server';
 
-// Use the exact signature from the Next.js documentation
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  const t = await getTranslations({ locale: params.locale, namespace: 'Pages.cookies' });
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // Дочекаємося резолву params
+  const { locale } = await params;
+
+  const t = await getTranslations({ locale, namespace: 'Pages.cookies' });
 
   return {
     title: t('title'),

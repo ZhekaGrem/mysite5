@@ -1,10 +1,15 @@
 import { getTranslations } from 'next-intl/server';
 import PrivacyClient from './PrivacyClient';
 import { Metadata } from 'next';
-import { PropsLang } from '@/shared/types/index.types';
+type Props = {
+  params: Promise<{ locale: string }>;
+};
 
-export async function generateMetadata({ params }: PropsLang): Promise<Metadata> {
-  const t = await getTranslations({ locale: params.locale, namespace: 'Pages.privacy' });
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // Дочекаємося резолву params
+  const { locale } = await params;
+
+  const t = await getTranslations({ locale, namespace: 'Pages.privacy' });
 
   return {
     title: t('title'),

@@ -31,10 +31,16 @@ import {
 } from '@/shared/ui/icons/index';
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
-import { PropsLang } from '@/shared/types/index.types';
 
-export async function generateMetadata({ params }: PropsLang): Promise<Metadata> {
-  const t = await getTranslations({ locale: params.locale, namespace: 'Pages.home' });
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  // Дочекаємося резолву params
+  const { locale } = await params;
+
+  const t = await getTranslations({ locale, namespace: 'Pages.home' });
 
   return {
     title: t('title'),

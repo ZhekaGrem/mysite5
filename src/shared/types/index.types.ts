@@ -35,10 +35,12 @@ export type PropsLang = {
     locale: string;
   };
 };
-export type PageParams = {
+type LocaleRouteParams = {
   params: {
-    locale: LocaleType;
+    locale: string;
   };
+  searchParams?: { [key: string]: string | string[] | undefined };
 };
 
-export type GenerateMetadata = (props: PageParams) => Promise<Metadata>;
+// Type for generate metadata
+export type GenerateMetadata = (props: LocaleRouteParams) => Promise<Metadata>;
