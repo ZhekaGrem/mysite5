@@ -30,20 +30,19 @@ import {
   RedisIcon,
 } from '@/shared/ui/icons/index';
 import { getTranslations } from 'next-intl/server';
-export async function generateMetadata(props: { params: { locale: string } }) {
-  // Await the params object before destructuring
-  const params = await Promise.resolve(props.params);
-  const locale = params.locale;
-  
-  const t = await getTranslations({ locale, namespace: 'Pages.home' });
+import { Metadata } from 'next';
+import { PropsLang } from '@/shared/types/index.types';
+
+export async function generateMetadata({ params }: PropsLang): Promise<Metadata> {
+  const t = await getTranslations({ locale: params.locale, namespace: 'Pages.home' });
 
   return {
     title: t('title'),
     description: t('description'),
     openGraph: {
       title: t('og.title'),
-      description: t('og.description')
-    }
+      description: t('og.description'),
+    },
   };
 }
 
@@ -141,8 +140,7 @@ const Contacts = () => {
 const MarqueeSkills = () => {
   return (
     <Section className="py-10">
-      <Marquee    
-            >
+      <Marquee>
         <div className="p-10">
           <CssIcon />
         </div>

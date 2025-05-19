@@ -5,7 +5,6 @@ import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/shared/i18n/routing';
-import { LocaleType } from '@/shared/types/index.types';
 import { ThemeProvider } from 'next-themes';
 import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';
@@ -19,14 +18,14 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   // Await the params object before destructuring
   const params = await Promise.resolve(props.params);
   const locale = params.locale;
-  
+
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return {
     metadataBase: new URL('https://your-site.com'),
     title: {
       default: t('title.default'),
-      template: t('title.template')
+      template: t('title.template'),
     },
     description: t('description'),
     openGraph: {
@@ -53,12 +52,13 @@ export async function generateMetadata(props: { params: { locale: string } }) {
     },
   };
 }
+export type Params = Promise<{ locale: 'en' | 'ua' }>;
 export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: LocaleType };
+  params: { locale: Params };
 }>) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {
@@ -73,7 +73,7 @@ export default async function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <NextIntlClientProvider messages={messages}>
             <Header />
-            <Sidebar  />
+            <Sidebar />
             <main>{children}</main>
             <Footer />
           </NextIntlClientProvider>

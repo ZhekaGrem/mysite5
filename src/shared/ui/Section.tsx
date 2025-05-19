@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, ReactNode, HTMLAttributes } from 'react';
+import { DetailedHTMLProps, ReactNode, HTMLAttributes, FC } from 'react';
 import { cn } from '@/shared/lib/utils';
 
 export interface SectionProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
@@ -7,7 +7,7 @@ export interface SectionProps extends DetailedHTMLProps<HTMLAttributes<HTMLEleme
   children: ReactNode;
 }
 
-const Section: React.FC<SectionProps> = ({ id, children, className, ...props }): React.ReactElement => {
+const Section: FC<SectionProps> = ({ id, children, className, ...props }): React.ReactElement => {
   return (
     <section
       id={id}

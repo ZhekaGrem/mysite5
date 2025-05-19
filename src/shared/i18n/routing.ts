@@ -1,12 +1,12 @@
 import { defineRouting } from 'next-intl/routing';
 import { createNavigation } from 'next-intl/navigation';
-
+import { LocaleType } from '@/shared/types/index.types';
 export const routing = defineRouting({
   // A list of all locales that are supported
-  locales: ['en', 'ua'],
+  locales: ['en', 'ua'] as LocaleType[],
 
   // Used when no locale matches
-  defaultLocale: 'en',
+  defaultLocale: 'en' as LocaleType,
 });
 
 // Lightweight wrappers around Next.js' navigation APIs

@@ -1,4 +1,4 @@
-// eslint.config.js
+// eslint.config.mjs
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { FlatCompat } from '@eslint/eslintrc';
@@ -11,12 +11,14 @@ const compat = new FlatCompat({
   baseDirectory: __dirname,
 });
 
-// This is the correct way to use FlatCompat for extending configs
 export default defineConfig([
+  {
+    ignores: ['.next/', 'node_modules/', 'dist/', 'build/'],
+  },
   ...compat.extends('next/core-web-vitals', 'next/typescript'),
   {
     rules: {
-      'react/no-unescaped-entities': 'off'
-    }
-  }
+      'react/no-unescaped-entities': 'off',
+    },
+  },
 ]);
