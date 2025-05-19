@@ -5,7 +5,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   const params = await Promise.resolve(props.params);
   const locale = params.locale;
   
-  const t = await getTranslations({ locale, namespace: 'Pages.home' });
+  const t = await getTranslations({ locale, namespace: 'Pages.resume' });
 
   return {
     title: t('title'),

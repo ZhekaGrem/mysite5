@@ -19,27 +19,75 @@
   },
   "Pages": {
     "home": {
-      "title": "Home",
-      "description": "Welcome to my portfolio",
+      "title": "Home | Frontend Developer",
+      "description": "Welcome to my portfolio - a showcase of modern web development projects and expertise",
       "og": {
-        "title": "Welcome to My Portfolio",
-        "description": "Explore my work and projects"
+        "title": "Frontend Developer Portfolio - Modern Web Solutions",
+        "description": "Explore innovative web development projects and solutions built with React, Next.js, and cutting-edge technologies"
       }
     },
     "about": {
-      "title": "About Me",
-      "description": "Learn about my journey and expertise",
+      "title": "About Me | Frontend Developer",
+      "description": "Learn about my journey, skills, and expertise in frontend development with 4+ years of experience",
       "og": {
-        "title": "About Me - Frontend Developer",
-        "description": "My journey and expertise in frontend development"
+        "title": "About Frontend Developer - Skills & Experience",
+        "description": "Discover my professional journey, technical expertise, and passion for creating exceptional web experiences"
       }
     },
     "projects": {
-      "title": "My Projects",
-      "description": "Explore my latest works and achievements",
+      "title": "Projects | Frontend Portfolio",
+      "description": "Explore my latest web development projects, featuring React, Next.js, and modern web technologies",
       "og": {
-        "title": "My Projects Portfolio",
-        "description": "Collection of my best frontend development projects"
+        "title": "Web Development Projects Portfolio",
+        "description": "Browse through a collection of innovative web projects showcasing modern development practices and solutions"
+      }
+    },
+    "resume": {
+      "title": "Resume | Frontend Developer",
+      "description": "Professional resume showcasing my skills, experience, and achievements in frontend development",
+      "og": {
+        "title": "Frontend Developer Resume - Skills & Experience",
+        "description": "Comprehensive overview of my professional experience, technical skills, and achievements in web development"
+      }
+    },
+    "contact": {
+      "title": "Contact | Frontend Developer",
+      "description": "Get in touch for collaboration opportunities, project inquiries, or professional networking",
+      "og": {
+        "title": "Contact Frontend Developer",
+        "description": "Connect with me for web development projects, collaboration opportunities, or professional inquiries"
+      }
+    },
+    "privacy": {
+      "title": "Privacy Policy | Frontend Developer",
+      "description": "Learn about how we collect, use, and protect your personal information on our website",
+      "og": {
+        "title": "Privacy Policy - Frontend Developer Portfolio",
+        "description": "Detailed information about our privacy practices and how we protect your data"
+      }
+    },
+    "terms": {
+      "title": "Terms of Service | Frontend Developer",
+      "description": "Read our terms of service and website usage conditions",
+      "og": {
+        "title": "Terms of Service - Frontend Developer Portfolio",
+        "description": "Comprehensive overview of our terms of service and website usage guidelines"
+      }
+    },
+    "cookies": {
+      "title": "Cookie Policy | Frontend Developer",
+      "description": "Information about how we use cookies and similar technologies on our website",
+      "og": {
+        "title": "Cookie Policy - Frontend Developer Portfolio",
+        "description": "Details about our cookie usage and how they enhance your browsing experience"
+      }
+    },
+    "404": {
+      "title": "Page Not Found | Frontend Developer",
+      "description": "The page you're looking for cannot be found. Return to our homepage",
+      "og": {
+        "title": "404 - Page Not Found",
+        "description": "Sorry, the page you're looking for doesn't exist. Explore our other content"
       }
     }
   }
