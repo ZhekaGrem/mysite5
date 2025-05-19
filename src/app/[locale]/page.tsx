@@ -30,6 +30,9 @@ import {
   RedisIcon,
 } from '@/shared/ui/icons/index';
 
+
+
+
 const HomePage = () => {
   return (
     <>

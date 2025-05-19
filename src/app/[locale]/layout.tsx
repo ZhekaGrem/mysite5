@@ -1,4 +1,3 @@
-import type { Metadata } from 'next';
 import { IBM_Plex_Mono } from 'next/font/google';
 import './globals.css';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
@@ -7,7 +6,6 @@ import { notFound } from 'next/navigation';
 import { routing } from '@/shared/i18n/routing';
 import { LocaleType } from '@/shared/types/index.types';
 import { ThemeProvider } from 'next-themes';
-import { generateDynamicMetadata } from '@/shared/i18n/metadata';
 import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';
 import Sidebar from '@/widgets/Sidebar/Sidebar';
@@ -17,9 +15,7 @@ const plexMono = IBM_Plex_Mono({
   subsets: ['latin'],
 });
 
-export async function generateMetadata({ params }: { params: { locale: Promise<LocaleType> } }): Promise<Metadata> {
-  return generateDynamicMetadata(params, 'home');
-}
+
 
 export default async function RootLayout({
   children,
