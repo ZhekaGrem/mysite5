@@ -1,4 +1,13 @@
+// src/app/[locale]/not-found.tsx
 import Link from 'next/link';
+import { Metadata } from 'next';
+import { LocaleType } from '@/shared/types/index.types';
+import { generateDynamicMetadata } from '@/shared/i18n/metadata';
+
+export async function generateMetadata({ params }: { params: { locale: Promise<LocaleType> } }): Promise<Metadata> {
+  return generateDynamicMetadata(params, 'notFound');
+}
+
 const NotFound = () => {
   return (
     <>

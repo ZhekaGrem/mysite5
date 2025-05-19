@@ -57,7 +57,7 @@ const Footer = () => {
               <ul className="flex flex-col gap-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-sm transition-colors">
+                    <Link href={link.href} className="text-sm transition-colors hover:text-hover-light dark:hover:text-hover-dark ">
                       {link.label}
                     </Link>
                   </li>

@@ -107,7 +107,7 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
               target="_blank"
               title={label}
               rel="noopener noreferrer"
-              className="text-current transition-colors hover:text-primary-dark dark:hover:text-primary-light"
+              className="text-current transition-colors hover:text-hover-light dark:hover:text-hover-dark"
               role="navigation"
               aria-label="Social media links">
               <Icon size={20} />
@@ -137,7 +137,7 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
               variants={itemVariants}
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
-              className="text-current transition-colors hover:text-primary-dark dark:hover:text-primary-light"
+              className="text-current transition-colors hover:text-hover-light dark:hover:text-hover-dark"
               role="navigation"
               aria-label="Social media links">
               <Icon size={20} />

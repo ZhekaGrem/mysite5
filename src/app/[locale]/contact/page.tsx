@@ -5,11 +5,21 @@ import Section from '@/shared/ui/Section';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { ContactForm } from '@/features/ContactForm/ContactForm';
-import { useRef } from 'react';
+import { useState,ReactNode } from 'react';
+
+
+type Social = {
+  name: string;
+  url: string;
+  icon: ReactNode;
+};
+
+type PropsIcon = {
+  social: Social;
+  index: number;
+};
 
 const ContactPage = () => {
-  const gridRef = useRef<HTMLDivElement>(null);
-
   const contactInfo = [
     {
       icon: <Phone className="h-8 w-8" />,
@@ -69,6 +79,7 @@ const ContactPage = () => {
       ease: 'easeOut',
     },
   };
+
   const TypewriterText = ({ children, className }: { children: string; className?: string }) => (
     <div className="relative">
       <motion.div className={`${className} opacity-0`} aria-hidden="true">
@@ -84,6 +95,48 @@ const ContactPage = () => {
       </motion.div>
     </div>
   );
+
+  const SocialLink  = ({ social, index }:PropsIcon) => {
+    const [isHovered, setIsHovered] = useState(false);
+  
+    return (
+      <motion.a
+        key={social.name}
+        href={social.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className=" relative flex flex-col items-center gap-3 p-4 "
+        initial={{ y: 20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: index * 0.2 }}
+      >
+        {/* Geometric background */}
+        <motion.div
+          className="absolute inset-0 bg-gray-100 dark:bg-gray-800 "
+          onHoverStart={() => setIsHovered(true)}
+          onHoverEnd={() => setIsHovered(false)}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.3 }}
+        />
+  
+        {/* Icon and text */}
+        <div className="relative z-10">{social.icon}</div>
+        <span className="relative z-10 text-sm">{social.name}</span>
+  
+        {/* Animated accent */}
+        <motion.div
+          className="absolute -bottom-1 left-1/2 h-1 w-6 -translate-x-1/2 bg-surface-light dark:bg-surface-dark  "
+          animate={isHovered ? { width: '80%' } : { width: '10px' }}
+          transition={{ duration: 0.3 }}
+        />
+        <motion.div
+          className="absolute bottom-0 left-1/2 h-1 w-6 -translate-x-1/2 bg-surface-light dark:bg-surface-dark  "
+          animate={isHovered ? { width: '80%' } : { width: '10px' }}
+          transition={{ duration: 0.3 }}
+        />
+      </motion.a>
+    );
+  };
 
   const lineVariants = {
     initial: { height: 0 },
@@ -154,6 +207,7 @@ const ContactPage = () => {
                 {/* Animated background on hover */}
                 <motion.div
                   className="absolute inset-0 bg-surface-light opacity-0 dark:bg-surface-dark"
+                  
                   whileHover={{ opacity: 0.1 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -190,35 +244,14 @@ const ContactPage = () => {
           <div className="relative">
             <h2 className="mb-6 text-xl font-semibold">Connect on Social Media</h2>
             <div className="grid grid-cols-3 gap-4">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex flex-col items-center gap-3 p-4"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ delay: index * 0.2 }}>
-                  {/* Geometric background */}
-                  <motion.div
-                    className="absolute inset-0 bg-gray-100 dark:bg-gray-800"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  />
-
-                  {/* Icon and text */}
-                  <div className="relative">{social.icon}</div>
-                  <span className="relative text-sm">{social.name}</span>
-
-                  {/* Animated accent */}
-                  <motion.div
-                    className="absolute -bottom-1 left-1/2 h-1 w-6 -translate-x-1/2 bg-surface-light dark:bg-surface-dark"
-                    whileHover={{ width: '80%' }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.a>
-              ))}
+            {socialLinks.map((social, index) => (
+          <SocialLink 
+            key={social.name}
+            social={social}
+            index={index}
+            
+          />
+        ))}
             </div>
           </div>
         </motion.div>
@@ -226,12 +259,7 @@ const ContactPage = () => {
         {/* Right Column - Contact Form with Swiss-style elements */}
         <div className="relative">
           {/* Geometric accent */}
-          <motion.div
-            className="absolute -left-8 top-0 h-16 w-1 bg-surface-light dark:bg-surface-dark"
-            initial={{ height: 0 }}
-            animate={{ height: '100%' }}
-            transition={{ duration: 1 }}
-          />
+         
 
           {/* Form wrapper with animated border */}
           <motion.div
@@ -245,18 +273,8 @@ const ContactPage = () => {
       </div>
 
       {/* Bottom geometric accents */}
-      <motion.div
-        className="absolute bottom-0 left-1/2 h-24 w-px -translate-x-1/2 bg-surface-light dark:bg-surface-dark"
-        initial={{ height: 0 }}
-        animate={{ height: 96 }}
-        transition={{ duration: 1, delay: 1 }}
-      />
-      <motion.div
-        className="absolute bottom-0 left-1/2 h-4 w-4 -translate-x-1/2 rotate-45 bg-surface-light dark:bg-surface-dark"
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 0.5, delay: 1.5 }}
-      />
+     
+     
     </Section>
   );
 };

@@ -49,7 +49,7 @@ const Header = () => {
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-base uppercase tracking-widest transition-colors hover:text-primary-dark dark:hover:text-primary-light">
+                  className="text-base uppercase tracking-widest transition-colors hover:text-hover-light dark:hover:text-hover-dark">
                   {item.label}
                 </Link>
               </li>

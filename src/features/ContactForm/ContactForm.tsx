@@ -76,7 +76,7 @@ export const ContactForm = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="relative overflow-hidden rounded-none border-l-4 border-surface-light bg-transparent p-8 dark:border-surface-dark">
+      className="relative overflow-hidden rounded-none bg-transparent p-8 ">
       {/* Swiss-style geometric accents */}
       <motion.div
         className="absolute -right-4 top-0 h-16 w-1 bg-surface-light dark:bg-surface-dark"
