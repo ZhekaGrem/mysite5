@@ -22,7 +22,6 @@ export async function generateMetadata(props: { params: { locale: string } }) {
   const t = await getTranslations({ locale, namespace: 'Metadata' });
 
   return {
-    metadataBase: new URL('https://your-site.com'),
     title: {
       default: t('title.default'),
       template: t('title.template'),
@@ -33,7 +32,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
       description: t('og.description'),
       images: [
         {
-          url: '/assets/opengraph-image.jpeg',
+          url: 'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747688498/preview-img/opengraph-image_h7hh7s.jpg',
           width: 1200,
           height: 630,
         },
