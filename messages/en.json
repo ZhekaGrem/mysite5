@@ -1,13 +1,24 @@
 {
   "Metadata": {
     "title": {
-      "default": "Portfolio | Frontend Developer",
+      "default": "Frontend Developer Portfolio",
       "template": "%s | Portfolio"
     },
-    "description": "Professional portfolio of a Frontend Developer specializing in React and Next.js",
+    "description": "Professional portfolio of a Frontend Developer specializing in React, Next.js, and modern web technologies",
+    "appName": "Portfolio App",
     "og": {
+      "siteName": "Frontend Developer Portfolio",
+      "title": "Frontend Developer Portfolio - Modern Web Solutions",
+      "description": "Explore my portfolio featuring modern web development projects using React, Next.js, and cutting-edge technologies",
+      "imageAlt": "Frontend Developer Portfolio Preview"
+    },
+    "twitter": {
       "title": "Frontend Developer Portfolio",
-      "description": "Professional portfolio showcasing frontend development projects and skills"
+      "description": "Modern web development solutions and projects",
+      "data1": "4+ years experience",
+      "label1": "Experience",
+      "data2": "20+ completed projects",
+      "label2": "Projects"
     }
   },
   "navigation": {
