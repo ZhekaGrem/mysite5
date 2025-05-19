@@ -5,7 +5,9 @@ import Section from '@/shared/ui/Section';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const CookiePolicy = () => {
+
+
+const InfoClient = () => {
   return (
     <Section className="py-16">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="grid grid-cols-12 gap-8">
@@ -191,4 +193,4 @@ const CookiePolicy = () => {
   );
 };
 
-export default CookiePolicy;
+export default InfoClient;

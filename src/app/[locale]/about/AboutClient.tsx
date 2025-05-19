@@ -193,7 +193,7 @@ const TypewriterText = ({ children, className }: { children: string; className?:
   </div>
 );
 
-const AboutPage = () => {
+const AboutClient = () => {
   return (
     <>
       {/* Hero Section */}
@@ -405,4 +405,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default AboutClient;

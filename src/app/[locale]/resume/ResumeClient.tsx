@@ -8,7 +8,7 @@ import { Download } from 'lucide-react';
 
 
 
-const ResumePage = () => {
+const ResumeClient = () => {
   const [mounted, setMounted] = useState(false);
 
   const pdfUrl = '/assets/cv/Yevhenii_Hrem_CV.pdf';
@@ -51,4 +51,4 @@ const ResumePage = () => {
   );
 };
 
-export default ResumePage;
+export default ResumeClient;

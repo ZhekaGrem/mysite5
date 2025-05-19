@@ -19,7 +19,7 @@ type PropsIcon = {
   index: number;
 };
 
-const ContactPage = () => {
+const ContactClient = () => {
   const contactInfo = [
     {
       icon: <Phone className="h-8 w-8" />,
@@ -279,4 +279,4 @@ const ContactPage = () => {
   );
 };
 
-export default ContactPage;
+export default ContactClient;

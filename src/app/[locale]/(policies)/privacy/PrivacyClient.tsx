@@ -5,7 +5,7 @@ import Section from '@/shared/ui/Section';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const PrivacyPolicy = () => {
+const PrivacyClient = () => {
   return (
     <Section className="py-16">
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="grid grid-cols-12 gap-8">
@@ -114,7 +114,7 @@ const PrivacyPolicy = () => {
                 Terms of Service
               </Link>{' '}
               and{' '}
-              <Link href="/cookies" className="text-surface-light underline dark:text-surface-dark">
+              <Link href="/info" className="text-surface-light underline dark:text-surface-dark">
                 Cookie Policy
               </Link>
               .
@@ -126,4 +126,4 @@ const PrivacyPolicy = () => {
   );
 };
 
-export default PrivacyPolicy;
+export default PrivacyClient;
