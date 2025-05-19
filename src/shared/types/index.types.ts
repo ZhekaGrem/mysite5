@@ -19,3 +19,9 @@ export interface DownloadResumeButtonProps extends ButtonHTMLAttributes<HTMLButt
   className?: string;
   variant?: variant;
 }
+
+export interface LangProps {
+  params: {
+    locale: LocaleType;
+  };
+}

@@ -1,4 +1,15 @@
 {
+  "Metadata": {
+    "title": {
+      "default": "Portfolio | Frontend Developer",
+      "template": "%s | Portfolio"
+    },
+    "description": "Professional portfolio of a Frontend Developer specializing in React and Next.js",
+    "og": {
+      "title": "Frontend Developer Portfolio",
+      "description": "Professional portfolio showcasing frontend development projects and skills"
+    }
+  },
   "navigation": {
     "home": "Home",
     "about": "About",
@@ -6,10 +17,30 @@
     "contact": "Contact",
     "projects": "Projects"
   },
-  "home": {},
-  "about": {},
-  "resume": {},
-  "contact": {},
-  "projects": {},
-  "footer": {}
+  "Pages": {
+    "home": {
+      "title": "Home",
+      "description": "Welcome to my portfolio",
+      "og": {
+        "title": "Welcome to My Portfolio",
+        "description": "Explore my work and projects"
+      }
+    },
+    "about": {
+      "title": "About Me",
+      "description": "Learn about my journey and expertise",
+      "og": {
+        "title": "About Me - Frontend Developer",
+        "description": "My journey and expertise in frontend development"
+      }
+    },
+    "projects": {
+      "title": "My Projects",
+      "description": "Explore my latest works and achievements",
+      "og": {
+        "title": "My Projects Portfolio",
+        "description": "Collection of my best frontend development projects"
+      }
+    }
+  }
 }

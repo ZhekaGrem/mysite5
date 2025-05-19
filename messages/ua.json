@@ -1,15 +1,46 @@
 {
+  "Metadata": {
+    "title": {
+      "default": "Портфоліо | Frontend Розробник",
+      "template": "%s | Портфоліо"
+    },
+    "description": "Професійне портфоліо Frontend розробника, що спеціалізується на React та Next.js",
+    "og": {
+      "title": "Портфоліо Frontend Розробника",
+      "description": "Професійне портфоліо з демонстрацією проектів та навичок frontend розробки"
+    }
+  },
   "navigation": {
-    "home": "Дім",
+    "home": "Головна",
     "about": "Про мене",
     "resume": "Резюме",
     "contact": "Контакти",
     "projects": "Проекти"
   },
-  "home": {},
-  "about": {},
-  "resume": {},
-  "contact": {},
-  "projects": {},
-  "footer": {}
+  "Pages": {
+    "home": {
+      "title": "Головна",
+      "description": "Ласкаво просимо до мого портфоліо",
+      "og": {
+        "title": "Ласкаво просимо до мого портфоліо",
+        "description": "Дослідіть мої роботи та проекти"
+      }
+    },
+    "about": {
+      "title": "Про мене",
+      "description": "Дізнайтеся про мій шлях та досвід",
+      "og": {
+        "title": "Про мене - Frontend Розробник",
+        "description": "Мій шлях та досвід у frontend розробці"
+      }
+    },
+    "projects": {
+      "title": "Мої проекти",
+      "description": "Перегляньте мої останні роботи та досягнення",
+      "og": {
+        "title": "Портфоліо моїх проектів",
+        "description": "Колекція моїх найкращих проектів frontend розробки"
+      }
+    }
+  }
 }
