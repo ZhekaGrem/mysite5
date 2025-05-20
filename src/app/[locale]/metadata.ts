@@ -93,13 +93,7 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       maximumScale: 5,
       userScalable: true,
     },
-    verification: {
-      google: 'G-1S9YR0G6C6',
-      // yandex: 'your-yandex-verification',
-      // yahoo: 'your-yahoo-verification',
-      // bing: 'your-bing-verification',
-      // me: ['your@email.com', '@yourusername'],
-    },
+
     appleWebApp: {
       capable: true,
       title: t('appName'),

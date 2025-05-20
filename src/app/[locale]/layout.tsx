@@ -2,6 +2,7 @@ import { IBM_Plex_Mono } from 'next/font/google';
 import { getTranslations } from 'next-intl/server';
 import './globals.css';
 import { NextIntlClientProvider, hasLocale } from 'next-intl';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { getMessages } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { routing } from '@/shared/i18n/routing';
@@ -75,6 +76,7 @@ export default async function RootLayout({
             <Sidebar />
             <main>{children}</main>
             <Footer />
+            <GoogleAnalytics gaId="G-1S9YR0G6C6" />
           </NextIntlClientProvider>
         </ThemeProvider>
       </body>
