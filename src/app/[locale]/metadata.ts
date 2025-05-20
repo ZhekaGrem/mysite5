@@ -1,17 +1,23 @@
-import { Metadata } from 'next';
+import { Metadata, Viewport } from 'next';
 import { getTranslations } from 'next-intl/server';
 type Props = {
   params: Promise<{ locale: string }>;
 };
 
+export const siteViewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1.0,
+};
+
+const previewImgUrl: string =
+  'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg';
+const siteUrl: string = 'https://portfolio-zhekagrems-projects.vercel.app/';
 export async function generateMetadatagenerateMetadata({ params }: Props): Promise<Metadata> {
   // Дочекаємося резолву params
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
-  const previewImgUrl: string =
-    'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg';
   return {
-    metadataBase: new URL('https://your-site.com'),
+    metadataBase: new URL(siteUrl),
     title: {
       default: t('title.default'),
       template: t('title.template'),
@@ -39,7 +45,7 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       type: 'website',
       locale: locale,
       alternateLocale: locale === 'en' ? 'ua' : 'en',
-      //   url: 'https://your-site.com',
+      url: siteUrl,
       siteName: t('og.siteName'),
       title: t('og.title'),
       description: t('og.description'),
@@ -48,7 +54,6 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
           url: previewImgUrl,
           width: 1200,
           height: 630,
-          alt: t('og.imageAlt'),
         },
       ],
     },

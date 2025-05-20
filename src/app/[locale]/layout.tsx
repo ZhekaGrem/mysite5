@@ -10,10 +10,13 @@ import { ThemeProvider } from 'next-themes';
 import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';
 import Sidebar from '@/widgets/Sidebar/Sidebar';
+import { siteViewport } from './metadata';
 const plexMono = IBM_Plex_Mono({
   weight: ['400'],
   subsets: ['latin'],
 });
+
+export const viewport = siteViewport;
 
 export async function generateMetadata(props: { params: { locale: string } }) {
   // Await the params object before destructuring
