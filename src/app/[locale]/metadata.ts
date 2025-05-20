@@ -8,7 +8,8 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
   // Дочекаємося резолву params
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
-
+  const previewImgUrl: string =
+    'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg';
   return {
     metadataBase: new URL('https://your-site.com'),
     title: {
@@ -44,11 +45,10 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       description: t('og.description'),
       images: [
         {
-          url: 'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747688498/preview-img/opengraph-image_h7hh7s.jpg',
+          url: previewImgUrl,
           width: 1200,
           height: 630,
           alt: t('og.imageAlt'),
-          type: 'image/jpg',
         },
       ],
     },
@@ -58,10 +58,8 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       description: t('twitter.description'),
       site: '@GremZheka',
       creator: '@GremZheka',
-      creatorId: '1234567890',
-      images: [
-        'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747688498/preview-img/opengraph-image_h7hh7s.jpg',
-      ],
+      creatorId: 'GremZheka',
+      images: [previewImgUrl],
     },
     robots: {
       index: true,
