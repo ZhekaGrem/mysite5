@@ -2,7 +2,6 @@ import React from 'react';
 import { HProps, HeadingTagType } from '@/shared/types/Htag.props';
 import { cn } from '@/shared/lib/utils';
 import { IBM_Plex_Sans, IBM_Plex_Mono } from 'next/font/google';
-
 // Initialize fonts
 const plexSans = IBM_Plex_Sans({
   weight: ['700'],
