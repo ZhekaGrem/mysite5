@@ -6,6 +6,7 @@ import SwitchTheme from '@/features/SwitchTheme/SwitchTheme';
 import { useState } from 'react';
 import SwitchLang from '@/features/SwitchLang/SwitchLang';
 import Logo from '@/shared/ui/Logo';
+import { TestError } from '@/shared/ui/TestError';
 
 const Header = () => {
   const t = useTranslations('navigation');
@@ -24,6 +25,7 @@ const Header = () => {
     <header className="bg-background/80 fixed left-0 right-0 top-0 z-50 mx-auto max-w-7xl border-b border-border-light backdrop-blur-sm dark:border-border-dark">
       <div className="mx-auto grid max-w-7xl grid-cols-2 items-center px-6 py-4 md:grid-cols-[1fr_auto_1fr]">
         {/* Logo Area - Left Aligned */}
+        <TestError requiredProp="11234" />
         <Link
           href="/"
           className="text-xl font-semibold tracking-tighter text-surface-light/80 dark:text-surface-dark/80">
