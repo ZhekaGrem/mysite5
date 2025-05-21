@@ -76,7 +76,7 @@ export const ContactForm = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="relative overflow-hidden rounded-none bg-transparent p-8 ">
+      className="relative overflow-hidden rounded-none bg-transparent p-8">
       {/* Swiss-style geometric accents */}
       <motion.div
         className="absolute -right-4 top-0 h-16 w-1 bg-surface-light dark:bg-surface-dark"
@@ -201,10 +201,7 @@ export const ContactForm = () => {
 
         {/* Submit Button */}
         <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-          <Button
-            type="submit"
-            disabled={isSubmitting}
-            className="relative w-full overflow-hidden bg-surface-light py-4 dark:bg-surface-dark">
+          <Button type="submit" disabled={isSubmitting} className="relative w-full overflow-hidden">
             {isSubmitting ? (
               <motion.div
                 className="flex items-center justify-center gap-2"

@@ -26,7 +26,7 @@ const Header = () => {
         {/* Logo Area - Left Aligned */}
         <Link
           href="/"
-          className="text-xl font-semibold tracking-tighter text-surface-light/80 dark:text-surface-dark/80">
+          className="text-xl font-semibold tracking-tighter text-surface-light/80 hover:text-hover-light dark:text-surface-dark/80 dark:hover:text-hover-dark">
           <Logo />
         </Link>
 
@@ -46,10 +46,10 @@ const Header = () => {
           className={` ${isOpen ? 'block' : 'hidden'} bg-background/80 absolute left-0 right-0 top-full backdrop-blur-sm md:static md:block md:bg-transparent md:backdrop-blur-none`}>
           <ul className="flex flex-col items-center justify-end gap-6 p-4 md:flex-row md:p-0">
             {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="text-base uppercase tracking-widest transition-colors hover:text-hover-light dark:hover:text-hover-dark">
+              <li
+                key={item.href}
+                className="py-5 text-base font-semibold uppercase tracking-widest transition-colors hover:text-hover-light dark:hover:text-hover-dark">
+                <Link href={item.href} className="">
                   {item.label}
                 </Link>
               </li>

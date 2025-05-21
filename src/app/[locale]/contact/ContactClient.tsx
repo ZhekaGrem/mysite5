@@ -5,8 +5,7 @@ import Section from '@/shared/ui/Section';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { ContactForm } from '@/features/ContactForm/ContactForm';
-import { useState,ReactNode } from 'react';
-
+import { useState, ReactNode } from 'react';
 
 type Social = {
   name: string;
@@ -20,7 +19,7 @@ type PropsIcon = {
 };
 
 const ContactClient = () => {
-  const contactInfo = [
+  const CONTACT_INFO = [
     {
       icon: <Phone className="h-8 w-8" />,
       title: 'Phone',
@@ -41,7 +40,7 @@ const ContactClient = () => {
     },
   ];
 
-  const socialLinks = [
+  const SOCIAL_LINKS = [
     {
       name: 'LinkedIn',
       url: 'https://linkedin.com/in/your-profile',
@@ -96,41 +95,40 @@ const ContactClient = () => {
     </div>
   );
 
-  const SocialLink  = ({ social, index }:PropsIcon) => {
+  const SocialLink = ({ social, index }: PropsIcon) => {
     const [isHovered, setIsHovered] = useState(false);
-  
+
     return (
       <motion.a
         key={social.name}
         href={social.url}
         target="_blank"
         rel="noopener noreferrer"
-        className=" relative flex flex-col items-center gap-3 p-4 "
+        className="relative flex flex-col items-center gap-3 p-4"
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: index * 0.2 }}
-      >
+        transition={{ delay: index * 0.2 }}>
         {/* Geometric background */}
         <motion.div
-          className="absolute inset-0 bg-gray-100 dark:bg-gray-800 "
+          className="absolute inset-0 bg-gray-100 dark:bg-gray-800"
           onHoverStart={() => setIsHovered(true)}
           onHoverEnd={() => setIsHovered(false)}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
         />
-  
+
         {/* Icon and text */}
         <div className="relative z-10">{social.icon}</div>
         <span className="relative z-10 text-sm">{social.name}</span>
-  
+
         {/* Animated accent */}
         <motion.div
-          className="absolute -bottom-1 left-1/2 h-1 w-6 -translate-x-1/2 bg-surface-light dark:bg-surface-dark  "
+          className="absolute -bottom-1 left-1/2 h-1 w-6 -translate-x-1/2 bg-surface-light dark:bg-surface-dark"
           animate={isHovered ? { width: '80%' } : { width: '10px' }}
           transition={{ duration: 0.3 }}
         />
         <motion.div
-          className="absolute bottom-0 left-1/2 h-1 w-6 -translate-x-1/2 bg-surface-light dark:bg-surface-dark  "
+          className="absolute bottom-0 left-1/2 h-1 w-6 -translate-x-1/2 bg-surface-light dark:bg-surface-dark"
           animate={isHovered ? { width: '80%' } : { width: '10px' }}
           transition={{ duration: 0.3 }}
         />
@@ -172,19 +170,13 @@ const ContactClient = () => {
           className="space-y-12">
           {/* Title with Swiss-style underline */}
           <div className="relative">
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: '100%' }}
-              transition={{ duration: 1, delay: 0.5 }}
-              className="absolute -left-4 top-0 h-24 w-1 bg-surface-light dark:bg-surface-dark"
-            />
             <H h="h1" className="mb-4">
               Contact Me
             </H>
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: '40%' }}
-              transition={{ duration: 1 }}
+              animate={{ width: '80%' }}
+              transition={{ duration: 2 }}
               className="h-1 bg-surface-light dark:bg-surface-dark"
             />
             <TypewriterText className="mt-6 text-lg">
@@ -194,7 +186,7 @@ const ContactClient = () => {
 
           {/* Contact Methods with Swiss-style layout */}
           <div className="relative space-y-8">
-            {contactInfo.map((info, index) => (
+            {CONTACT_INFO.map((info, index) => (
               <motion.a
                 key={info.title}
                 href={info.link}
@@ -207,7 +199,6 @@ const ContactClient = () => {
                 {/* Animated background on hover */}
                 <motion.div
                   className="absolute inset-0 bg-surface-light opacity-0 dark:bg-surface-dark"
-                  
                   whileHover={{ opacity: 0.1 }}
                   transition={{ duration: 0.3 }}
                 />
@@ -244,14 +235,9 @@ const ContactClient = () => {
           <div className="relative">
             <h2 className="mb-6 text-xl font-semibold">Connect on Social Media</h2>
             <div className="grid grid-cols-3 gap-4">
-            {socialLinks.map((social, index) => (
-          <SocialLink 
-            key={social.name}
-            social={social}
-            index={index}
-            
-          />
-        ))}
+              {SOCIAL_LINKS.map((social, index) => (
+                <SocialLink key={social.name} social={social} index={index} />
+              ))}
             </div>
           </div>
         </motion.div>
@@ -259,7 +245,6 @@ const ContactClient = () => {
         {/* Right Column - Contact Form with Swiss-style elements */}
         <div className="relative">
           {/* Geometric accent */}
-         
 
           {/* Form wrapper with animated border */}
           <motion.div
@@ -273,8 +258,6 @@ const ContactClient = () => {
       </div>
 
       {/* Bottom geometric accents */}
-     
-     
     </Section>
   );
 };

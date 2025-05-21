@@ -9,7 +9,7 @@ export const siteViewport: Viewport = {
   initialScale: 1.0,
 };
 
-const previewImgUrl: string =
+const previewUrlImg: string =
   'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg';
 const siteUrl: string = 'https://portfolio-zhekagrems-projects.vercel.app/';
 export async function generateMetadatagenerateMetadata({ params }: Props): Promise<Metadata> {
@@ -51,9 +51,8 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       description: t('og.description'),
       images: [
         {
-          url: previewImgUrl,
-          width: 1200,
-          height: 630,
+          url: previewUrlImg,
+          alt: 'HremStudio',
         },
       ],
     },
@@ -61,10 +60,7 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       card: 'summary_large_image',
       title: t('twitter.title'),
       description: t('twitter.description'),
-      site: '@GremZheka',
-      creator: '@GremZheka',
-      creatorId: 'GremZheka',
-      images: [previewImgUrl],
+      images: [previewUrlImg],
     },
     robots: {
       index: true,
@@ -92,12 +88,6 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       { media: '(prefers-color-scheme: light)', color: '#ffffff' },
       { media: '(prefers-color-scheme: dark)', color: '#000000' },
     ],
-    viewport: {
-      width: 'device-width',
-      initialScale: 1,
-      maximumScale: 5,
-      userScalable: true,
-    },
 
     appleWebApp: {
       capable: true,
@@ -108,7 +98,7 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
     category: 'technology',
     classification: 'Portfolio',
     other: {
-      'msapplication-TileColor': '#000000',
+      'msapplication-TileColor': '#1DD3B0',
       'msapplication-config': '/browserconfig.xml',
       'mobile-web-app-capable': 'yes',
       'apple-mobile-web-app-capable': 'yes',

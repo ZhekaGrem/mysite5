@@ -27,7 +27,7 @@ export default function SwitchLang() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="secondary" size="icon">
+        <Button variant="secondary" size="icon" className="hover:text-hover-light dark:hover:text-hover-dark">
           <div className="h-[1.2rem] w-[1.2rem]">
             <LangIcon />
           </div>
