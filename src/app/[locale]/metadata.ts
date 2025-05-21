@@ -9,7 +9,7 @@ export const siteViewport: Viewport = {
   initialScale: 1.0,
 };
 
-const previewUrlImg: string = '/assets/opengraph-image.jpg';
+const previewUrlImg: string = '/assets/opengraph-image.jpg-2';
 const siteUrl: string = 'https://portfolio-zhekagrems-projects.vercel.app/';
 export async function generateMetadatagenerateMetadata({ params }: Props): Promise<Metadata> {
   // Дочекаємося резолву params

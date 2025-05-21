@@ -36,7 +36,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
       description: t('og.description'),
       images: [
         {
-          url: '/assets/opengraph-image.jpg',
+          url: '/assets/opengraph-image-2.jpg',
           width: 1200,
           height: 630,
         },
@@ -46,7 +46,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
       card: 'summary_large_image',
       title: t('twitter.title'),
       description: t('twitter.description'),
-      images: ['/assets/opengraph-image.jpg'],
+      images: ['/assets/opengraph-image-2.jpg'],
     },
     robots: {
       index: true,
