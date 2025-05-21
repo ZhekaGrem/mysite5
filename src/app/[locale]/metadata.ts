@@ -9,8 +9,7 @@ export const siteViewport: Viewport = {
   initialScale: 1.0,
 };
 
-const previewUrlImg: string =
-  'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg';
+const previewUrlImg: string = '/assets/opengraph-image.jpg';
 const siteUrl: string = 'https://portfolio-zhekagrems-projects.vercel.app/';
 export async function generateMetadatagenerateMetadata({ params }: Props): Promise<Metadata> {
   // Дочекаємося резолву params
@@ -53,6 +52,8 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
         {
           url: previewUrlImg,
           alt: 'HremStudio',
+          width: 1200,
+          height: 630,
         },
       ],
     },
