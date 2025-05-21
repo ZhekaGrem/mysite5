@@ -42,6 +42,14 @@ export async function generateMetadata(props: { params: { locale: string } }) {
         },
       ],
     },
+    twitter: {
+      card: 'summary_large_image',
+      title: t('twitter.title'),
+      description: t('twitter.description'),
+      images: [
+        'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747688498/preview-img/opengraph-image_h7hh7s.jpg',
+      ],
+    },
     robots: {
       index: true,
       follow: true,
