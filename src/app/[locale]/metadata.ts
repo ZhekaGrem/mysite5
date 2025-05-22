@@ -11,7 +11,7 @@ export const siteViewport: Viewport = {
 
 const siteUrl: string = 'https://portfolio-zhekagrems-projects.vercel.app/';
 const previewImg: string =
-  'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg';
+  'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg';
 export async function generateMetadatagenerateMetadata({ params }: Props): Promise<Metadata> {
   // Дочекаємося резолву params
   const { locale } = await params;

@@ -18,7 +18,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const viewport = siteViewport;
 const previewImg: string =
-  'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg';
+  'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg';
 export async function generateMetadata(props: { params: { locale: string } }) {
   // Await the params object before destructuring
   const params = await Promise.resolve(props.params);
