@@ -10,6 +10,7 @@ export const siteViewport: Viewport = {
 };
 
 const siteUrl: string = 'https://portfolio-zhekagrems-projects.vercel.app/';
+const previewImg: string = '/assets/opengraph-image-2.jpg';
 export async function generateMetadatagenerateMetadata({ params }: Props): Promise<Metadata> {
   // Дочекаємося резолву params
   const { locale } = await params;
@@ -44,12 +45,12 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       locale: locale,
       alternateLocale: locale === 'en' ? 'ua' : 'en',
       url: siteUrl,
-      siteName: t('og.siteName'),
+      siteName: t('previewImg'),
       title: t('og.title'),
       description: t('og.description'),
       images: [
         {
-          url: t('previewImg'),
+          url: previewImg,
           alt: 'HremStudio',
           width: 1200,
           height: 630,
@@ -60,7 +61,7 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       card: 'summary_large_image',
       title: t('twitter.title'),
       description: t('twitter.description'),
-      images: [t('previewImg')],
+      images: [previewImg],
     },
     robots: {
       index: true,

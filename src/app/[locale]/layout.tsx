@@ -17,7 +17,7 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const viewport = siteViewport;
-
+const previewImg: string = '/assets/opengraph-image-2.jpg';
 export async function generateMetadata(props: { params: { locale: string } }) {
   // Await the params object before destructuring
   const params = await Promise.resolve(props.params);
@@ -36,7 +36,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
       description: t('og.description'),
       images: [
         {
-          url: t('previewImg'),
+          url: previewImg,
           width: 1200,
           height: 630,
         },
@@ -46,7 +46,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
       card: 'summary_large_image',
       title: t('twitter.title'),
       description: t('twitter.description'),
-      images: [t('previewImg')],
+      images: [previewImg],
     },
     robots: {
       index: true,
