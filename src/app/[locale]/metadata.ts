@@ -12,7 +12,7 @@ export const siteViewport: Viewport = {
 const siteUrl: string = 'https://portfolio-zhekagrems-projects.vercel.app/';
 const previewImg: string =
   'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg';
-export async function generateMetadatagenerateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Дочекаємося резолву params
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'Metadata' });
@@ -45,7 +45,7 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       type: 'website',
       locale: locale,
       alternateLocale: locale === 'en' ? 'ua' : 'en',
-      url: siteUrl,
+      url: 'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg',
       siteName: t('og.siteName'),
       title: t('og.title'),
       description: t('og.description'),
@@ -62,7 +62,9 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       card: 'summary_large_image',
       title: t('twitter.title'),
       description: t('twitter.description'),
-      images: [previewImg],
+      images: [
+        'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg',
+      ],
     },
     robots: {
       index: true,
@@ -100,6 +102,7 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
     category: 'technology',
     classification: 'Portfolio',
     other: {
+      'og:image': previewImg,
       'msapplication-TileColor': '#1DD3B0',
       'msapplication-config': '/browserconfig.xml',
       'mobile-web-app-capable': 'yes',

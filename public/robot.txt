@@ -13,9 +13,9 @@ Disallow: /cdn-cgi/
 Host: https://your-site.com
 
 # Sitemaps
-Sitemap: https://your-site.com/sitemap.xml
-Sitemap: https://your-site.com/sitemap_en.xml
-Sitemap: https://your-site.com/sitemap_ua.xml
+Sitemap: https://portfolio-eosin-zeta-59.vercel.app/sitemap.xml
+Sitemap: https://portfolio-eosin-zeta-59.vercel.app/sitemap_en.xml
+Sitemap: https://portfolio-eosin-zeta-59.vercel.app/sitemap_ua.xml
 
 # Crawl-delay
 Crawl-delay: 10
