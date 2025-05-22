@@ -10,17 +10,17 @@ import { ThemeProvider } from 'next-themes';
 import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';
 import Sidebar from '@/widgets/Sidebar/Sidebar';
-import { siteViewport } from './metadata';
-import Head from 'next/head';
+import { siteViewport, siteMetadata } from './metadata';
+// import Head from 'next/head';
 const plexMono = IBM_Plex_Mono({
   weight: ['400'],
   subsets: ['latin'],
 });
 
 export const viewport = siteViewport;
-
-const previewImg: string =
-  'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg';
+export const metadata = siteMetadata;
+// const previewImg: string =
+//   'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg';
 // export async function generateMetadata(props: { params: { locale: string } }) {
 //   // Await the params object before destructuring
 //   const params = await Promise.resolve(props.params);
@@ -80,12 +80,6 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <Head>
-        <meta property="og:image" content={previewImg} />
-        <meta property="og:image:width" content="900" />
-        <meta property="og:image:height" content="410" />
-        <meta property="og:image:alt" content="HremStudio Preview IMG" />
-      </Head>
       <body
         className={` ${plexMono.className} min-h-screen bg-primary-light text-text-light antialiased dark:bg-primary-dark dark:text-text-dark`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
