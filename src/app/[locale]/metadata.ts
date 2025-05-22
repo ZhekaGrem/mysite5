@@ -44,12 +44,12 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       locale: locale,
       alternateLocale: locale === 'en' ? 'ua' : 'en',
       url: siteUrl,
-      siteName: t('previewImg'),
+      siteName: t('og.siteName'),
       title: t('og.title'),
       description: t('og.description'),
       images: [
         {
-          url: t('og.siteName'),
+          url: t('previewImg'),
           alt: 'HremStudio',
           width: 1200,
           height: 630,

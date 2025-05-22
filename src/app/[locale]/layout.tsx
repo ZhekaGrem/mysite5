@@ -36,7 +36,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
       description: t('og.description'),
       images: [
         {
-          url: 'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg',
+          url: t('previewImg'),
           width: 1200,
           height: 630,
         },
@@ -46,9 +46,7 @@ export async function generateMetadata(props: { params: { locale: string } }) {
       card: 'summary_large_image',
       title: t('twitter.title'),
       description: t('twitter.description'),
-      images: [
-        'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg',
-      ],
+      images: [t('previewImg')],
     },
     robots: {
       index: true,
