@@ -46,7 +46,7 @@ export async function generateMetadatagenerateMetadata({ params }: Props): Promi
       locale: locale,
       alternateLocale: locale === 'en' ? 'ua' : 'en',
       url: siteUrl,
-      siteName: t('previewImg'),
+      siteName: t('og.siteName'),
       title: t('og.title'),
       description: t('og.description'),
       images: [
