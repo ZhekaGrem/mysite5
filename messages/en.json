@@ -6,6 +6,7 @@
     },
     "description": "Professional portfolio of a Frontend Developer specializing in React, Next.js, and modern web technologies",
     "appName": "Portfolio App",
+    "previewImg": "https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg",
     "og": {
       "siteName": "Frontend Developer Portfolio",
       "title": "Frontend Developer Portfolio - Modern Web Solutions",

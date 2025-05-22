@@ -6,6 +6,7 @@
     },
     "description": "Професійне портфоліо Frontend розробника, що спеціалізується на React, Next.js та сучасних веб-технологіях",
     "appName": "Портфоліо",
+    "previewImg": "https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747742176/preview-img/opengraph-image_h7hh7s.jpg",
     "og": {
       "siteName": "Портфоліо Frontend Розробника",
       "title": "Портфоліо Frontend Розробника - Сучасні Веб-Рішення",
