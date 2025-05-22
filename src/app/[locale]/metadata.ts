@@ -10,8 +10,8 @@ export const siteViewport: Viewport = {
 };
 
 const siteUrl: string = 'https://portfolio-zhekagrems-projects.vercel.app/';
-const previewImg: string =
-  'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg';
+// const previewImg: string =
+//   'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg';
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Дочекаємося резолву params
   const { locale } = await params;
@@ -45,13 +45,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: 'website',
       locale: locale,
       alternateLocale: locale === 'en' ? 'ua' : 'en',
-      url: 'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg',
+      url: `${siteUrl}/${locale}`,
       siteName: t('og.siteName'),
       title: t('og.title'),
       description: t('og.description'),
       images: [
         {
-          url: previewImg,
+          url: 'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg',
           alt: 'HremStudio',
           width: 1200,
           height: 630,
@@ -102,7 +102,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     category: 'technology',
     classification: 'Portfolio',
     other: {
-      'og:image': previewImg,
+      'og:image':
+        'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg',
       'msapplication-TileColor': '#1DD3B0',
       'msapplication-config': '/browserconfig.xml',
       'mobile-web-app-capable': 'yes',
