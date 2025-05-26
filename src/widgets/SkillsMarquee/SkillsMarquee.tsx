@@ -98,14 +98,14 @@ const SkillItem = ({ skill, index }: { skill: SkillData; index: number }) => {
 
   return (
     <motion.div
-      className="relative mx-4 p-10 md:mx-6"
+      className="relative mx-4 md:mx-6"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
       whileHover={{ scale: 1.05 }} // Reduced scale for better performance
       transition={{ duration: 0.2 }}>
       <HoverCard
         hoverAnimation="lift"
-        className="dark:border-bg-gray-800 group relative flex min-w-[120px] flex-col items-center overflow-hidden rounded-lg border-2 border-white bg-white/30 p-4 shadow-sm dark:bg-gray-800/30 md:min-w-[140px] md:p-6">
+        className="dark:border-bg-gray-800 group relative flex min-w-[120px] flex-col items-center overflow-hidden rounded-lg border-double border-white/60 bg-white/30 p-4 shadow-sm dark:border-gray-800/60 dark:bg-gray-800/30 md:min-w-[140px] md:p-6">
         {/* Simplified background */}
         <motion.div
           className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-10"
