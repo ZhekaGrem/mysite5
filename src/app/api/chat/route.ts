@@ -1,13 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-// Ініціалізація OpenAI клієнта
+if (!process.env.OPENAI_API_KEY) {
+  throw new Error('OPENAI_API_KEY is missing from environment variables');
+}
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-
-// ID вашого Assistant з OpenAI Platform
 const ASSISTANT_ID = process.env.ASSISTANT_ID!;
+
+if (!process.env.ASSISTANT_ID) {
+  throw new Error('ASSISTANT_ID is missing from environment variables');
+}
 
 // Rate limiting (простий in-memory store)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
