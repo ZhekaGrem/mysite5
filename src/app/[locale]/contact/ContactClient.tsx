@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { ContactForm } from '@/features/ContactForm/ContactForm';
 import { useState, ReactNode } from 'react';
-
+import { GeometricShape } from '@/shared/ui/AnimatedComponents/index';
 type Social = {
   name: string;
   url: string;
@@ -174,6 +174,20 @@ const ContactClient = () => {
               Contact Me
             </H>
             <motion.div
+              className="absolute left-10 top-20 opacity-10"
+              animate={{
+                rotate: [0, 360],
+                scale: [1, 1.1, 1],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: 'linear',
+              }}>
+              <GeometricShape shape="circle" size={120} color="rgb(42, 157, 143)" />
+            </motion.div>
+
+            <motion.div
               initial={{ width: 0 }}
               animate={{ width: '80%' }}
               transition={{ duration: 2 }}
@@ -253,6 +267,19 @@ const ContactClient = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}>
             <ContactForm />
+          </motion.div>
+          <motion.div
+            className="absolute bottom-20 right-10 opacity-15"
+            animate={{
+              rotate: [360, 0],
+              y: [-10, 10, -10],
+            }}
+            transition={{
+              duration: 15,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}>
+            <GeometricShape shape="square" size={80} color="rgb(178, 255, 158)" />
           </motion.div>
         </div>
       </div>

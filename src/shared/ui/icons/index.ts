@@ -17,6 +17,7 @@ import ReactIcon from './ReactIcon';
 import RedisIcon from './RedisIcon';
 import TailwindIcon from './TailwindIcon';
 import TsIcon from './TsIcon';
+import ReactNoTextIcon from './ReactNoTextIcon';
 
 export {
   CssIcon,
@@ -38,4 +39,5 @@ export {
   TailwindIcon,
   TsIcon,
   RedisIcon,
+  ReactNoTextIcon,
 };

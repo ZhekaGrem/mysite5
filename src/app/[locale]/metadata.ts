@@ -90,10 +90,7 @@ export const siteMetadata: Metadata = {
     ],
     apple: [{ url: '/apple-touch-icon.png' }],
   },
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
-    { media: '(prefers-color-scheme: dark)', color: '#000000' },
-  ],
+
   appleWebApp: {
     capable: true,
     title: 'Frontend Portfolio',
