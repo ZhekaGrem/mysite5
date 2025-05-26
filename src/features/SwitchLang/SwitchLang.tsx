@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import { useRouter, usePathname } from '@/shared/i18n/routing';
 import LangIcon from './LangIcon';
 import { Button } from '@/shared/ui/button';

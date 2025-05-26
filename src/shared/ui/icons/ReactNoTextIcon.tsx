@@ -2,8 +2,8 @@ const ReactNoTextIcon = () => {
   return (
     <>
       <svg xmlns="http://www.w3.org/2000/svg" height="80" width="80" viewBox="0 0 569 512" version="1.1">
-        <g fill="none" fill-rule="evenodd">
-          <g transform="translate(-227, -256)" fill="#58C4DC" fill-rule="nonzero">
+        <g fill="none" fillRule="evenodd">
+          <g transform="translate(-227, -256)" fill="#58C4DC" fillRule="nonzero">
             <g transform="translate(227, 256)">
               <path
                 d="M285.5,201 C255.400481,201 231,225.400481 231,255.5 C231,285.599519 255.400481,310 285.5,310 C315.599519,310 340,285.599519 340,255.5 C340,225.400481 315.599519,201 285.5,201"
