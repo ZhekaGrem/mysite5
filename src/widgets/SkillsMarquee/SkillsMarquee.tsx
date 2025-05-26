@@ -28,6 +28,13 @@ import {
   TsIcon,
   RedisIcon,
   ReactNoTextIcon,
+  DockerIcon,
+  ExpressIcon,
+  NodeJsIcon,
+  V8Icon,
+  AWSIcon,
+  GraphQlIcon,
+  WPIcon,
 } from '@/shared/ui/icons/index';
 
 type IconType = React.FC<SVGProps<SVGSVGElement>>;
@@ -46,11 +53,10 @@ interface SkillData {
     | 'Database'
     | 'Testing'
     | 'Library';
-  proficiency: number; // 0-100
-  color: string; // rgb(…) рядок
+  proficiency: number;
+  color: string;
 }
 
-// Skills data with categories and proficiency
 const SKILLSDATA: SkillData[] = [
   { Icon: ReactIcon, name: 'React', category: 'Frontend', proficiency: 95, color: 'rgb(97, 218, 251)' },
   { Icon: NextIcon, name: 'Next.js', category: 'Frontend', proficiency: 90, color: 'rgb(0, 0, 0)' },
@@ -77,40 +83,45 @@ const SKILLSDATA: SkillData[] = [
   { Icon: PhpIcon, name: 'PHP', category: 'Language', proficiency: 55, color: 'rgb(120, 123, 182)' },
   { Icon: GoIcon, name: 'Go', category: 'Language', proficiency: 50, color: 'rgb(0, 172, 215)' },
   { Icon: JQueryIcon, name: 'jQuery', category: 'Library', proficiency: 70, color: 'rgb(8, 104, 172)' },
+  { Icon: DockerIcon, name: 'Docker', category: 'Tools', proficiency: 40, color: 'rgb(1, 155, 198)' },
+  { Icon: ExpressIcon, name: 'Express', category: 'Backend', proficiency: 50, color: 'rgb(68, 68, 68)' },
+  { Icon: NodeJsIcon, name: 'Nodejs', category: 'Language', proficiency: 70, color: 'rgb(89, 169, 70)' },
+  { Icon: V8Icon, name: 'V8', category: 'Backend', proficiency: 40, color: 'rgb(72, 137, 244)' },
+  { Icon: AWSIcon, name: 'AWS', category: 'Database', proficiency: 60, color: 'rgb(255, 153, 0)' },
+  { Icon: GraphQlIcon, name: 'GraphQL', category: 'Database', proficiency: 60, color: 'rgb(228, 52, 170)' },
+  { Icon: WPIcon, name: 'WordPress', category: 'Frontend', proficiency: 40, color: 'rgb(73, 73, 73)' },
 ];
 
-// Animated skill item component
+// Simplified skill item for better marquee performance
 const SkillItem = ({ skill, index }: { skill: SkillData; index: number }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <motion.div
-      className="relative mx-4 md:mx-6"
+      className="relative mx-4 p-10 md:mx-6"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
-      whileHover={{ scale: 1.1 }}
-      transition={{ duration: 0.3 }}>
+      whileHover={{ scale: 1.05 }} // Reduced scale for better performance
+      transition={{ duration: 0.2 }}>
       <HoverCard
         hoverAnimation="lift"
-        className="group relative flex min-w-[120px] flex-col items-center overflow-hidden rounded-lg bg-white p-4 shadow-sm dark:bg-gray-800 md:min-w-[140px] md:p-6">
-        {/* Animated background */}
+        className="dark:border-bg-gray-800 group relative flex min-w-[120px] flex-col items-center overflow-hidden rounded-lg border-2 border-white bg-white/30 p-4 shadow-sm dark:bg-gray-800/30 md:min-w-[140px] md:p-6">
+        {/* Simplified background */}
         <motion.div
-          className="absolute inset-0 opacity-0 group-hover:opacity-10"
+          className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-10"
           style={{ backgroundColor: skill.color }}
           transition={{ duration: 0.3 }}
         />
 
-        {/* Icon with hover effects */}
+        {/* Icon */}
         <motion.div
-          className="relative mb-3"
           animate={{
             rotate: isHovered ? [0, 5, -5, 0] : 0,
             scale: isHovered ? 1.1 : 1,
           }}
-          transition={{ duration: 0.3 }}>
+          transition={{ duration: 0.3 }}
+          className="relative mb-3">
           <skill.Icon />
-
-          {/* Glowing effect */}
           <motion.div
             className="absolute inset-0 rounded-full opacity-0 blur-lg group-hover:opacity-30"
             style={{ backgroundColor: skill.color }}
@@ -120,7 +131,7 @@ const SkillItem = ({ skill, index }: { skill: SkillData; index: number }) => {
 
         {/* Skill name */}
         <motion.h3
-          className="relative z-10 mb-2 text-center text-sm font-semibold md:text-base"
+          className="relative z-10 mb-2 text-center text-sm font-semibold transition-colors duration-200 group-hover:text-current md:text-base"
           animate={{ color: isHovered ? skill.color : 'currentColor' }}
           transition={{ duration: 0.3 }}>
           {skill.name}
@@ -142,33 +153,22 @@ const SkillItem = ({ skill, index }: { skill: SkillData; index: number }) => {
             style={{ backgroundColor: skill.color }}
             initial={{ width: 0 }}
             animate={{ width: `${skill.proficiency}%` }}
-            transition={{ duration: 1, delay: index * 0.05 }}
+            transition={{ duration: 1, delay: index * 0.02 }}
           />
         </motion.div>
 
         {/* Proficiency percentage */}
         <motion.span
-          className="relative z-10 mt-2 font-mono text-xs opacity-70"
+          className="relative z-10 mt-2 font-mono text-xs opacity-70 transition-opacity duration-200 group-hover:opacity-100"
           animate={{ opacity: isHovered ? 1 : 0.7 }}>
           {skill.proficiency}%
         </motion.span>
-
-        {/* Floating geometric accent */}
-        <motion.div
-          className="absolute right-2 top-2 opacity-0 group-hover:opacity-100"
-          transition={{ duration: 0.3 }}>
-          <GeometricShape shape="circle" size={8} color={skill.color} />
-        </motion.div>
       </HoverCard>
     </motion.div>
   );
 };
 
 const SkillsMarquee = () => {
-  // Split skills into two rows for different speeds
-  const topRowSkills = SKILLSDATA.filter((_, index) => index % 2 === 0);
-  const bottomRowSkills = SKILLSDATA.filter((_, index) => index % 2 === 1);
-
   return (
     <Section className="relative overflow-hidden py-20">
       {/* Background elements */}
@@ -209,41 +209,13 @@ const SkillsMarquee = () => {
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}>
             Technologies and tools I use to bring ideas to life
           </motion.p>
-
-          {/* Interactive pause button */}
         </AnimatedWrapper>
 
-        {/* Skills Marquees */}
-        <div className="space-y-8">
-          {/* Top row - Left to Right */}
-          <motion.div>
-            <Marquee
-              speed={30}
-              play={true}
-              gradient={true}
-              gradientColor={'255, 255, 255'}
-              gradientWidth={50}>
-              {topRowSkills.map((skill, index) => (
-                <SkillItem key={`top-${skill.name}`} skill={skill} index={index} />
-              ))}
-            </Marquee>
-          </motion.div>
-
-          {/* Bottom row - Right to Left */}
-          <motion.div>
-            <Marquee
-              direction="right"
-              speed={25}
-              play={true}
-              gradient={true}
-              gradientColor={'255, 255, 255'}
-              gradientWidth={50}>
-              {bottomRowSkills.map((skill, index) => (
-                <SkillItem key={`bottom-${skill.name}`} skill={skill} index={index} />
-              ))}
-            </Marquee>
-          </motion.div>
-        </div>
+        <Marquee speed={40} gradient={false} aria-hidden="true">
+          {SKILLSDATA.map((skill, index) => (
+            <SkillItem key={skill.name} skill={skill} index={index} />
+          ))}
+        </Marquee>
       </div>
     </Section>
   );

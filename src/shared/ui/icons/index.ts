@@ -18,8 +18,22 @@ import RedisIcon from './RedisIcon';
 import TailwindIcon from './TailwindIcon';
 import TsIcon from './TsIcon';
 import ReactNoTextIcon from './ReactNoTextIcon';
+import DockerIcon from './DockerIcon';
+import ExpressIcon from './ExpressIcon';
+import NodeJsIcon from './NodeJsIcon';
+import V8Icon from './V8Icon';
+import AWSIcon from './AWSIcon';
+import GraphQlIcon from './GraphQlIcon';
+import WPIcon from './WPIcon';
 
 export {
+  WPIcon,
+  GraphQlIcon,
+  AWSIcon,
+  V8Icon,
+  NodeJsIcon,
+  ExpressIcon,
+  DockerIcon,
   CssIcon,
   FigmaIcon,
   FirebaseIcon,
