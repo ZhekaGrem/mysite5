@@ -1,16 +1,16 @@
+// src/app/api/chat/route.ts
 import { NextRequest, NextResponse } from 'next/server';
 import OpenAI from 'openai';
 
-if (!process.env.OPENAI_API_KEY) {
-  throw new Error('OPENAI_API_KEY is missing from environment variables');
-}
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-const ASSISTANT_ID = process.env.ASSISTANT_ID!;
-
-if (!process.env.ASSISTANT_ID) {
-  throw new Error('ASSISTANT_ID is missing from environment variables');
+// Check environment variables at runtime, not build time
+function validateEnvironment() {
+  if (!process.env.OPENAI_API_KEY) {
+    return { error: 'OPENAI_API_KEY is missing from environment variables' };
+  }
+  if (!process.env.ASSISTANT_ID) {
+    return { error: 'ASSISTANT_ID is missing from environment variables' };
+  }
+  return { valid: true };
 }
 
 // Rate limiting (простий in-memory store)
@@ -37,6 +37,18 @@ function checkRateLimit(ip: string): boolean {
 
 export async function POST(request: NextRequest) {
   try {
+    // Validate environment at runtime
+    const envCheck = validateEnvironment();
+    if (!envCheck.valid) {
+      return NextResponse.json({ error: envCheck.error }, { status: 500 });
+    }
+
+    // Initialize OpenAI client only after validation
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY!,
+    });
+    const ASSISTANT_ID = process.env.ASSISTANT_ID!;
+
     const { message } = await request.json();
 
     // Валідація повідомлення
@@ -135,6 +147,18 @@ export async function POST(request: NextRequest) {
 
 // Обробка GET запитів (для тестування)
 export async function GET() {
+  const envCheck = validateEnvironment();
+  if (!envCheck.valid) {
+    return NextResponse.json(
+      {
+        status: 'AI Chat API configuration error',
+        error: envCheck.error,
+        timestamp: new Date().toISOString(),
+      },
+      { status: 500 }
+    );
+  }
+
   return NextResponse.json({
     status: 'AI Chat API is running',
     timestamp: new Date().toISOString(),
