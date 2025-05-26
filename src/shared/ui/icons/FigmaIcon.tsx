@@ -1,7 +1,7 @@
 const FigmaIcon = () => {
   return (
     <>
-      <svg viewBox="0 0 128 128" height="90" width="120">
+      <svg viewBox="0 0 128 128" height="100" width="120">
         <path
           fill="#0acf83"
           d="M45.5 129c11.9 0 21.5-9.6 21.5-21.5V86H45.5C33.6 86 24 95.6 24 107.5S33.6 129 45.5 129zm0 0"></path>

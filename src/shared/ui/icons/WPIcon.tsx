@@ -3,7 +3,7 @@ import React from 'react';
 const WPIcon = () => {
   return (
     <>
-      <svg viewBox="0 0 128 128" height="120" width="120">
+      <svg viewBox="0 0 128 128" height="100" width="120">
         <path
           fillRule="evenodd"
           clipRule="evenodd"

@@ -1,7 +1,7 @@
 const ReactNoTextIcon = () => {
   return (
     <>
-      <svg xmlns="http://www.w3.org/2000/svg" height="80" width="80" viewBox="0 0 569 512" version="1.1">
+      <svg xmlns="http://www.w3.org/2000/svg" height="100" width="120" viewBox="0 0 569 512" version="1.1">
         <g fill="none" fillRule="evenodd">
           <g transform="translate(-227, -256)" fill="#58C4DC" fillRule="nonzero">
             <g transform="translate(227, 256)">
