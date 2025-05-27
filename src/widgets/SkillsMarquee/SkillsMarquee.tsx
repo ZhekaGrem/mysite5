@@ -1,12 +1,16 @@
 'use client';
 
+import { useCallback, useEffect } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
+import Autoplay from 'embla-carousel-autoplay';
 import { motion } from 'framer-motion';
-import Marquee from 'react-fast-marquee';
 import Section from '@/shared/ui/Section';
 import { H } from '@/shared/ui/Htag';
-import { memo, SVGProps } from 'react';
 import { AnimatedWrapper, GeometricShape } from '@/shared/ui/AnimatedComponents';
+import { ReactNoTextIcon } from '@/shared/ui/icons/index';
+import type { SVGProps } from 'react';
 
+// Import all icons
 import {
   CssIcon,
   FigmaIcon,
@@ -16,7 +20,6 @@ import {
   GoIcon,
   HtmlIcon,
   JestIcon,
-  // JQueryIcon,
   JsIcon,
   MongodbIcon,
   NextIcon,
@@ -26,7 +29,6 @@ import {
   TailwindIcon,
   TsIcon,
   RedisIcon,
-  ReactNoTextIcon,
   DockerIcon,
   ExpressIcon,
   NodeJsIcon,
@@ -36,172 +38,188 @@ import {
   WPIcon,
 } from '@/shared/ui/icons/index';
 
-type IconType = React.FC<SVGProps<SVGSVGElement>>;
+// Types
+type IconComponent = React.FC<SVGProps<SVGSVGElement>>;
 
-interface SkillData {
-  Icon: IconType;
+interface Skill {
+  id: string;
+  Icon: IconComponent;
   name: string;
-
   proficiency: number;
   color: string;
 }
 
-const SKILLSDATA: SkillData[] = [
-  { Icon: ReactNoTextIcon, name: 'React', proficiency: 95, color: 'rgb(97, 218, 251)' },
-  { Icon: NextIcon, name: 'Next.js', proficiency: 90, color: 'rgb(0, 0, 0)' },
-  { Icon: TsIcon, name: 'TypeScript', proficiency: 85, color: 'rgb(49, 120, 198)' },
-  { Icon: JsIcon, name: 'JavaScript', proficiency: 95, color: 'rgb(240, 219, 79)' },
-  { Icon: TailwindIcon, name: 'Tailwind', proficiency: 90, color: 'rgb(56, 189, 248)' },
-  { Icon: CssIcon, name: 'CSS3', proficiency: 88, color: 'rgb(21, 114, 182)' },
-  { Icon: HtmlIcon, name: 'HTML5', proficiency: 95, color: 'rgb(228, 77, 38)' },
-  { Icon: GitHubIcon, name: 'GitHub', proficiency: 85, color: 'rgb(36, 41, 47)' },
-  { Icon: GitIcon, name: 'Git', proficiency: 80, color: 'rgb(240, 80, 50)' },
-  { Icon: FigmaIcon, name: 'Figma', proficiency: 75, color: 'rgb(162, 89, 255)' },
-  { Icon: FirebaseIcon, name: 'Firebase', proficiency: 70, color: 'rgb(255, 160, 0)' },
-  { Icon: MongodbIcon, name: 'MongoDB', proficiency: 75, color: 'rgb(71, 162, 72)' },
-  {
-    Icon: PostgreIcon,
-    name: 'PostgreSQL',
-
-    proficiency: 70,
-    color: 'rgb(51, 103, 145)',
-  },
-  { Icon: RedisIcon, name: 'Redis', proficiency: 65, color: 'rgb(164, 30, 17)' },
-  { Icon: JestIcon, name: 'Jest', proficiency: 80, color: 'rgb(153, 66, 91)' },
-  { Icon: PythonIcon, name: 'Python', proficiency: 60, color: 'rgb(55, 118, 171)' },
-  { Icon: PhpIcon, name: 'PHP', proficiency: 55, color: 'rgb(120, 123, 182)' },
-  { Icon: GoIcon, name: 'Go', proficiency: 50, color: 'rgb(0, 172, 215)' },
-  // { Icon: JQueryIcon, name: 'jQuery',   proficiency: 70, color: 'rgb(8, 104, 172)' },
-  { Icon: DockerIcon, name: 'Docker', proficiency: 40, color: 'rgb(1, 155, 198)' },
-  { Icon: ExpressIcon, name: 'Express', proficiency: 50, color: 'rgb(68, 68, 68)' },
-  { Icon: NodeJsIcon, name: 'Nodejs', proficiency: 70, color: 'rgb(89, 169, 70)' },
-  { Icon: V8Icon, name: 'V8', proficiency: 40, color: 'rgb(72, 137, 244)' },
-  { Icon: AWSIcon, name: 'AWS', proficiency: 60, color: 'rgb(255, 153, 0)' },
-  { Icon: GraphQlIcon, name: 'GraphQL', proficiency: 60, color: 'rgb(228, 52, 170)' },
-  { Icon: WPIcon, name: 'WordPress', proficiency: 40, color: 'rgb(73, 73, 73)' },
-  { Icon: ReactNoTextIcon, name: 'React', proficiency: 95, color: 'rgb(97, 218, 251)' },
-  { Icon: NextIcon, name: 'Next.js', proficiency: 90, color: 'rgb(0, 0, 0)' },
-  { Icon: TsIcon, name: 'TypeScript', proficiency: 85, color: 'rgb(49, 120, 198)' },
-  { Icon: JsIcon, name: 'JavaScript', proficiency: 95, color: 'rgb(240, 219, 79)' },
-  { Icon: TailwindIcon, name: 'Tailwind', proficiency: 90, color: 'rgb(56, 189, 248)' },
-  { Icon: CssIcon, name: 'CSS3', proficiency: 88, color: 'rgb(21, 114, 182)' },
-  { Icon: HtmlIcon, name: 'HTML5', proficiency: 95, color: 'rgb(228, 77, 38)' },
-  { Icon: GitHubIcon, name: 'GitHub', proficiency: 85, color: 'rgb(36, 41, 47)' },
-  { Icon: GitIcon, name: 'Git', proficiency: 80, color: 'rgb(240, 80, 50)' },
-  { Icon: FigmaIcon, name: 'Figma', proficiency: 75, color: 'rgb(162, 89, 255)' },
-  { Icon: FirebaseIcon, name: 'Firebase', proficiency: 70, color: 'rgb(255, 160, 0)' },
-  { Icon: MongodbIcon, name: 'MongoDB', proficiency: 75, color: 'rgb(71, 162, 72)' },
-  {
-    Icon: PostgreIcon,
-    name: 'PostgreSQL',
-
-    proficiency: 70,
-    color: 'rgb(51, 103, 145)',
-  },
-  { Icon: RedisIcon, name: 'Redis', proficiency: 65, color: 'rgb(164, 30, 17)' },
-  { Icon: JestIcon, name: 'Jest', proficiency: 80, color: 'rgb(153, 66, 91)' },
-  { Icon: PythonIcon, name: 'Python', proficiency: 60, color: 'rgb(55, 118, 171)' },
-  { Icon: PhpIcon, name: 'PHP', proficiency: 55, color: 'rgb(120, 123, 182)' },
-  { Icon: GoIcon, name: 'Go', proficiency: 50, color: 'rgb(0, 172, 215)' },
-  // { Icon: JQueryIcon, name: 'jQuery',   proficiency: 70, color: 'rgb(8, 104, 172)' },
-  { Icon: DockerIcon, name: 'Docker', proficiency: 40, color: 'rgb(1, 155, 198)' },
-  { Icon: ExpressIcon, name: 'Express', proficiency: 50, color: 'rgb(68, 68, 68)' },
-  { Icon: NodeJsIcon, name: 'Nodejs', proficiency: 70, color: 'rgb(89, 169, 70)' },
-  { Icon: V8Icon, name: 'V8', proficiency: 40, color: 'rgb(72, 137, 244)' },
-  { Icon: AWSIcon, name: 'AWS', proficiency: 60, color: 'rgb(255, 153, 0)' },
-  { Icon: GraphQlIcon, name: 'GraphQL', proficiency: 60, color: 'rgb(228, 52, 170)' },
-  { Icon: WPIcon, name: 'WordPress', proficiency: 40, color: 'rgb(73, 73, 73)' },
+// Skills data - should be in entities/skill/model/constants.ts
+const SKILLS_DATA: Skill[] = [
+  { id: 'nextjs', Icon: NextIcon, name: 'Next.js', proficiency: 90, color: '#000000' },
+  { id: 'typescript', Icon: TsIcon, name: 'TypeScript', proficiency: 85, color: '#3178c6' },
+  { id: 'javascript', Icon: JsIcon, name: 'JavaScript', proficiency: 95, color: '#f0db4f' },
+  { id: 'tailwind', Icon: TailwindIcon, name: 'Tailwind', proficiency: 90, color: '#38bdf8' },
+  { id: 'css3', Icon: CssIcon, name: 'CSS3', proficiency: 88, color: '#1572b6' },
+  { id: 'html5', Icon: HtmlIcon, name: 'HTML5', proficiency: 95, color: '#e44d26' },
+  { id: 'github', Icon: GitHubIcon, name: 'GitHub', proficiency: 85, color: '#24292f' },
+  { id: 'git', Icon: GitIcon, name: 'Git', proficiency: 80, color: '#f05032' },
+  { id: 'figma', Icon: FigmaIcon, name: 'Figma', proficiency: 75, color: '#a259ff' },
+  { id: 'firebase', Icon: FirebaseIcon, name: 'Firebase', proficiency: 70, color: '#ffa000' },
+  { id: 'mongodb', Icon: MongodbIcon, name: 'MongoDB', proficiency: 75, color: '#47a248' },
+  { id: 'postgresql', Icon: PostgreIcon, name: 'PostgreSQL', proficiency: 70, color: '#336791' },
+  { id: 'redis', Icon: RedisIcon, name: 'Redis', proficiency: 65, color: '#a41e11' },
+  { id: 'jest', Icon: JestIcon, name: 'Jest', proficiency: 80, color: '#99425b' },
+  { id: 'python', Icon: PythonIcon, name: 'Python', proficiency: 60, color: '#3776ab' },
+  { id: 'php', Icon: PhpIcon, name: 'PHP', proficiency: 55, color: '#787cb6' },
+  { id: 'go', Icon: GoIcon, name: 'Go', proficiency: 50, color: '#00acd7' },
+  { id: 'docker', Icon: DockerIcon, name: 'Docker', proficiency: 40, color: '#019bc6' },
+  { id: 'express', Icon: ExpressIcon, name: 'Express', proficiency: 50, color: '#444444' },
+  { id: 'nodejs', Icon: NodeJsIcon, name: 'Node.js', proficiency: 70, color: '#59a946' },
+  { id: 'v8', Icon: V8Icon, name: 'V8', proficiency: 40, color: '#4889f4' },
+  { id: 'aws', Icon: AWSIcon, name: 'AWS', proficiency: 60, color: '#ff9900' },
+  { id: 'graphql', Icon: GraphQlIcon, name: 'GraphQL', proficiency: 60, color: '#e434aa' },
+  { id: 'wordpress', Icon: WPIcon, name: 'WordPress', proficiency: 40, color: '#494949' },
 ];
 
-// Simplified skill item for better marquee performance
-const SkillItem = memo(({ skill }: { skill: SkillData }) => {
+// Skill item component
+const SkillItem = ({ skill }: { skill: Skill }) => {
+  const { Icon, name, proficiency, color } = skill;
+
   return (
-    <div
-      className="mx-4 md:mx-4"
-      aria-label={`${skill.name} - ${skill.proficiency}% proficiency`}
-      title={`${skill.name} - ${skill.proficiency}%`}>
-      <div className="group relative flex min-w-[120px] flex-col items-center overflow-hidden rounded-lg border-2 border-double border-white/20 bg-white/10 p-4 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white/40 hover:bg-white/20 hover:shadow-lg dark:border-gray-800/40 dark:bg-gray-800/20 dark:hover:border-gray-700/60 dark:hover:bg-gray-800/40 md:min-w-[140px] md:p-6">
-        {/* Background color on hover */}
+    <div className="embla__slide m-15 min-w-0 max-w-40 flex-[0_0_100%] px-2 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_10%]">
+      <motion.div
+        className="group relative flex h-full flex-col items-center justify-between overflow-hidden rounded-lg border-2 border-white/20 bg-white/10 p-4 backdrop-blur-sm transition-all hover:border-white/40 hover:bg-white/20 hover:shadow-lg dark:border-gray-800/40 dark:bg-gray-800/20 dark:hover:border-gray-700/60 dark:hover:bg-gray-800/40"
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: 'spring', stiffness: 300 }}>
+        {/* Hover background */}
         <div
-          className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-10"
-          style={{ backgroundColor: skill.color }}
+          className="absolute inset-0 opacity-0 transition-opacity group-hover:opacity-10"
+          style={{ backgroundColor: color }}
         />
 
-        {/* Icon with CSS animation */}
-        <div className="relative mb-3 transition-transform duration-300 group-hover:scale-110">
-          <skill.Icon />
+        {/* Icon */}
+        <div className="relative mb-3 transition-transform group-hover:scale-110">
+          <Icon className="h-10 w-10 md:h-12 md:w-12" />
           <div
-            className="absolute inset-0 rounded-full opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-30"
-            style={{ backgroundColor: skill.color }}
+            className="absolute inset-0 rounded-full opacity-0 blur-lg transition-opacity group-hover:opacity-30"
+            style={{ backgroundColor: color }}
           />
         </div>
 
-        {/* Skill name */}
-        <h3 className="relative z-10 mb-2 text-center text-sm font-semibold text-gray-800 transition-colors duration-200 group-hover:text-gray-900 dark:text-gray-200 dark:group-hover:text-white md:text-base">
-          {skill.name}
-        </h3>
+        {/* Content */}
+        <div className="flex w-full flex-col items-center">
+          <h3 className="mb-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200 md:text-base">
+            {name}
+          </h3>
 
-        {/* Proficiency bar */}
-        <div className="relative z-10 mt-3 h-1 w-full overflow-hidden rounded bg-gray-200/60 dark:bg-gray-700/60">
-          <div
-            className="h-full rounded transition-all duration-500 group-hover:opacity-100"
-            style={{
-              backgroundColor: skill.color,
-              width: `${skill.proficiency}%`,
-              opacity: 0.8,
-            }}
-          />
-        </div>
-
-        {/* Proficiency text */}
-        <span className="relative z-10 mt-2 font-mono text-xs text-gray-600 opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:text-gray-400">
-          {skill.proficiency}%
-        </span>
-      </div>
-    </div>
-  );
-});
-
-SkillItem.displayName = 'SkillItem';
-
-const SkillsMarquee = () => {
-  return (
-    <Section className="relative overflow-hidden py-20">
-      {/* Simplified background animation */}
-      <div className="absolute left-1/4 top-0 opacity-5">
-        <GeometricShape shape="circle" size={200} color="rgb(42, 157, 143)" />
-      </div>
-
-      <div className="relative z-10">
-        {/* Section Header */}
-        <AnimatedWrapper animation="fadeInUp" className="mb-16 text-center">
-          <div className="inline-flex items-center gap-3">
+          {/* Progress bar */}
+          <div className="mt-3 h-1 w-full overflow-hidden rounded bg-gray-200/60 dark:bg-gray-700/60">
             <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}>
-              <ReactNoTextIcon />
-            </motion.div>
-            <H h="h2" className="m-auto">
-              Technical Skills
-            </H>
+              className="h-full rounded"
+              initial={{ width: 0 }}
+              whileInView={{ width: `${proficiency}%` }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2 }}
+              style={{ backgroundColor: color, opacity: 0.8 }}
+            />
           </div>
 
-          <p className="mx-auto mb-8 max-w-3xl text-lg text-gray-600 dark:text-gray-400">
-            Technologies and tools I use to bring ideas to life
-          </p>
-        </AnimatedWrapper>
-
-        {/* Marquee with proper configuration */}
-        <div className="w-full">
-          <Marquee speed={40} delay={0} direction="right">
-            {SKILLSDATA.map((skill, index) => (
-              <SkillItem key={`skill-${skill.name}-${index}`} skill={skill} />
-            ))}
-          </Marquee>
+          {/* Proficiency text */}
+          <span className="mt-2 font-mono text-xs text-gray-600 opacity-0 transition-opacity group-hover:opacity-100 dark:text-gray-400">
+            {proficiency}%
+          </span>
         </div>
+      </motion.div>
+    </div>
+  );
+};
+
+const SkillsSlider = () => {
+  // Embla setup with autoplay
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: 'start',
+      skipSnaps: false,
+      dragFree: true,
+    },
+    [
+      Autoplay({
+        delay: 4000,
+        stopOnInteraction: false,
+      }),
+    ]
+  );
+
+  // Navigation handlers
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowLeft') scrollPrev();
+      if (e.key === 'ArrowRight') scrollNext();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [scrollNext, scrollPrev]);
+
+  return (
+    <Section className="relative overflow-hidden pt-20">
+      {/* Background decoration */}
+      <div className="absolute left-1/4 top-0 opacity-5">
+        <GeometricShape shape="circle" size={200} color="#2a9d8f" />
+      </div>
+
+      {/* Header */}
+      <AnimatedWrapper animation="fadeInUp" className="mb-16 text-center">
+        <div className="inline-flex items-center gap-3">
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}>
+            <ReactNoTextIcon />
+          </motion.div>
+          <H h="h2">Technical Skills</H>
+        </div>
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600 dark:text-gray-400">
+          Technologies and tools I use to bring ideas to life
+        </p>
+      </AnimatedWrapper>
+
+      {/* Slider */}
+      <div className="group relative border-y border-border-light py-10 dark:border-border-dark">
+        <div className="embla overflow-hidden" ref={emblaRef}>
+          <div className="embla__container flex">
+            {SKILLS_DATA.map((skill) => (
+              <SkillItem key={skill.id} skill={skill} />
+            ))}
+          </div>
+        </div>
+
+        {/* Navigation buttons - hidden on mobile */}
+        <button
+          onClick={scrollPrev}
+          className="absolute -left-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/80 p-3 opacity-0 shadow-lg transition-all hover:bg-white group-hover:opacity-100 dark:bg-gray-800/80 dark:hover:bg-gray-800 md:block"
+          aria-label="Previous skills">
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+
+        <button
+          onClick={scrollNext}
+          className="absolute -right-4 top-1/2 hidden -translate-y-1/2 rounded-full bg-white/80 p-3 opacity-0 shadow-lg transition-all hover:bg-white group-hover:opacity-100 dark:bg-gray-800/80 dark:hover:bg-gray-800 md:block"
+          aria-label="Next skills">
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
       </div>
     </Section>
   );
 };
 
-export default SkillsMarquee;
+export default SkillsSlider;

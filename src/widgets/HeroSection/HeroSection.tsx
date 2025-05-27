@@ -234,25 +234,6 @@ const HeroSection = () => {
           </motion.div>
         </motion.div>
       </ParallaxElement>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 3, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          className="flex flex-col items-center gap-2 text-surface-light/60 dark:text-surface-dark/60">
-          <span className="text-sm uppercase tracking-widest">Scroll</span>
-          <motion.div
-            className="h-8 w-px bg-current"
-            animate={{ scaleY: [1, 0.5, 1] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          />
-        </motion.div>
-      </motion.div>
     </Section>
   );
 };

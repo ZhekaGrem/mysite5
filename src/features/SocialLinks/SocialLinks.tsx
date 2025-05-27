@@ -3,7 +3,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import {  Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Twitter } from 'lucide-react';
 import WhatsappIcon from './WhatsappIcon';
 import TelegramIcon from './TelegramIcon';
 
@@ -126,7 +126,7 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
           animate="visible"
           exit="exit"
           variants={sideVariants}
-          className="fixed left-6 top-1/2 z-40 flex -translate-y-1/2 flex-col gap-6">
+          className="fixed left-4 top-1/3 z-40 flex -translate-y-1/2 flex-col gap-6">
           {socialLinks.map(({ Icon, href, label }) => (
             <motion.a
               key={label}

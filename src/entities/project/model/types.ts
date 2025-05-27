@@ -1,19 +1,18 @@
 export interface ProjectType {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-    tags: string[];
-    category: string;
-    demoUrl?: string;
-    githubUrl?: string;
-    featured: boolean;
-  }
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  category: string;
+
+  featured: boolean;
+}
 
 export interface ProjectListProps {
-    projects: ProjectType[];
-  }
+  projects: ProjectType[];
+}
 
 export interface ProjectCardProps {
-    project: ProjectType;
-  }
+  project: ProjectType;
+}

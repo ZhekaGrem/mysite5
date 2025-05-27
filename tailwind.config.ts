@@ -15,9 +15,14 @@ module.exports = {
             animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)',
           },
         },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
       },
       animation: {
         'bounce-x': 'bounceX 1s infinite',
+        marquee: 'marquee 30s linear infinite',
       },
       colors: {
         // Dark theme

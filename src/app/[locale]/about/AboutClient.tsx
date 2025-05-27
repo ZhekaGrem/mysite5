@@ -554,11 +554,6 @@ const AboutClient = () => {
                 <p className="relative z-10">{advantage.desc}</p>
 
                 {/* Geometric accent */}
-                <motion.div
-                  className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100"
-                  transition={{ duration: 0.3 }}>
-                  <GeometricShape shape="circle" size={20} color={advantage.color} />
-                </motion.div>
               </HoverCard>
             </StaggeredItem>
           ))}

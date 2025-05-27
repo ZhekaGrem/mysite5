@@ -2,12 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { Github, Link as LinkIcon } from 'lucide-react';
-import { Button } from '@/shared/ui/button';
 import { ProjectCardProps } from '@/entities/project/model/types';
-import Link from 'next/link';
-
-
 
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
@@ -46,32 +41,6 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         <p className="mb-4 flex-1 text-gray-600 dark:text-gray-400">{project.description}</p>
 
         {/* Links */}
-        <div className="mt-auto flex gap-4">
-          {project.demoUrl && (
-            <Button variant="outline" asChild>
-              <Link
-                href={project.demoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2">
-                <LinkIcon size={16} />
-                Live Demo
-              </Link>
-            </Button>
-          )}
-          {project.githubUrl && (
-            <Button variant="outline" asChild>
-              <Link
-                href={project.githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2">
-                <Github size={16} />
-                Code
-              </Link>
-            </Button>
-          )}
-        </div>
       </div>
     </motion.article>
   );

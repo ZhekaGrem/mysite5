@@ -1,4 +1,3 @@
-// src/widgets/StatsSection/ui/StatsSection.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -162,13 +161,6 @@ const StatCard = ({ stat, index }: { stat: SkillData; index: number }) => {
       {/* Description */}
       <p className="relative z-10 text-sm text-gray-600 dark:text-gray-400">{stat.description}</p>
 
-      {/* Floating geometric accent */}
-      <motion.div
-        className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100"
-        transition={{ duration: 0.3 }}>
-        <GeometricShape shape="circle" size={12} color={stat.color} />
-      </motion.div>
-
       {/* Animated line accent */}
       <motion.div
         className="absolute bottom-0 left-0 h-1 w-full origin-left hover:scale-100"
@@ -221,8 +213,8 @@ export const StatsSection = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.3 }}>
             <motion.div
-              animate={{ rotate: [0, 360] }}
-              transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}>
+              animate={{ rotate: [-22, 12, -22] }}
+              transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}>
               <Award className="h-8 w-8 text-surface-light dark:text-surface-dark" />
             </motion.div>
             <H h="h2">Achievements & Experience</H>

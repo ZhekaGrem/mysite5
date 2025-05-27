@@ -168,31 +168,6 @@ const ContactsSection = () => {
             </motion.div>
           </motion.div>
         </AnimatedWrapper>
-
-        {/* Additional decorative elements */}
-        <motion.div
-          className="mt-12 flex items-center justify-center gap-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 1, delay: 0.8 }}>
-          {[...Array(5)].map((_, i) => (
-            <motion.div
-              key={i}
-              animate={{
-                y: [0, -10, 0],
-                opacity: [0.3, 1, 0.3],
-              }}
-              transition={{
-                duration: 2,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: i * 0.2,
-              }}>
-              <GeometricShape shape="circle" size={4} color="rgb(42, 157, 143)" />
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
     </Section>
   );

@@ -9,7 +9,7 @@ import { routing } from '@/shared/i18n/routing';
 import { ThemeProvider } from 'next-themes';
 import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';
-// import ChatWidget from '@/features/AiChat/ui/ChatWidget';
+import ChatWidget from '@/features/AiChat/ui/ChatWidget';
 import Sidebar from '@/widgets/Sidebar/Sidebar';
 import { siteViewport, siteMetadata } from './metadata';
 // import Head from 'next/head';
@@ -89,7 +89,7 @@ export default async function RootLayout({
             <Sidebar />
             <main>{children}</main>
             <Footer />
-            {/* <ChatWidget /> */}
+            <ChatWidget />
             <GoogleAnalytics gaId="G-1S9YR0G6C6" />
           </NextIntlClientProvider>
         </ThemeProvider>
