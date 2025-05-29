@@ -1,12 +1,10 @@
-// src/features/AiChat/ui/ChatWidget.tsx
 'use client';
-
 import { useState, useRef, useEffect } from 'react';
-import { useChatStore } from '../model/store';
-import { sendChatMessage } from '../api/chatApi';
-import { ChatIcon } from './ChatIcon';
-import { ChatWindow } from './ChatWindow';
-import { ChatInput } from './ChatInput';
+import { useChatStore } from '@/features/AiChat/model/store';
+import { sendChatMessage } from '@/features/AiChat/api/chatApi';
+import { ChatIcon } from '@/features/AiChat/ui/ChatIcon';
+import { ChatWindow } from '@/features/AiChat/ui/ChatWindow';
+import { ChatInput } from '@/features/AiChat/ui/ChatInput';
 import { H } from '@/shared/ui/Htag';
 
 function ChatWidget() {
@@ -52,13 +50,13 @@ function ChatWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-6 right-6 z-50 transition-colors delay-150 duration-200">
       {/* Chat Toggle Button */}
       <button
         onClick={toggleChat}
         className={`h-14 w-14 rounded-full shadow-lg transition-all duration-300 hover:scale-105 ${
           isOpen
-            ? 'bg-red-500 hover:bg-red-500'
+            ? 'bg-gradient-to-br from-highlight-light to-accent-light hover:bg-red-500 dark:from-highlight-dark dark:to-accent-dark'
             : 'bg-gradient-to-r from-accent-light to-highlight-light hover:shadow-xl dark:from-accent-dark dark:to-highlight-dark'
         } flex items-center justify-center text-white`}
         aria-label={isOpen ? 'Закрити чат' : 'Відкрити чат'}>
@@ -103,19 +101,6 @@ function ChatWidget() {
           />
         </div>
       )}
-
-      <style jsx>{`
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
     </div>
   );
 }

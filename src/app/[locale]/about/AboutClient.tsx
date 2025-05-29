@@ -15,111 +15,8 @@ import {
   GeometricShape,
 } from '@/shared/ui/AnimatedComponents';
 
-interface Technical {
-  name: string;
-  level: number;
-  color: string;
-}
-interface Languages {
-  name: string;
-  level: string;
-  proficiency: number;
-}
-
-interface SkillData {
-  technical: Technical[];
-  languages: Languages[];
-}
-
-// Skills data with enhanced structure
-const SKILLS_DATA: SkillData = {
-  technical: [
-    { name: 'Frontend Development', level: 90, color: 'rgb(42, 157, 143)' },
-    { name: 'React/Next.js', level: 95, color: 'rgb(178, 255, 158)' },
-    { name: 'TypeScript', level: 85, color: 'rgb(175, 252, 65)' },
-    { name: 'UI/UX Design', level: 80, color: 'rgb(29, 211, 176)' },
-    { name: 'Backend Integration', level: 75, color: 'rgb(38, 70, 83)' },
-    { name: 'Performance Optimization', level: 85, color: 'rgb(231, 111, 81)' },
-  ],
-  languages: [
-    { name: 'Ukrainian', level: 'Native', proficiency: 100 },
-    { name: 'English', level: 'Professional', proficiency: 90 },
-    { name: 'Polish', level: 'Intermediate', proficiency: 70 },
-  ],
-};
-
-interface WorkValues {
-  title: string;
-  description: string;
-  icon: string;
-  metrics: string[];
-}
-
-const WORK_VALUES: WorkValues[] = [
-  {
-    title: 'Clean Code Craftsman',
-    description:
-      'I write self-documenting code with clear naming conventions and modular architecture. My codebase consistently scores over 90% on maintainability metrics, reducing technical debt by 35% on recent projects.',
-    icon: '🛠️',
-    metrics: ['90%+ maintainability', '35% less tech debt'],
-  },
-  {
-    title: 'User Experience Engineer',
-    description:
-      "Every feature I build starts with user research and journey mapping. I've reduced bounce rates by 28% through performance optimizations and intuitive UI design.",
-    icon: '🎨',
-    metrics: ['28% bounce rate reduction', 'User-first approach'],
-  },
-  {
-    title: 'Performance Optimization Specialist',
-    description:
-      "I've cut average page load times from 4.2s to under 1.5s through strategic code splitting, asset optimization, and caching strategies.",
-    icon: '⚡',
-    metrics: ['4.2s → 1.5s load time', '60fps animations'],
-  },
-];
-interface Hobbies {
-  title: string;
-  desc: string;
-  icon: string;
-  details: string;
-  color: string;
-}
-
-const HOBBIES: Hobbies[] = [
-  {
-    title: 'Gaming',
-    desc: 'Strategy & RPG enthusiast',
-    icon: '🎮',
-    details:
-      'Particularly interested in games that challenge strategic thinking and problem-solving abilities. Currently exploring game development as a hobby.',
-    color: 'rgb(42, 157, 143)',
-  },
-  {
-    title: 'Hiking',
-    desc: 'Nature exploration',
-    icon: '🏔️',
-    details:
-      'Regular mountain trips and nature photography. Completed 12 major trails across different landscapes and terrains.',
-    color: 'rgb(178, 255, 158)',
-  },
-  {
-    title: 'Fitness',
-    desc: 'Strength training',
-    icon: '💪',
-    details:
-      'Dedicated to maintaining both physical and mental health through regular workout routines and yoga practices.',
-    color: 'rgb(175, 252, 65)',
-  },
-  {
-    title: 'Reading',
-    desc: 'Tech & Science books',
-    icon: '📚',
-    details:
-      'Always expanding knowledge through technical literature, science journals, and industry publications. Active member of two book clubs.',
-    color: 'rgb(29, 211, 176)',
-  },
-];
+import { WORK_VALUES, SKILLS_DATA, HOBBIES } from '@/entities/skill/model/constants';
+import type { Technical, WorkValues } from '@/entities/skill/model/types';
 
 // Enhanced skill bar component
 const AnimatedSkillBar = ({ skill, index }: { skill: Technical; index: number }) => {
@@ -206,7 +103,7 @@ const WorkValueCard = ({ value, index }: { value: WorkValues; index: number }) =
     <motion.div
       ref={cardRef}
       style={{ x }}
-      className="relative mx-10 grid grid-cols-12 gap-4 border-t-2 border-surface-light pt-8 dark:border-surface-dark"
+      className="relative mx-10 grid grid-cols-12 gap-4 border-t-2 border-border-light pt-8 dark:border-border-dark"
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}>
       {/* Enhanced number indicator with hover effect */}
@@ -223,24 +120,18 @@ const WorkValueCard = ({ value, index }: { value: WorkValues; index: number }) =
       {/* Content with enhanced animations */}
       <div className={`col-span-11 ${index % 2 === 0 ? 'pl-8' : 'pr-8'}`}>
         <motion.div animate={{ y: isHovered ? -5 : 0 }} transition={{ duration: 0.3 }}>
-          <div className="mb-4 flex items-center gap-4">
-            <motion.span
-              className="text-3xl"
-              animate={{ rotate: isHovered ? 10 : 0 }}
-              transition={{ duration: 0.3 }}>
-              {value.icon}
-            </motion.span>
+          <div className="mb-4 flex max-w-52 items-center gap-4 text-center md:max-w-full md:text-start">
             <H h="h3" className="text-2xl font-bold">
               {value.title}
             </H>
           </div>
 
           <div
-            className={`relative ${index % 2 === 0 ? 'border-l-4' : 'border-r-4'} border-surface-light px-6 dark:border-surface-dark`}>
-            <p className="mb-4 text-gray-600 dark:text-gray-400">{value.description}</p>
+            className={`relative ${index % 2 === 0 ? 'border-l-4' : 'border-r-4'} border-highlight-light px-6 dark:border-highlight-dark`}>
+            <p className="mb-4 hidden text-gray-600 dark:text-gray-400 md:block">{value.description}</p>
 
             {/* Metrics badges */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-5 md:gap-2">
               {value.metrics.map((metric: string, i: number) => (
                 <motion.span
                   key={i}
@@ -262,9 +153,7 @@ const WorkValueCard = ({ value, index }: { value: WorkValues; index: number }) =
           scale: isHovered ? 1.2 : 1,
           opacity: isHovered ? 1 : 0.5,
         }}
-        transition={{ duration: 0.3 }}>
-        <GeometricShape shape="circle" size={12} color="rgb(42, 157, 143)" />
-      </motion.div>
+        transition={{ duration: 0.3 }}></motion.div>
     </motion.div>
   );
 };
@@ -274,9 +163,9 @@ const AboutClient = () => {
     <>
       {/* Hero Section with Parallax */}
       <ParallaxElement speed={0.2} className="pt-20">
-        <Section className="grid min-h-[70vh] grid-cols-1 items-center gap-12 md:grid-cols-2">
+        <Section className="grid min-h-[70vh] grid-cols-1 items-center gap-12 px-6 md:grid-cols-2">
           <AnimatedWrapper animation="fadeInLeft" className="order-2 md:order-1">
-            <H h="h1" className="mb-8">
+            <H h="h1" className="mb-8 text-center md:text-start">
               About Me
             </H>
 
@@ -313,7 +202,7 @@ const AboutClient = () => {
 
               {/* Animated border accent */}
               <motion.div
-                className="absolute -inset-2 border-2 border-surface-light dark:border-surface-dark"
+                className="absolute -inset-2 border-2 border-border-light dark:border-border-dark"
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 0.6 }}
                 viewport={{ once: true }}
@@ -325,14 +214,14 @@ const AboutClient = () => {
       </ParallaxElement>
 
       {/* Skills Section with Enhanced Animations */}
-      <Section className="my-24">
+      <Section className="my-12 md:my-24">
         <StaggeredContainer className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div className="col-span-2">
             <StaggeredItem>
-              <H h="h2" className="mb-8">
+              <H h="h2" className="mb-8 text-center md:text-start">
                 Technical Expertise
               </H>
-              <GeometricShape shape="line" size={80} color="rgb(42, 157, 143)" className="mb-8" />
+              <GeometricShape shape="line" size={80} className="mb-8 text-h2-light dark:text-h2-dark" />
             </StaggeredItem>
 
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
@@ -347,16 +236,16 @@ const AboutClient = () => {
           {/* Languages with enhanced styling */}
           <div>
             <StaggeredItem>
-              <H h="h2" className="mb-8">
+              <H h="h2" className="mb-8 text-center md:text-start">
                 Languages
               </H>
-              <GeometricShape shape="line" size={60} color="rgb(178, 255, 158)" className="mb-8" />
+              <GeometricShape shape="line" size={60} className="mb-8 text-h2-light dark:text-h2-dark" />
             </StaggeredItem>
 
             <div className="space-y-6">
               {SKILLS_DATA.languages.map((lang, index) => (
                 <StaggeredItem key={lang.name}>
-                  <HoverCard className="border-l-4 border-surface-light p-4 dark:border-surface-dark">
+                  <HoverCard className="border-l-4 border-border-light p-4 dark:border-border-dark">
                     <H h="h3" className="text-xl font-semibold">
                       {lang.name}
                     </H>
@@ -385,7 +274,7 @@ const AboutClient = () => {
       </Section>
 
       {/* Work Values Section */}
-      <Section className="my-24">
+      <Section className="my-12 md:my-24">
         <AnimatedWrapper animation="fadeInUp" className="mb-16 text-center">
           <H h="h2">Work Values & Engineering Philosophy</H>
           <motion.div
@@ -397,7 +286,7 @@ const AboutClient = () => {
           />
         </AnimatedWrapper>
 
-        <div className="space-y-16">
+        <div className="space-y-16 text-pretty">
           {WORK_VALUES.map((value, index) => (
             <WorkValueCard key={value.title} value={value} index={index} />
           ))}
@@ -405,7 +294,7 @@ const AboutClient = () => {
       </Section>
 
       {/* Interests & HOBBIES with Timeline Layout */}
-      <Section className="relative my-24">
+      <Section className="relative my-12 md:my-24">
         {/* Central animated line */}
         <motion.div
           className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-gradient-to-b from-surface-light to-transparent dark:from-surface-dark"
@@ -447,7 +336,7 @@ const AboutClient = () => {
                         {hobby.title}
                       </H>
                       <p className="mb-4 text-gray-600 dark:text-gray-400">{hobby.desc}</p>
-                      <p className="text-sm leading-relaxed">{hobby.details}</p>
+                      <p className="hidden text-sm leading-relaxed md:block">{hobby.details}</p>
                     </HoverCard>
                   </div>
 
@@ -498,7 +387,7 @@ const AboutClient = () => {
                         {hobby.title}
                       </H>
                       <p className="mb-4 text-gray-600 dark:text-gray-400">{hobby.desc}</p>
-                      <p className="text-sm leading-relaxed">{hobby.details}</p>
+                      <p className="hidden text-sm leading-relaxed md:block">{hobby.details}</p>
                     </HoverCard>
                   </div>
                 </>
@@ -509,7 +398,7 @@ const AboutClient = () => {
       </Section>
 
       {/* Advantages Section with Cards */}
-      <Section className="my-24">
+      <Section className="my-12 px-6 md:my-24">
         <AnimatedWrapper animation="fadeInUp" className="mb-12 text-center">
           <H h="h2">Why Work With Me</H>
         </AnimatedWrapper>

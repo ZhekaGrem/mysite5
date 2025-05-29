@@ -2,12 +2,9 @@
 import { Metadata } from 'next';
 import InfoClient from './InfoClient';
 import { getTranslations } from 'next-intl/server';
+import type { PropsPage } from '@/shared/types/Page.props';
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PropsPage): Promise<Metadata> {
   // Дочекаємося резолву params
   const { locale } = await params;
 

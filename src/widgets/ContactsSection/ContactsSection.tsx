@@ -13,7 +13,7 @@ const ContactsSection = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <Section className="relative my-20 overflow-hidden">
+    <Section className="relative my-20 overflow-hidden px-6">
       {/* Background animations */}
       <motion.div
         className="absolute left-1/4 top-0 opacity-5"
@@ -26,7 +26,7 @@ const ContactsSection = () => {
           repeat: Infinity,
           ease: 'linear',
         }}>
-        <GeometricShape shape="circle" size={200} color="rgb(42, 157, 143)" />
+        <GeometricShape shape="circle" size={200} className="text-highlight-light dark:text-highlight-dark" />
       </motion.div>
 
       <motion.div
@@ -40,7 +40,7 @@ const ContactsSection = () => {
           repeat: Infinity,
           ease: 'linear',
         }}>
-        <GeometricShape shape="square" size={150} color="rgb(178, 255, 158)" />
+        <GeometricShape shape="square" size={150} className="text-surface-light dark:text-surface-dark" />
       </motion.div>
 
       <div className="relative z-10 text-center">
@@ -134,7 +134,11 @@ const ContactsSection = () => {
                 repeat: Infinity,
                 ease: 'easeInOut',
               }}>
-              <GeometricShape shape="circle" size={12} color="rgb(42, 157, 143)" />
+              <GeometricShape
+                shape="circle"
+                size={12}
+                className="text-highlight-light dark:text-highlight-dark"
+              />
             </motion.div>
 
             <motion.div
@@ -149,7 +153,7 @@ const ContactsSection = () => {
                 ease: 'easeInOut',
                 delay: 1,
               }}>
-              <GeometricShape shape="square" size={10} color="rgb(178, 255, 158)" />
+              <GeometricShape shape="square" size={10} className="text-h1-light dark:text-h1-dark" />
             </motion.div>
 
             <motion.div
@@ -164,7 +168,7 @@ const ContactsSection = () => {
                 ease: 'easeInOut',
                 delay: 0.5,
               }}>
-              <GeometricShape shape="line" size={20} color="rgb(175, 252, 65)" />
+              <GeometricShape shape="line" size={20} className="text-h1-light dark:text-h1-dark" />
             </motion.div>
           </motion.div>
         </AnimatedWrapper>

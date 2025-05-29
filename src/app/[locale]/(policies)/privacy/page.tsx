@@ -1,11 +1,8 @@
 import { getTranslations } from 'next-intl/server';
 import PrivacyClient from './PrivacyClient';
 import { Metadata } from 'next';
-type Props = {
-  params: Promise<{ locale: string }>;
-};
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+import type { PropsPage } from '@/shared/types/Page.props';
+export async function generateMetadata({ params }: PropsPage): Promise<Metadata> {
   // Дочекаємося резолву params
   const { locale } = await params;
 

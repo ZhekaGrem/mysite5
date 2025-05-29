@@ -7,13 +7,15 @@
   --foreground: 240 10% 3.9%;
   --border: rgb(42, 157, 143);
   --shadow: rgb(17, 65, 59);
+  --shadow-sm: rgb(0, 0, 0);
 }
 
 .dark {
   --background: rgb(60, 22, 66);
   --foreground: 0 0% 98%;
   --border: rgb(175, 252, 65);
-  --shadow: rgb(179, 255, 73);
+  --shadow: rgb(60, 22, 66);
+  --shadow-sm: rgb(0, 0, 0);
 }
 
 body {
@@ -104,4 +106,7 @@ main {
 
 .shadow-text {
   text-shadow: 0 4px 4px var(--shadow);
+}
+.shadow-text-sm {
+  text-shadow: 0 2px 2px var(--shadow-sm);
 }

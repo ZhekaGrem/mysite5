@@ -7,11 +7,9 @@ import StatsSection from '@/widgets/StatsSection/StatsSection';
 import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 
-type Props = {
-  params: Promise<{ locale: string }>;
-};
+import type { PropsPage } from '@/shared/types/Page.props';
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PropsPage): Promise<Metadata> {
   // Дочекаємося резолву params
   const { locale } = await params;
 

@@ -1,14 +1,14 @@
 // src/widgets/HeroSection/HeroSection.tsx
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, lazy } from 'react';
 import { motion, Variants, useScroll, useTransform } from 'framer-motion';
-import ParticlesBackground from './ParticlesBackground';
 import { H } from '@/shared/ui/Htag';
 import Section from '@/shared/ui/Section';
 import { AnimatedButton } from '@/shared/ui/AnimatedButton';
 import { GeometricShape, ParallaxElement } from '@/shared/ui/AnimatedComponents';
 import { Link } from '@/shared/i18n/routing';
+const ParticlesBackground = lazy(() => import('./ParticlesBackground'));
 
 const title = 'INNOVATION';
 const subtitle = 'DESIGN';
@@ -78,7 +78,12 @@ const HeroSection = () => {
         initial="initial"
         animate="animate"
         className="absolute left-1/4 top-1/4 opacity-30">
-        <GeometricShape shape="circle" size={80} color="rgb(42, 157, 143)" delay={0.5} />
+        <GeometricShape
+          shape="circle"
+          size={80}
+          className="text-surface-light dark:text-surface-dark"
+          delay={0.5}
+        />
       </motion.div>
 
       <motion.div
@@ -87,23 +92,15 @@ const HeroSection = () => {
         animate="animate"
         className="absolute bottom-1/3 right-1/4 opacity-40"
         style={{ animationDelay: '2s' }}>
-        <GeometricShape shape="square" size={60} color="rgb(178, 255, 158)" delay={1} />
+        <GeometricShape
+          shape="square"
+          size={60}
+          className="text-highlight-light dark:text-highlight-dark"
+          delay={1}
+        />
       </motion.div>
 
       {/* Animated geometric lines */}
-      <motion.div
-        initial={{ scaleX: 0, opacity: 0 }}
-        animate={{ scaleX: 1, opacity: 0.6 }}
-        transition={{ duration: 1.5, delay: 2, ease: [0.215, 0.61, 0.355, 1] }}
-        className="absolute left-8 top-1/2 h-px w-32 origin-left bg-surface-light dark:bg-surface-dark"
-      />
-
-      <motion.div
-        initial={{ scaleX: 0, opacity: 0 }}
-        animate={{ scaleX: 1, opacity: 0.6 }}
-        transition={{ duration: 1.5, delay: 2.3, ease: [0.215, 0.61, 0.355, 1] }}
-        className="absolute right-8 top-1/3 h-px w-24 origin-right bg-surface-light dark:bg-surface-dark"
-      />
 
       <ParallaxElement speed={0.3} className="relative z-10">
         <motion.div style={{ y: textY }} className="grid gap-16 px-4">

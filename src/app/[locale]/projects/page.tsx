@@ -1,11 +1,10 @@
 import { getTranslations } from 'next-intl/server';
-import ProjectsClient from './ProjectsClient';
+import { lazy } from 'react';
 import { Metadata } from 'next';
-type Props = {
-  params: Promise<{ locale: string }>;
-};
+import type { PropsPage } from '@/shared/types/Page.props';
+const ProjectsClient = lazy(() => import('./ProjectsClient'));
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PropsPage): Promise<Metadata> {
   // Дочекаємося резолву params
   const { locale } = await params;
 

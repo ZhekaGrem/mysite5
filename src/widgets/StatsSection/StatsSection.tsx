@@ -135,7 +135,7 @@ const StatCard = ({ stat, index }: { stat: SkillData; index: number }) => {
 
       {/* Icon with animation */}
       <motion.div
-        className="relative z-10 mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full md:h-20 md:w-20"
+        className="relative left-32 z-10 mb-4 inline-flex h-16 w-16 items-center justify-center rounded-full md:h-20 md:w-20"
         style={{ backgroundColor: `${stat.color}20` }}
         whileHover={{ scale: 1.1, rotate: 10 }}
         transition={{ duration: 0.3 }}>
@@ -151,17 +151,19 @@ const StatCard = ({ stat, index }: { stat: SkillData; index: number }) => {
       </motion.div>
 
       {/* Counter */}
-      <div className="relative z-10 mb-2">
+      <div className="relative z-10 mb-2 text-center md:text-start">
         <AnimatedCounter value={stat.value} duration={1.5 + index * 0.2} delay={index * 0.1} />
       </div>
 
       {/* Label */}
-      <H h="h3" className="relative z-10 mb-2 text-lg font-semibold md:text-xl">
+      <H h="h3" className="relative z-10 mb-2 text-center text-lg font-semibold md:text-start md:text-xl">
         {stat.label}
       </H>
 
       {/* Description */}
-      <p className="relative z-10 text-sm text-gray-600 dark:text-gray-400">{stat.description}</p>
+      <p className="relative z-10 text-center text-sm text-gray-600 dark:text-gray-400 md:text-start">
+        {stat.description}
+      </p>
 
       {/* Animated line accent */}
       <motion.div
@@ -177,7 +179,7 @@ const StatCard = ({ stat, index }: { stat: SkillData; index: number }) => {
 
 export const StatsSection = () => {
   return (
-    <Section className="relative overflow-hidden py-20">
+    <Section className="relative overflow-hidden px-6 py-20">
       {/* Background geometric shapes */}
       <motion.div
         className="absolute left-10 top-10 opacity-5"

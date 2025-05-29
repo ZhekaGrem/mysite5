@@ -95,7 +95,7 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
         initial="hidden"
         animate={isVisible ? 'visible' : 'hidden'}
         variants={footerVariants}
-        className="grid grid-cols-1 items-center gap-6 pt-5 lg:grid-cols-2 lg:grid-rows-2">
+        className="grid grid-cols-5 items-center gap-6 pt-5 md:grid-cols-2 md:grid-rows-2">
         {socialLinks.map(({ Icon, href, label }) => (
           <motion.li
             key={label}
@@ -126,7 +126,7 @@ const SocialLinks = ({ position = 'side' }: SocialLinksProps) => {
           animate="visible"
           exit="exit"
           variants={sideVariants}
-          className="fixed left-4 top-1/3 z-40 flex -translate-y-1/2 flex-col gap-6">
+          className="fixed right-4 top-1/3 z-40 flex -translate-y-1/2 flex-col gap-6 md:left-4 md:right-auto">
           {socialLinks.map(({ Icon, href, label }) => (
             <motion.a
               key={label}

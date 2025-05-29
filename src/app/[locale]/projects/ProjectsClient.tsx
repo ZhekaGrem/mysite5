@@ -1,89 +1,9 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { ProjectType } from '@/entities/project/model/types';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { H } from '@/shared/ui/Htag';
-// Mock data stays the same
-export const PROJECTS: ProjectType[] = [
-  {
-    id: '1',
-    title: 'Automotive Service Management Platform',
-    description:
-      'Розробив інтерактивну платформу для управління автосервісами з інтуїтивним UI, оптимізованою продуктивністю та інтеграцією складних рішень для відстеження сервісних запитів.',
-    image: '/assets/projects/AUTOMOTIVE-SERVICE.png', // Зображення інформаційної панелі з графіками та метриками автосервісу
-    tags: ['React.js', 'Redux Toolkit', 'D3.js', 'JavaScript'],
-    category: 'web',
-
-    featured: true,
-  },
-  {
-    id: '2',
-    title: 'Multi-language Lumber Sales Website',
-    description:
-      'Створив та розгорнув багатомовний веб-сайт для компанії з продажу пиломатеріалів з SEO-оптимізацією та інтеграцією електронної пошти, що підвищило онлайн-присутність та залучення клієнтів.',
-    image: '/assets/projects/LUMBER-SALES.png', // Зображення елегантного веб-сайту з каталогом продукції з дерева
-    tags: ['Next.js', 'React', 'i18n', 'Sanity CMS'],
-    category: 'web',
-
-    featured: true,
-  },
-  {
-    id: '3',
-    title: 'Meme Coin Landing Pages',
-    description:
-      'Розробив привабливі лендінги для проектів мем-монет, що збільшили залучення користувачів та конверсію, з інтеграцією Telegram-бота для спрощення комунікації з клієнтами.',
-    image: '/assets/projects/MEME-COIN.png', // Яскрава, приваблива лендінг-сторінка з криптовалютною тематикою
-    tags: ['React.js', 'Next.js 14', 'Zustand', 'Tailwind', 'Telegram API'],
-    category: 'web',
-
-    featured: true,
-  },
-  {
-    id: '4',
-    title: 'Photography School Website',
-    description:
-      'Створив повноцінний веб-сайт для фотошколи у складі невеликої команди, впровадивши систему реєстрації на курси через Telegram-бота та адаптивний дизайн для всіх пристроїв.',
-    image: '/assets/projects/PHOTOGRAPHY-SCHOOL.png', // Стильний мінімалістичний веб-сайт з фотографіями високої якості
-    tags: ['React.js', 'Next.js 14', 'Tailwind', 'Node.js', 'Telegram API'],
-    category: 'web',
-
-    featured: false,
-  },
-  {
-    id: '5',
-    title: 'WordPress Custom Theme Development',
-    description:
-      'Розробив та інтегрував кастомні теми WordPress для маркетингових проектів, поєднавши сучасний фронтенд з легкістю управління контентом для клієнтів.',
-    image: '/assets/projects/WORDPRESS-CUSTOM.png', // Знімок екрану з адміністративною панеллю WordPress та кастомною темою
-    tags: ['WordPress', 'PHP', 'JavaScript', 'CSS', 'Custom Themes'],
-    category: 'web',
-
-    featured: false,
-  },
-  {
-    id: '6',
-    title: 'Apartment Rental Platform',
-    description:
-      'Розробив сучасну платформу для оренди квартир з інтерактивною мапою, системою фільтрації, та функціоналом онлайн-бронювання. Реалізував зручний кабінет користувача для орендарів та власників квартир.',
-    image: '/assets/projects/APARTMENT-RENTAL.png', // Зображення стильного інтерфейсу з картою міста та фотографіями квартир
-    tags: ['React.js', 'Next.js', 'Leaflet', 'Tailwind CSS', 'Firebase'],
-    category: 'web',
-
-    featured: true,
-  },
-  {
-    id: '7',
-    title: 'Event Management System with QR Verification',
-    description:
-      'Створив комплексну систему управління подіями з реєстрацією через Telegram-бота, адмін-панеллю для моніторингу відвідуваності, генерацією QR-кодів як електронних квитків, та веб-інтерфейсом для верифікації учасників на вході.',
-    image: '/assets/projects/EVENT-MANAGEMENT.png', // Комбіноване зображення з інтерфейсом Telegram-бота, QR-кодами та адмін-панеллю
-    tags: ['Python', 'Next.js', 'Telegram API', 'MongoDB', 'QR Code Generation'],
-    category: 'fullstack',
-
-    featured: true,
-  },
-];
+import { PROJECTS } from '@/entities/project/model/constants';
 
 const ProjectsClient = () => {
   const [currentProject, setCurrentProject] = useState(0);
@@ -195,14 +115,14 @@ const ProjectsClient = () => {
               {/* Swiss Style Content */}
               <div className="relative z-10 grid h-full grid-cols-12 gap-8 p-12">
                 {/* Project Number */}
-                <div className="col-span-2 flex items-start justify-end pt-8">
+                <div className="col-span-1 flex items-start justify-end pt-8 md:col-span-2">
                   <motion.span
                     initial={{ x: -100, opacity: 0 }}
                     animate={{
                       x: currentProject === idx ? 0 : -100,
                       opacity: currentProject === idx ? 1 : 0,
                     }}
-                    className="font-mono text-7xl font-bold text-highlight-light opacity-50 dark:text-highlight-dark">
+                    className="font-mono text-4xl font-bold text-highlight-light opacity-50 dark:text-highlight-dark md:text-7xl">
                     {String(idx + 1).padStart(2, '0')}
                   </motion.span>
                 </div>
@@ -217,7 +137,7 @@ const ProjectsClient = () => {
                     }}>
                     <H
                       h="h1"
-                      className="mb-8 font-sans text-7xl font-bold leading-none tracking-tighter text-white shadow-black">
+                      className="shadow-text mb-8 font-sans font-bold leading-none tracking-tighter md:text-7xl">
                       {project.title.toUpperCase()}
                     </H>
                   </motion.div>
@@ -228,13 +148,15 @@ const ProjectsClient = () => {
                       y: currentProject === idx ? 0 : 50,
                       opacity: currentProject === idx ? 1 : 0,
                     }}
-                    className="grid grid-cols-2 gap-8">
-                    <p className="font-sans text-lg leading-relaxed text-white/80">{project.description}</p>
-                    <div className="flex flex-wrap gap-4">
+                    className="grid grid-cols-1 gap-8 px-6 md:grid-cols-2">
+                    <p className="shadow-text-sm font-sans text-lg leading-relaxed text-white/80">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-col gap-4 md:flex-wrap">
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="max-h-10 bg-accent-light px-3 py-1 align-middle text-lg font-medium dark:bg-accent-dark">
+                          className="max-w-36 bg-primary-light px-3 py-1 align-middle text-lg font-medium dark:bg-primary-dark md:max-h-10">
                           {tag.toUpperCase()}
                         </span>
                       ))}

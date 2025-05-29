@@ -49,14 +49,14 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <H h="h3" className="text-sm font-semibold uppercase tracking-widest">
+            <H h="h3" className="text-center text-sm font-semibold uppercase tracking-widest md:text-start">
               Social
             </H>
             <SocialLinks position="footer" />
           </div>
           {/* Navigation Sections */}
           {sections.map((section) => (
-            <div key={section.title} className="flex flex-col gap-4">
+            <div key={section.title} className="flex flex-col gap-4 text-center md:text-start">
               <H h="h3" className="text-sm font-semibold uppercase tracking-widest">
                 {section.title}
               </H>

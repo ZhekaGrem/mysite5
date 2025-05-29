@@ -54,7 +54,7 @@ const AboutMeSection = () => {
           repeat: Infinity,
           ease: 'linear',
         }}>
-        <GeometricShape shape="circle" size={100} color="rgb(42, 157, 143)" />
+        <GeometricShape shape="circle" className="text-highlight-light dark:text-highlight-dark" />
       </motion.div>
 
       <StaggeredContainer className="relative z-10 grid w-full grid-cols-4 gap-4">
@@ -122,7 +122,11 @@ const AboutMeSection = () => {
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}>
-                <GeometricShape shape="circle" size={20} color="rgb(42, 157, 143)" />
+                <GeometricShape
+                  shape="circle"
+                  size={20}
+                  className="text-surface-light dark:text-surface-dark"
+                />
               </motion.div>
 
               <motion.div
@@ -137,7 +141,7 @@ const AboutMeSection = () => {
                   ease: 'easeInOut',
                   delay: 1,
                 }}>
-                <GeometricShape shape="square" size={16} color="rgb(178, 255, 158)" />
+                <GeometricShape shape="square" size={16} className="text-hover-light dark:text-hover-dark" />
               </motion.div>
             </motion.div>
           </motion.div>
@@ -147,7 +151,7 @@ const AboutMeSection = () => {
         <StaggeredItem className="col-span-4 p-4 md:col-span-2">
           <motion.div style={{ y: textY }}>
             <AnimatedWrapper animation="fadeInLeft">
-              <div className="mb-6 flex items-center gap-3">
+              <div className="mb-6 flex items-center justify-center gap-3 md:justify-start">
                 <motion.div
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
@@ -291,7 +295,8 @@ const AboutMeSection = () => {
             <div className="mb-4 flex items-center justify-center gap-3">
               <motion.div
                 animate={{ y: [-2, 2, -2] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                className="hidden md:block">
                 <Briefcase className="h-5 w-5 text-h1-light dark:text-h1-dark" />
               </motion.div>
               <H h="h3">МОЄ Резуме</H>
@@ -326,7 +331,7 @@ const AboutMeSection = () => {
                 className="mt-3 flex justify-center"
                 animate={{ scale: [1, 1.1, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}>
-                <GeometricShape shape="line" size={40} color="rgb(42, 157, 143)" />
+                <GeometricShape shape="line" size={40} className="bg-h1-light dark:bg-h1-dark" />
               </motion.div>
             </div>
           </div>

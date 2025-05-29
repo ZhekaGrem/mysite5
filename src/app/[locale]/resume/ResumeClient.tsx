@@ -78,7 +78,7 @@ const ResumeClient = () => {
               repeat: Infinity,
               ease: 'linear',
             }}>
-            <GeometricShape shape="circle" size={120} color="rgb(42, 157, 143)" />
+            <GeometricShape shape="circle" size={120} className="text-surface-light dark:text-surface-dark" />
           </motion.div>
 
           <motion.div
@@ -92,11 +92,11 @@ const ResumeClient = () => {
               repeat: Infinity,
               ease: 'easeInOut',
             }}>
-            <GeometricShape shape="square" size={80} color="rgb(178, 255, 158)" />
+            <GeometricShape shape="square" size={80} className="text-h1-light dark:text-h1-dark" />
           </motion.div>
 
           <motion.div style={{ y: headerY }} className="relative z-10">
-            <div className="mb-12 text-center">
+            <div className="mb-6 text-center md:mb-12">
               <AnimatedWrapper animation="fadeInUp">
                 <motion.div
                   className="mb-6 inline-flex items-center gap-3"
@@ -105,7 +105,7 @@ const ResumeClient = () => {
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
-                    <FileText className="h-8 w-8 text-surface-light dark:text-surface-dark" />
+                    <FileText className="h-8 w-8 text-h1-light dark:text-h1-dark" />
                   </motion.div>
                   <H h="h1">My Resume</H>
                 </motion.div>
@@ -157,7 +157,7 @@ const ResumeClient = () => {
                       repeat: Infinity,
                       ease: 'easeInOut',
                     }}>
-                    <GeometricShape shape="circle" size={12} color="rgb(42, 157, 143)" />
+                    <GeometricShape shape="circle" size={12} className="text-h2-light dark:text-h2-dark" />
                   </motion.div>
                 </motion.div>
               </AnimatedWrapper>
@@ -171,12 +171,12 @@ const ResumeClient = () => {
       {/* Contact Information Quick Access */}
 
       {/* Main PDF Viewer */}
-      <Section className="flex w-full max-w-4xl flex-col items-center">
+      <Section className="hidden w-full max-w-4xl flex-col items-center md:flex">
         <AnimatedPDFViewer />
       </Section>
 
       {/* Bottom Action Section */}
-      <Section className="py-16">
+      <Section className="pb-8 md:py-16">
         <div className="text-center">
           <AnimatedWrapper animation="fadeInUp">
             <H h="h3" className="mb-6">
@@ -234,7 +234,7 @@ const ResumeClient = () => {
               repeat: Infinity,
               ease: 'easeInOut',
             }}>
-            <GeometricShape shape="square" size={30} color="rgb(42, 157, 143)" />
+            <GeometricShape shape="square" size={30} className="text-h2-light dark:text-h2-dark" />
           </motion.div>
 
           <motion.div
@@ -248,7 +248,7 @@ const ResumeClient = () => {
               repeat: Infinity,
               ease: 'easeInOut',
             }}>
-            <GeometricShape shape="circle" size={40} color="rgb(178, 255, 158)" />
+            <GeometricShape shape="circle" size={40} className="text-border-light dark:text-border-dark" />
           </motion.div>
         </div>
       </Section>

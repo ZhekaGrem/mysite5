@@ -7,6 +7,7 @@ import { Mail, Phone, MapPin, Github, Linkedin, Send } from 'lucide-react';
 import { ContactForm } from '@/features/ContactForm/ContactForm';
 import { useState, ReactNode } from 'react';
 import { GeometricShape } from '@/shared/ui/AnimatedComponents/index';
+import { TypewriterText } from '@/shared/ui/TypewriterText/TypewriterText';
 type Social = {
   name: string;
   url: string;
@@ -69,32 +70,6 @@ const ContactClient = () => {
     },
   };
 
-  const typewrite = {
-    initial: { width: '0%' },
-    whileInView: { width: '100%' },
-    viewport: { once: true },
-    transition: {
-      duration: 4,
-      ease: 'easeOut',
-    },
-  };
-
-  const TypewriterText = ({ children, className }: { children: string; className?: string }) => (
-    <div className="relative">
-      <motion.div className={`${className} opacity-0`} aria-hidden="true">
-        {children}
-      </motion.div>
-      <motion.div
-        className={`${className} absolute left-0 top-0 overflow-hidden whitespace-pre-wrap`}
-        variants={typewrite}
-        initial="initial"
-        whileInView="whileInView"
-        viewport={{ once: true }}>
-        {children}
-      </motion.div>
-    </div>
-  );
-
   const SocialLink = ({ social, index }: PropsIcon) => {
     const [isHovered, setIsHovered] = useState(false);
 
@@ -123,12 +98,12 @@ const ContactClient = () => {
 
         {/* Animated accent */}
         <motion.div
-          className="absolute -bottom-1 left-1/2 h-1 w-6 -translate-x-1/2 bg-surface-light dark:bg-surface-dark"
+          className="absolute -bottom-1 left-1/2 h-1 w-6 -translate-x-1/2 bg-border-light dark:bg-border-dark"
           animate={isHovered ? { width: '80%' } : { width: '10px' }}
           transition={{ duration: 0.3 }}
         />
         <motion.div
-          className="absolute bottom-0 left-1/2 h-1 w-6 -translate-x-1/2 bg-surface-light dark:bg-surface-dark"
+          className="absolute bottom-0 left-1/2 h-1 w-6 -translate-x-1/2 bg-border-light dark:bg-border-dark"
           animate={isHovered ? { width: '80%' } : { width: '10px' }}
           transition={{ duration: 0.3 }}
         />
@@ -167,7 +142,7 @@ const ContactClient = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="space-y-12">
+          className="space-y-12 px-6">
           {/* Title with Swiss-style underline */}
           <div className="relative">
             <H h="h1" className="mb-4">
@@ -191,7 +166,7 @@ const ContactClient = () => {
               initial={{ width: 0 }}
               animate={{ width: '80%' }}
               transition={{ duration: 2 }}
-              className="h-1 bg-surface-light dark:bg-surface-dark"
+              className="h-1 bg-border-light dark:bg-border-dark"
             />
             <TypewriterText className="mt-6 text-lg">
               I'm always open to new opportunities and interesting projects.
@@ -239,7 +214,7 @@ const ContactClient = () => {
 
                 {/* Animated line on hover */}
                 <motion.div
-                  className="absolute bottom-0 left-0 h-0.5 w-full bg-surface-light dark:bg-surface-dark"
+                  className="absolute bottom-0 left-0 h-0.5 w-full bg-border-light dark:bg-border-dark"
                   initial={{ scaleX: 0 }}
                   whileHover={{ scaleX: 1 }}
                   transition={{ duration: 0.3 }}

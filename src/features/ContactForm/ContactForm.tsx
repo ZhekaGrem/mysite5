@@ -79,13 +79,13 @@ export const ContactForm = () => {
       className="relative overflow-hidden rounded-none bg-transparent p-8">
       {/* Swiss-style geometric accents */}
       <motion.div
-        className="absolute -right-4 top-0 h-16 w-1 bg-surface-light dark:bg-surface-dark"
+        className="absolute -right-4 top-0 h-16 w-1 bg-border-light dark:bg-border-dark"
         initial={{ height: 0 }}
         animate={{ height: '100%' }}
         transition={{ duration: 1 }}
       />
       <motion.div
-        className="absolute right-0 top-0 h-1 w-16 bg-surface-light dark:bg-surface-dark"
+        className="absolute right-0 top-0 h-1 w-16 bg-border-light dark:bg-border-dark"
         initial={{ width: 0 }}
         animate={{ width: 64 }}
         transition={{ duration: 1 }}
@@ -93,7 +93,7 @@ export const ContactForm = () => {
 
       {/* Progress bar */}
       <motion.div
-        className="absolute left-0 top-0 h-1 bg-surface-light dark:bg-surface-dark"
+        className="absolute left-0 top-0 h-1 bg-border-light dark:bg-border-dark"
         variants={progressVariants}
         initial="initial"
         animate="animate"
@@ -105,7 +105,9 @@ export const ContactForm = () => {
           animate={focusedField === 'name' ? 'focused' : formValues.name ? 'filled' : 'initial'}
           variants={fieldVariants}
           className="relative">
-          <label htmlFor="name" className="mb-2 block text-sm font-bold uppercase tracking-wider">
+          <label
+            htmlFor="name"
+            className="mb-2 block text-sm font-bold uppercase tracking-wider text-h2-light dark:text-h2-dark">
             Name
           </label>
           <div className="relative">
@@ -116,7 +118,7 @@ export const ContactForm = () => {
               {...register('name', contactFormValidation.name)}
               onFocus={() => setFocusedField('name')}
               onBlur={() => setFocusedField(null)}
-              className="w-full border-b-2 border-gray-200 bg-transparent p-3 pl-12 transition-colors focus:border-surface-light focus:outline-none dark:border-gray-700 dark:focus:border-surface-dark"
+              className="w-full border-b-2 border-gray-200 bg-transparent p-3 pl-12 transition-colors focus:border-border-light focus:outline-none dark:border-gray-700 dark:focus:border-border-dark"
               placeholder="Your name"
             />
           </div>
@@ -138,7 +140,9 @@ export const ContactForm = () => {
           animate={focusedField === 'email' ? 'focused' : formValues.email ? 'filled' : 'initial'}
           variants={fieldVariants}
           className="relative">
-          <label htmlFor="email" className="mb-2 block text-sm font-bold uppercase tracking-wider">
+          <label
+            htmlFor="email"
+            className="mb-2 block text-sm font-bold uppercase tracking-wider text-h2-light dark:text-h2-dark">
             Email
           </label>
           <div className="relative">
@@ -149,7 +153,7 @@ export const ContactForm = () => {
               {...register('email', contactFormValidation.email)}
               onFocus={() => setFocusedField('email')}
               onBlur={() => setFocusedField(null)}
-              className="w-full border-b-2 border-gray-200 bg-transparent p-3 pl-12 transition-colors focus:border-surface-light focus:outline-none dark:border-gray-700 dark:focus:border-surface-dark"
+              className="w-full border-b-2 border-gray-200 bg-transparent p-3 pl-12 transition-colors focus:border-border-light focus:outline-none dark:border-gray-700 dark:focus:border-border-dark"
               placeholder="your.email@example.com"
             />
           </div>
@@ -171,7 +175,9 @@ export const ContactForm = () => {
           animate={focusedField === 'message' ? 'focused' : formValues.message ? 'filled' : 'initial'}
           variants={fieldVariants}
           className="relative">
-          <label htmlFor="message" className="mb-2 block text-sm font-bold uppercase tracking-wider">
+          <label
+            htmlFor="message"
+            className="mb-2 block text-sm font-bold uppercase tracking-wider text-h2-light dark:text-h2-dark">
             Message
           </label>
           <div className="relative">
@@ -182,7 +188,7 @@ export const ContactForm = () => {
               onFocus={() => setFocusedField('message')}
               onBlur={() => setFocusedField(null)}
               rows={6}
-              className="w-full border-b-2 border-gray-200 bg-transparent p-3 pl-12 transition-colors focus:border-surface-light focus:outline-none dark:border-gray-700 dark:focus:border-surface-dark"
+              className="w-full border-b-2 border-gray-200 bg-transparent p-3 pl-12 transition-colors focus:border-border-light focus:outline-none dark:border-gray-700 dark:focus:border-border-dark"
               placeholder="Your message..."
             />
           </div>
@@ -212,11 +218,11 @@ export const ContactForm = () => {
               </motion.div>
             ) : (
               <motion.div
-                className="flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 text-accent-light dark:text-accent-dark"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}>
-                <Send className="h-5 w-5" />
                 Send Message
+                <Send className="h-5 w-5" />
               </motion.div>
             )}
           </Button>

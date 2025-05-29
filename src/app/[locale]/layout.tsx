@@ -9,7 +9,7 @@ import { routing } from '@/shared/i18n/routing';
 import { ThemeProvider } from 'next-themes';
 import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';
-import ChatWidget from '@/features/AiChat/ui/ChatWidget';
+import ChatWidget from '@/widgets/ChatWidget/ChatWidget';
 import Sidebar from '@/widgets/Sidebar/Sidebar';
 import { siteViewport, siteMetadata } from './metadata';
 // import Head from 'next/head';
@@ -20,51 +20,7 @@ const plexMono = IBM_Plex_Mono({
 
 export const viewport = siteViewport;
 export const metadata = siteMetadata;
-// const previewImg: string =
-//   'https://res.cloudinary.com/dwgk0dtrp/image/upload/v1747900839/preview-img/opengraph-image-2_bbaqvc.jpg';
-// export async function generateMetadata(props: { params: { locale: string } }) {
-//   // Await the params object before destructuring
-//   const params = await Promise.resolve(props.params);
-//   const locale = params.locale;
 
-//   const t = await getTranslations({ locale, namespace: 'Metadata' });
-
-//   return {
-//     title: {
-//       default: t('title.default'),
-//       template: t('title.template'),
-//     },
-//     description: t('description'),
-//     openGraph: {
-//       title: t('og.title'),
-//       description: t('og.description'),
-//       images: [
-//         {
-//           url: previewImg,
-//           width: 1200,
-//           height: 630,
-//         },
-//       ],
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       title: t('twitter.title'),
-//       description: t('twitter.description'),
-//       images: [previewImg],
-//     },
-//     robots: {
-//       index: true,
-//       follow: true,
-//       googleBot: {
-//         index: true,
-//         follow: true,
-//         'max-video-preview': -1,
-//         'max-image-preview': 'large',
-//         'max-snippet': -1,
-//       },
-//     },
-//   };
-// }
 export type Params = Promise<{ locale: 'en' | 'ua' }>;
 export default async function RootLayout({
   children,

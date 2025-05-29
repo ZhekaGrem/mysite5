@@ -175,7 +175,7 @@ const SkillsSlider = () => {
       </div>
 
       {/* Header */}
-      <AnimatedWrapper animation="fadeInUp" className="mb-16 text-center">
+      <AnimatedWrapper animation="fadeInUp" className="mb-16 px-6 text-center">
         <div className="inline-flex items-center gap-3">
           <motion.div
             animate={{ rotate: 360 }}
