@@ -224,14 +224,17 @@ const ContactClient = () => {
                 </div>
 
                 <div className="relative">
-                  <motion.h3
-                    className="text-sm font-bold uppercase tracking-wider"
+                  <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     transition={{ delay: index * 0.3 }}>
-                    {info.title}
-                  </motion.h3>
-                  <TypewriterText className="text-gray-600 dark:text-gray-400">{info.value}</TypewriterText>
+                    <H h="h3" className="text-sm font-bold uppercase tracking-wider">
+                      {info.title}
+                      <TypewriterText className="text-gray-600 dark:text-gray-400">
+                        {info.value}
+                      </TypewriterText>
+                    </H>
+                  </motion.div>
                 </div>
 
                 {/* Animated line on hover */}
@@ -247,7 +250,9 @@ const ContactClient = () => {
 
           {/* Social Links with Swiss-style geometric elements */}
           <div className="relative">
-            <h2 className="mb-6 text-xl font-semibold">Connect on Social Media</h2>
+            <H h="h2" className="mb-6 text-xl font-semibold">
+              Connect on Social Media
+            </H>
             <div className="grid grid-cols-3 gap-4">
               {SOCIAL_LINKS.map((social, index) => (
                 <SocialLink key={social.name} social={social} index={index} />

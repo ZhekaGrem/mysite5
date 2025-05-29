@@ -52,7 +52,7 @@ const ContactsSection = () => {
             <motion.div
               animate={{ rotate: [0, 10, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}>
-              <ArrowBigRightDash className="h-8 w-8 text-surface-light dark:text-surface-dark" />
+              <ArrowBigRightDash className="h-8 w-8 text-h2-light dark:text-h2-dark" />
             </motion.div>
             <H h="h2">Звязатись зі мною</H>
           </motion.div>

@@ -16,7 +16,9 @@ const PrivacyClient = () => {
           transition={{ delay: 0.2 }}
           className="col-span-12 lg:col-span-3">
           <div className="fixed top-24 space-y-4 pt-10">
-            <h2 className="text-xl font-bold">On this page</h2>
+            <H h="h2" className="text-xl font-bold">
+              On this page
+            </H>
             <nav className="space-y-2">
               {['Information Collection', 'Data Usage', 'Your Rights', 'Contact'].map((item) => (
                 <a
@@ -61,11 +63,15 @@ const PrivacyClient = () => {
                 <p>We use the collected information for various purposes:</p>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="rounded-lg bg-gray-50 p-6 dark:bg-gray-800">
-                    <h3 className="mb-3 text-lg font-semibold">Service Provision</h3>
+                    <H h="h3" className="mb-3 text-lg font-semibold">
+                      Service Provision
+                    </H>
                     <p>To operate, maintain, and improve our services</p>
                   </div>
                   <div className="rounded-lg bg-gray-50 p-6 dark:bg-gray-800">
-                    <h3 className="mb-3 text-lg font-semibold">Communication</h3>
+                    <H h="h3" className="mb-3 text-lg font-semibold">
+                      Communication
+                    </H>
                     <p>To send you updates and relevant information</p>
                   </div>
                 </div>

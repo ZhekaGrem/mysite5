@@ -18,19 +18,28 @@ const HEADING_CONFIG: Record<
   HeadingTagType,
   {
     size: string;
+    lineHeight: string;
     font: string;
+    color: string;
   }
 > = {
   h1: {
-    size: 'text-7xl',
+    size: 'text-4xl md:text-5xl lg:text-6xl ',
+    lineHeight: 'leading-tight',
     font: plexSans.className,
+    color: 'text-h1-light dark:text-h1-dark',
   },
+
   h2: {
-    size: 'text-5xl mb-5',
+    color: 'text-h2-light dark:text-h2-dark',
+    size: 'text-2xl md:text-3xl lg:text-4xl ',
+    lineHeight: 'leading-snug',
     font: plexSans.className,
   },
   h3: {
-    size: 'text-3xl',
+    color: 'text-h1-light dark:text-h1-dark',
+    size: 'text-xl md:text-2xl',
+    lineHeight: 'leading-normal',
     font: plexMono.className,
   },
 } as const;
@@ -39,7 +48,14 @@ export const H = ({ h = 'h2', children, className, ...props }: HProps): React.Re
   const Component = h;
 
   const headingConfig = HEADING_CONFIG[h as HeadingTagType];
-  const headingClasses = cn('font-medium', headingConfig.size, headingConfig.font, className);
+  const headingClasses = cn(
+    'font-medium ',
+    headingConfig.size,
+    headingConfig.font,
+    headingConfig.color,
+    headingConfig.lineHeight,
+    className
+  );
 
   return (
     <Component className={headingClasses} data-heading-level={h} {...props}>

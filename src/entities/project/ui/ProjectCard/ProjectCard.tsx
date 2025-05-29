@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ProjectCardProps } from '@/entities/project/model/types';
-
+import { H } from '@/shared/ui/Htag';
 export const ProjectCard = ({ project }: ProjectCardProps) => {
   return (
     <motion.article
@@ -35,7 +35,9 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
         </div>
 
         {/* Title */}
-        <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
+        <H h="h3" className="mb-2 text-xl font-bold">
+          {project.title}
+        </H>
 
         {/* Description */}
         <p className="mb-4 flex-1 text-gray-600 dark:text-gray-400">{project.description}</p>

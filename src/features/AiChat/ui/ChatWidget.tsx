@@ -7,6 +7,7 @@ import { sendChatMessage } from '../api/chatApi';
 import { ChatIcon } from './ChatIcon';
 import { ChatWindow } from './ChatWindow';
 import { ChatInput } from './ChatInput';
+import { H } from '@/shared/ui/Htag';
 
 function ChatWidget() {
   const [inputValue, setInputValue] = useState('');
@@ -57,8 +58,8 @@ function ChatWidget() {
         onClick={toggleChat}
         className={`h-14 w-14 rounded-full shadow-lg transition-all duration-300 hover:scale-105 ${
           isOpen
-            ? 'bg-red-500 hover:bg-red-600'
-            : 'bg-gradient-to-r from-highlight-light to-accent-light hover:shadow-xl dark:from-accent-dark dark:to-highlight-dark'
+            ? 'bg-red-500 hover:bg-red-500'
+            : 'bg-gradient-to-r from-accent-light to-highlight-light hover:shadow-xl dark:from-accent-dark dark:to-highlight-dark'
         } flex items-center justify-center text-white`}
         aria-label={isOpen ? 'Закрити чат' : 'Відкрити чат'}>
         <ChatIcon isOpen={isOpen} />
@@ -70,12 +71,14 @@ function ChatWidget() {
           className="absolute bottom-16 right-0 flex h-96 w-80 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-2xl dark:border-gray-700 dark:bg-gray-800"
           style={{ animation: 'slideUp 0.3s ease-out' }}>
           {/* Header */}
-          <div className="bg-gradient-to-r from-highlight-light to-accent-light p-4 text-white dark:from-accent-dark dark:to-highlight-dark">
+          <div className="bg-gradient-to-r from-highlight-light to-accent-light p-4 dark:from-accent-dark dark:to-highlight-dark">
             <div className="flex items-center justify-between">
-              <h3 className="font-semibold">AI Асистент</h3>
+              <H h="h3" className="shadow-text font-semibold text-[#d56270] dark:text-[#5003be]">
+                AI Асистент
+              </H>
               <button
                 onClick={closeChat}
-                className="text-white transition-colors hover:text-gray-200"
+                className="shadow-text text-[#d56270] transition-colors hover:text-gray-200 dark:text-[#5003be]"
                 aria-label="Закрити чат">
                 ✕
               </button>

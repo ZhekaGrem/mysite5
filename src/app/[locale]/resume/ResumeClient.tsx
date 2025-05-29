@@ -209,7 +209,7 @@ const ResumeClient = () => {
             <StaggeredItem>
               <motion.a
                 href="/contact"
-                className="inline-flex items-center gap-3 rounded-lg bg-surface-light px-8 py-4 font-medium text-primary-light transition-colors hover:bg-surface-light/90 dark:bg-surface-dark dark:text-primary-dark dark:hover:bg-surface-dark/90"
+                className="inline-flex items-center gap-3 bg-surface-light px-8 py-4 font-medium text-primary-light transition-colors hover:bg-surface-light/90 dark:bg-surface-dark dark:text-primary-dark dark:hover:bg-surface-dark/90"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}>
                 <span>Get In Touch</span>

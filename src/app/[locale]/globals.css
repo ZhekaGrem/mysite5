@@ -6,12 +6,14 @@
   --background: rgb(231, 111, 81);
   --foreground: 240 10% 3.9%;
   --border: rgb(42, 157, 143);
+  --shadow: rgb(17, 65, 59);
 }
 
 .dark {
   --background: rgb(60, 22, 66);
   --foreground: 0 0% 98%;
   --border: rgb(175, 252, 65);
+  --shadow: rgb(179, 255, 73);
 }
 
 body {
@@ -98,4 +100,8 @@ button,
 
 main {
   padding-top: 100px;
+}
+
+.shadow-text {
+  text-shadow: 0 4px 4px var(--shadow);
 }

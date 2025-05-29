@@ -104,12 +104,12 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
 
         {/* Content */}
         <div className="flex w-full flex-col items-center">
-          <h3 className="mb-2 text-center text-sm font-semibold text-gray-800 dark:text-gray-200 md:text-base">
+          <H h="h3" className="mb-2">
             {name}
-          </h3>
+          </H>
 
           {/* Progress bar */}
-          <div className="mt-3 h-1 w-full overflow-hidden rounded bg-gray-200/60 dark:bg-gray-700/60">
+          <div className="mt-3 h-1 w-full overflow-hidden rounded bg-gray-200/70 dark:bg-gray-700/70">
             <motion.div
               className="h-full rounded"
               initial={{ width: 0 }}

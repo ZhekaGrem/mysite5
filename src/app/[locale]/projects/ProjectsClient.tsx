@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { ProjectType } from '@/entities/project/model/types';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-
+import { H } from '@/shared/ui/Htag';
 // Mock data stays the same
 export const PROJECTS: ProjectType[] = [
   {
@@ -209,16 +209,18 @@ const ProjectsClient = () => {
 
                 {/* Project Title */}
                 <div className="col-span-10 flex flex-col justify-center">
-                  <motion.h2
+                  <motion.div
                     initial={{ x: 100, opacity: 0 }}
                     animate={{
                       x: currentProject === idx ? 0 : 100,
                       opacity: currentProject === idx ? 1 : 0,
-                    }}
-                    className="mb-8 font-sans text-7xl font-bold leading-none tracking-tighter text-white">
-                    {project.title.toUpperCase()}
-                  </motion.h2>
-
+                    }}>
+                    <H
+                      h="h1"
+                      className="mb-8 font-sans text-7xl font-bold leading-none tracking-tighter text-white shadow-black">
+                      {project.title.toUpperCase()}
+                    </H>
+                  </motion.div>
                   {/* Project Details */}
                   <motion.div
                     initial={{ y: 50, opacity: 0 }}

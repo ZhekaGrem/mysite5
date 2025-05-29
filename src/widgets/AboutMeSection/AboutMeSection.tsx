@@ -57,23 +57,9 @@ const AboutMeSection = () => {
         <GeometricShape shape="circle" size={100} color="rgb(42, 157, 143)" />
       </motion.div>
 
-      <motion.div
-        className="absolute bottom-10 right-5 opacity-15"
-        animate={{
-          y: [-10, 10, -10],
-          rotate: [45, -45, 45],
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: 'easeInOut',
-        }}>
-        <GeometricShape shape="square" size={60} color="rgb(178, 255, 158)" />
-      </motion.div>
-
       <StaggeredContainer className="relative z-10 grid w-full grid-cols-4 gap-4">
         {/* Photo Section - Enhanced with multiple animations */}
-        <StaggeredItem className="relative col-span-2 row-span-3 justify-items-center">
+        <StaggeredItem className="relative col-span-4 row-span-1 justify-items-center md:col-span-2 md:row-span-3">
           <motion.div
             style={{ y: imageY }}
             className="group relative"
@@ -158,14 +144,14 @@ const AboutMeSection = () => {
         </StaggeredItem>
 
         {/* About Text Section */}
-        <StaggeredItem className="col-span-2 p-4">
+        <StaggeredItem className="col-span-4 p-4 md:col-span-2">
           <motion.div style={{ y: textY }}>
             <AnimatedWrapper animation="fadeInLeft">
               <div className="mb-6 flex items-center gap-3">
                 <motion.div
                   animate={{ rotate: [0, 10, -10, 0] }}
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
-                  <User className="h-6 w-6 text-surface-light dark:text-surface-dark" />
+                  <User className="h-6 w-6 text-h2-light dark:text-h2-dark" />
                 </motion.div>
                 <H h="h2">About me</H>
               </div>
@@ -216,13 +202,13 @@ const AboutMeSection = () => {
         </StaggeredItem>
 
         {/* Languages Section */}
-        <StaggeredItem className="p-4">
+        <StaggeredItem className="col-span-2 row-span-1 p-4 md:col-span-1">
           <div>
             <div className="mb-4 flex items-center gap-3">
               <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}>
-                <Globe className="h-5 w-5 text-surface-light dark:text-surface-dark" />
+                <Globe className="h-5 w-5 text-h1-light dark:text-h1-dark" />
               </motion.div>
               <H h="h3">Languages</H>
             </div>
@@ -258,7 +244,7 @@ const AboutMeSection = () => {
         </StaggeredItem>
 
         {/* Advantages Section */}
-        <StaggeredItem className="row-span-2 p-4">
+        <StaggeredItem className="col-span-2 row-span-2 p-4 md:col-span-1">
           <div className="h-full">
             <div className="mb-4 flex items-center gap-3">
               <H h="h3">Переваги співпраці зі мною</H>
@@ -300,13 +286,13 @@ const AboutMeSection = () => {
         </StaggeredItem>
 
         {/* Resume Section */}
-        <StaggeredItem className="p-4">
+        <StaggeredItem className="col-span-2 p-4 md:col-span-1">
           <div className="h-full text-center">
             <div className="mb-4 flex items-center justify-center gap-3">
               <motion.div
                 animate={{ y: [-2, 2, -2] }}
                 transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
-                <Briefcase className="h-5 w-5 text-surface-light dark:text-surface-dark" />
+                <Briefcase className="h-5 w-5 text-h1-light dark:text-h1-dark" />
               </motion.div>
               <H h="h3">МОЄ Резуме</H>
             </div>

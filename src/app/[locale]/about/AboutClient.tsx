@@ -134,12 +134,13 @@ const AnimatedSkillBar = ({ skill, index }: { skill: Technical; index: number })
         onHoverStart={() => setIsHovered(true)}
         onHoverEnd={() => setIsHovered(false)}>
         <div className="mb-3 flex items-center justify-between">
-          <motion.h3
-            className="text-lg font-semibold"
+          <motion.div
             animate={{ color: isHovered ? skill.color : 'currentColor' }}
             transition={{ duration: 0.3 }}>
-            {skill.name}
-          </motion.h3>
+            <H h="h3" className="text-lg font-semibold">
+              {skill.name}
+            </H>
+          </motion.div>
           <motion.span
             className="font-mono text-sm"
             animate={{
@@ -356,7 +357,9 @@ const AboutClient = () => {
               {SKILLS_DATA.languages.map((lang, index) => (
                 <StaggeredItem key={lang.name}>
                   <HoverCard className="border-l-4 border-surface-light p-4 dark:border-surface-dark">
-                    <h3 className="text-xl font-semibold">{lang.name}</h3>
+                    <H h="h3" className="text-xl font-semibold">
+                      {lang.name}
+                    </H>
                     <p className="text-gray-600 dark:text-gray-400">{lang.level}</p>
 
                     {/* Proficiency indicator */}
@@ -440,7 +443,9 @@ const AboutClient = () => {
                 <>
                   <div className="col-span-5 pr-8">
                     <HoverCard hoverAnimation="lift">
-                      <h3 className="mb-2 text-2xl font-bold">{hobby.title}</h3>
+                      <H h="h3" className="mb-2 text-2xl font-bold">
+                        {hobby.title}
+                      </H>
                       <p className="mb-4 text-gray-600 dark:text-gray-400">{hobby.desc}</p>
                       <p className="text-sm leading-relaxed">{hobby.details}</p>
                     </HoverCard>
@@ -489,7 +494,9 @@ const AboutClient = () => {
 
                   <div className="col-span-5 pl-8">
                     <HoverCard hoverAnimation="lift">
-                      <h3 className="mb-2 text-2xl font-bold">{hobby.title}</h3>
+                      <H h="h3" className="mb-2 text-2xl font-bold">
+                        {hobby.title}
+                      </H>
                       <p className="mb-4 text-gray-600 dark:text-gray-400">{hobby.desc}</p>
                       <p className="text-sm leading-relaxed">{hobby.details}</p>
                     </HoverCard>

@@ -16,7 +16,9 @@ const TermsClient = () => {
           transition={{ delay: 0.2 }}
           className="col-span-12 lg:col-span-3">
           <div className="fixed top-24 space-y-4 pt-10">
-            <h2 className="text-xl font-bold">Table of Contents</h2>
+            <H h="h2" className="text-xl font-bold">
+              Table of Contents
+            </H>
             <nav className="space-y-2">
               {[
                 'Agreement',
@@ -66,7 +68,9 @@ const TermsClient = () => {
               <div className="mt-6 grid gap-6">
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold">You Agree To:</h3>
+                    <H h="h3" className="text-lg font-semibold">
+                      You Agree To:
+                    </H>
                     <ul className="list-inside list-disc space-y-2">
                       <li>Provide accurate information</li>
                       <li>Maintain account security</li>
@@ -75,7 +79,9 @@ const TermsClient = () => {
                     </ul>
                   </div>
                   <div className="space-y-4">
-                    <h3 className="text-lg font-semibold">You Must Not:</h3>
+                    <H h="h3" className="text-lg font-semibold">
+                      You Must Not:
+                    </H>
                     <ul className="list-inside list-disc space-y-2">
                       <li>Violate any laws</li>
                       <li>Impersonate others</li>

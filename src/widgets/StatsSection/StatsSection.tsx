@@ -156,7 +156,9 @@ const StatCard = ({ stat, index }: { stat: SkillData; index: number }) => {
       </div>
 
       {/* Label */}
-      <h3 className="relative z-10 mb-2 text-lg font-semibold md:text-xl">{stat.label}</h3>
+      <H h="h3" className="relative z-10 mb-2 text-lg font-semibold md:text-xl">
+        {stat.label}
+      </H>
 
       {/* Description */}
       <p className="relative z-10 text-sm text-gray-600 dark:text-gray-400">{stat.description}</p>
@@ -215,7 +217,7 @@ export const StatsSection = () => {
             <motion.div
               animate={{ rotate: [-22, 12, -22] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}>
-              <Award className="h-8 w-8 text-surface-light dark:text-surface-dark" />
+              <Award className="h-8 w-8 text-h2-light dark:text-h2-dark" />
             </motion.div>
             <H h="h2">Achievements & Experience</H>
           </motion.div>

@@ -112,7 +112,7 @@ const HeroSection = () => {
             <motion.div
               initial="hidden"
               animate="visible"
-              className="relative flex flex-wrap justify-center overflow-hidden text-center font-sans text-6xl font-bold tracking-wider text-surface-light dark:text-surface-dark md:text-8xl lg:text-9xl">
+              className="relative flex flex-wrap justify-center overflow-hidden text-center font-sans text-6xl font-bold tracking-wider md:text-8xl lg:text-9xl">
               {/* Background accent for title */}
               <motion.div
                 initial={{ scale: 0, opacity: 0 }}
@@ -127,15 +127,9 @@ const HeroSection = () => {
                     key={`${letter}-${i}`}
                     custom={i}
                     variants={letterVariants}
-                    className="inline-block transform-gpu cursor-default transition-transform duration-200 hover:scale-110"
-                    style={{
-                      marginLeft: letter === ' ' ? '1rem' : '0.1em',
-                      textShadow: '0 4px 12px rgba(0, 0, 0, 0.15)',
-                    }}
+                    className="inline-block cursor-default transition-transform duration-200 hover:text-hover-light dark:hover:text-hover-dark"
                     whileHover={{
-                      y: -5,
-                      color: 'rgb(42, 157, 143)',
-                      transition: { duration: 0.2 },
+                      y: 5,
                     }}>
                     {letter}
                   </motion.span>
@@ -147,19 +141,18 @@ const HeroSection = () => {
             <motion.div
               initial="hidden"
               animate="visible"
-              className="relative mt-8 flex justify-center overflow-hidden text-center text-2xl font-light tracking-[0.25em] text-surface-light/80 dark:text-surface-dark/80 md:text-4xl">
+              className="relative mt-8 flex justify-center overflow-hidden text-center text-2xl font-light tracking-[0.25em] md:text-4xl">
               {subtitle.split('').map((letter, i) => (
                 <motion.span
                   key={`${letter}-${i}`}
                   custom={i + title.length + 2}
                   variants={letterVariants}
-                  className="inline-block transform-gpu cursor-default transition-all duration-200 hover:scale-105"
+                  className="inline-block transform-gpu cursor-default transition-colors duration-200 hover:text-hover-light dark:hover:text-hover-dark"
                   style={{
                     marginLeft: letter === ' ' ? '1rem' : '0.15em',
                   }}
                   whileHover={{
                     y: -3,
-                    color: 'rgb(178, 255, 158)',
                   }}>
                   {letter}
                 </motion.span>

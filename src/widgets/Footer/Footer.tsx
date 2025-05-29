@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { Link } from '@/shared/i18n/routing';
 import SocialLinks from '@/features/SocialLinks/SocialLinks';
 import Logo from '@/shared/ui/Logo';
-
+import { H } from '@/shared/ui/Htag';
 const Footer = () => {
   const t = useTranslations('navigation');
 
@@ -38,7 +38,9 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 px-6 py-12 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
           {/* Brand Section */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="h-8 w-16 text-xl font-semibold tracking-tighter">
+            <Link
+              href="/"
+              className="h-10 w-16 text-xl font-semibold tracking-tighter text-h2-light dark:text-h2-dark">
               <Logo />
             </Link>
             <p className="max-w-md text-sm leading-relaxed">
@@ -47,17 +49,23 @@ const Footer = () => {
             </p>
           </div>
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-widest">Social</h3>
+            <H h="h3" className="text-sm font-semibold uppercase tracking-widest">
+              Social
+            </H>
             <SocialLinks position="footer" />
           </div>
           {/* Navigation Sections */}
           {sections.map((section) => (
             <div key={section.title} className="flex flex-col gap-4">
-              <h3 className="text-sm font-semibold uppercase tracking-widest">{section.title}</h3>
+              <H h="h3" className="text-sm font-semibold uppercase tracking-widest">
+                {section.title}
+              </H>
               <ul className="flex flex-col gap-2">
                 {section.links.map((link) => (
                   <li key={link.label}>
-                    <Link href={link.href} className="text-sm transition-colors hover:text-hover-light dark:hover:text-hover-dark ">
+                    <Link
+                      href={link.href}
+                      className="text-sm transition-colors hover:text-hover-light dark:hover:text-hover-dark">
                       {link.label}
                     </Link>
                   </li>

@@ -5,8 +5,6 @@ import Section from '@/shared/ui/Section';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-
-
 const InfoClient = () => {
   return (
     <Section className="py-16">
@@ -18,7 +16,9 @@ const InfoClient = () => {
           transition={{ delay: 0.2 }}
           className="col-span-12 lg:col-span-3">
           <div className="fixed top-24 space-y-4 pt-10">
-            <h2 className="text-xl font-bold">Quick Navigation</h2>
+            <H h="h2" className="text-xl font-bold">
+              Quick Navigation
+            </H>
             <nav className="space-y-2">
               {['What Are Cookies', 'Types of Cookies', 'Cookie Usage', 'Managing Cookies', 'Updates'].map(
                 (item) => (
@@ -82,7 +82,9 @@ const InfoClient = () => {
                     },
                   ].map((cookie) => (
                     <div key={cookie.title} className="rounded-lg bg-gray-50 p-6 dark:bg-gray-800">
-                      <h3 className="mb-3 text-lg font-semibold">{cookie.title}</h3>
+                      <H h="h3" className="mb-3 text-lg font-semibold">
+                        {cookie.title}
+                      </H>
                       <p>{cookie.description}</p>
                     </div>
                   ))}
