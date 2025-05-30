@@ -100,7 +100,10 @@
       "og": {
         "title": "404 - Page Not Found",
         "description": "Sorry, the page you're looking for doesn't exist. Explore our other content"
-      }
+      },
+      "heading": "Page Not Found",
+      "message": "Sorry, the page you're looking for doesn't exist or has been moved.",
+      "homeButton": "Go Home"
     }
   }
 }
