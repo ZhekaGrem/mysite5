@@ -13,6 +13,7 @@ import {
   StaggeredItem,
   GeometricShape,
 } from '@/shared/ui/AnimatedComponents';
+import { useTranslations } from 'next-intl';
 
 interface SkillData {
   value: string;
@@ -22,50 +23,6 @@ interface SkillData {
   description: string;
 }
 // Stats data
-const STATS: SkillData[] = [
-  {
-    value: '4+',
-    label: 'Years Experience',
-    icon: Calendar,
-    color: '#8F2A9D',
-    description: 'Professional development',
-  },
-  {
-    value: '20+',
-    label: 'Projects Completed',
-    icon: Briefcase,
-    color: '#B2FF9E',
-    description: 'Successful deliveries',
-  },
-  {
-    value: '15+',
-    label: 'Technologies',
-    icon: Code,
-    color: '#AFFC41',
-    description: 'Modern tech stack',
-  },
-  {
-    value: '100%',
-    label: 'Client Satisfaction',
-    icon: Users,
-    color: '#1DD3B0',
-    description: 'Happy clients',
-  },
-  {
-    value: '5+',
-    label: 'Certifications',
-    icon: Award,
-    color: '#e76f51',
-    description: 'Professional growth',
-  },
-  {
-    value: '3',
-    label: 'Languages',
-    icon: Globe,
-    color: '#e9c46a',
-    description: 'Communication skills',
-  },
-];
 
 // Animated counter component
 const AnimatedCounter = ({
@@ -178,6 +135,51 @@ const StatCard = ({ stat, index }: { stat: SkillData; index: number }) => {
 };
 
 export const StatsSection = () => {
+  const t = useTranslations('Pages.home.section');
+  const STATS: SkillData[] = [
+    {
+      value: '4+',
+      label: t('achievement-section-1.title'),
+      icon: Calendar,
+      color: '#8F2A9D',
+      description: t('achievement-section-6.description'),
+    },
+    {
+      value: '20+',
+      label: t('achievement-section-2.title'),
+      icon: Briefcase,
+      color: '#B2FF9E',
+      description: t('achievement-section-6.description'),
+    },
+    {
+      value: '15+',
+      label: t('achievement-section-3.title'),
+      icon: Code,
+      color: '#AFFC41',
+      description: t('achievement-section-6.description'),
+    },
+    {
+      value: '100%',
+      label: t('achievement-section-4.title'),
+      icon: Users,
+      color: '#1DD3B0',
+      description: t('achievement-section-6.description'),
+    },
+    {
+      value: '5+',
+      label: t('achievement-section-5.title'),
+      icon: Award,
+      color: '#e76f51',
+      description: t('achievement-section-6.description'),
+    },
+    {
+      value: '3',
+      label: t('achievement-section-6.title'),
+      icon: Globe,
+      color: '#e9c46a',
+      description: t('achievement-section-6.description'),
+    },
+  ];
   return (
     <Section className="relative overflow-hidden px-6 py-20">
       {/* Background geometric shapes */}
@@ -221,14 +223,14 @@ export const StatsSection = () => {
               transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}>
               <Award className="h-8 w-8 text-h2-light dark:text-h2-dark" />
             </motion.div>
-            <H h="h2">Achievements & Experience</H>
+            <H h="h2">{t('achievement-title')}</H>
           </motion.div>
 
           <motion.p
             className="mx-auto max-w-3xl text-lg text-gray-600 dark:text-gray-400"
             whileInView={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}>
-            Numbers that reflect my journey and commitment to excellence in web development
+            {t('achievement-text')}
           </motion.p>
 
           {/* Animated accent line */}

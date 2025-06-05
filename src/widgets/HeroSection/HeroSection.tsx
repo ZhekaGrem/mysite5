@@ -10,10 +10,12 @@ import { GeometricShape, ParallaxElement } from '@/shared/ui/AnimatedComponents'
 import { Link } from '@/shared/i18n/routing';
 const ParticlesBackground = lazy(() => import('./ParticlesBackground'));
 
-const title = 'INNOVATION';
-const subtitle = 'DESIGN';
+import { useTranslations } from 'next-intl';
 
 const HeroSection = () => {
+  const t = useTranslations('Pages.home.section');
+  const title = t('title');
+  const subtitle = t('profession');
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
 
@@ -187,7 +189,7 @@ const HeroSection = () => {
                   withHoverEffect={true}
                   hoverScale={1.02}>
                   <span className="relative z-10 transition-colors group-hover:text-primary-light dark:group-hover:text-primary-dark">
-                    Explore
+                    {t('project')}
                   </span>
 
                   {/* Animated background on hover */}
@@ -209,7 +211,7 @@ const HeroSection = () => {
                   className="group relative overflow-hidden"
                   withHoverEffect={true}
                   hoverScale={1.02}>
-                  <span className="relative z-10">Contact</span>
+                  <span className="relative z-10">{t('contact')}</span>
 
                   {/* Ripple effect on hover */}
                   <motion.div

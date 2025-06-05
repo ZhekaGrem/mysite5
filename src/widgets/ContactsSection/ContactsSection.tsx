@@ -8,8 +8,10 @@ import Section from '@/shared/ui/Section';
 import { Button } from '@/shared/ui/button';
 import { ArrowBigRightDash } from 'lucide-react';
 import { AnimatedWrapper, GeometricShape } from '@/shared/ui/AnimatedComponents';
+import { useTranslations } from 'next-intl';
 
 const ContactsSection = () => {
+  const t = useTranslations('Pages.home.section');
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -54,7 +56,7 @@ const ContactsSection = () => {
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}>
               <ArrowBigRightDash className="h-8 w-8 text-h2-light dark:text-h2-dark" />
             </motion.div>
-            <H h="h2">Звязатись зі мною</H>
+            <H h="h2">{t('contact-title')}</H>
           </motion.div>
         </AnimatedWrapper>
 
@@ -70,8 +72,7 @@ const ContactsSection = () => {
               repeat: Infinity,
               ease: 'easeInOut',
             }}>
-            Let's connect and explore how I can help you build high-quality, responsive, and scalable web
-            solutions.
+            {t('contact-text')}
           </motion.p>
         </AnimatedWrapper>
 
@@ -96,7 +97,7 @@ const ContactsSection = () => {
                   />
 
                   <span className="relative z-10 flex items-center gap-3">
-                    Написати
+                    {t('write')}
                     <motion.div
                       animate={{ x: [0, 10, 0] }}
                       transition={{

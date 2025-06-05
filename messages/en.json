@@ -36,6 +36,62 @@
       "og": {
         "title": "Frontend Developer Portfolio - Modern Web Solutions",
         "description": "Explore innovative web development projects and solutions built with React, Next.js, and cutting-edge technologies"
+      },
+      "section": {
+        "title": "Hi, my name is Yevhen",
+        "profession": "Full Stack Engineer",
+        "contact": "contacts",
+        "project": "projects",
+        "about-title": "About me",
+        "about-text-1": "Developer with 4 years of experience creating high-performance web solutions.",
+        "about-text-2": "I specialize in developing reactive interfaces using React.js, Next.js, and TypeScript, ensuring excellent user experience.",
+        "about-text-3": "The key value of my work is combining technical expertise with understanding of business goals, which allows me to create not just beautiful, but also functional solutions that increase conversion and user engagement.",
+        "lang-title": "Languages",
+        "uk": "Ukrainian",
+        "pl": "Polish",
+        "en": "English",
+        "native": "Native",
+        "professional": "Professional",
+        "intermediate": "Intermediate",
+        "tages-title": "Benefits of working with me",
+        "tages-1": "Technical expertise",
+        "tages-2": "Quick adaptation",
+        "tages-3": "Comprehensive solutions",
+        "tages-4": "Result-oriented",
+        "tages-5": "Communication",
+        "my-cv": "My resume",
+        "download": "download",
+        "contact-title": "Contact me",
+        "contact-text": "Let's connect and discuss how I can help you create high-quality, responsive, and scalable web solutions.",
+        "write": "write",
+        "skills-title": "Technical skills",
+        "skills-text": "Technologies and tools I use to bring ideas to life",
+        "achievement-title": "Achievements and experience",
+        "achievement-text": "Numbers that reflect my journey and pursuit of excellence in web development",
+        "achievement-section-1": {
+          "title": "Work experience",
+          "description": "Professional development"
+        },
+        "achievement-section-2": {
+          "title": "Completed projects",
+          "description": "Successful deliveries"
+        },
+        "achievement-section-3": {
+          "title": "Technologies",
+          "description": "Modern technology stack"
+        },
+        "achievement-section-4": {
+          "title": "Client satisfaction",
+          "description": "Satisfied clients"
+        },
+        "achievement-section-5": {
+          "title": "Certificates",
+          "description": "Professional growth"
+        },
+        "achievement-section-6": {
+          "title": "Languages",
+          "description": "Communication skills"
+        }
       }
     },
     "about": {

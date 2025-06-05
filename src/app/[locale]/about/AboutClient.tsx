@@ -191,23 +191,23 @@ const AboutClient = () => {
           </AnimatedWrapper>
 
           <AnimatedWrapper animation="fadeInRight" className="relative order-1 aspect-square md:order-2">
-            <HoverCard hoverAnimation="rotate" className="relative h-full w-full">
+            <HoverCard hoverAnimation="rotate" className="relative h-full w-auto p-5">
               <Image
-                src="/assets/myphoto.jpg"
+                src="/assets/photo/my-photo-2.png"
                 alt="Professional photo"
-                fill
-                className="hover:contrast-110 hover:saturate-110 object-cover transition-all duration-500"
-                priority
+                height={1000}
+                width={800}
+                className="hover:contrast-110 hover:saturate-110 mx-auto h-full rounded-xl object-contain transition-all duration-500"
               />
 
-              {/* Animated border accent */}
               <motion.div
-                className="absolute -inset-2 border-2 border-border-light dark:border-border-dark"
+                className="absolute -inset-2 m-5 border-y-2 border-border-light dark:border-border-dark"
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 0.6 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
               />
+              {/* Animated border accent */}
             </HoverCard>
           </AnimatedWrapper>
         </Section>

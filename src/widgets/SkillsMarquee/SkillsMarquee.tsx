@@ -37,6 +37,7 @@ import {
   GraphQlIcon,
   WPIcon,
 } from '@/shared/ui/icons/index';
+import { useTranslations } from 'next-intl';
 
 // Types
 type IconComponent = React.FC<SVGProps<SVGSVGElement>>;
@@ -131,6 +132,7 @@ const SkillItem = ({ skill }: { skill: Skill }) => {
 };
 
 const SkillsSlider = () => {
+  const t = useTranslations('Pages.home.section');
   // Embla setup with autoplay
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
@@ -182,11 +184,9 @@ const SkillsSlider = () => {
             transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}>
             <ReactNoTextIcon />
           </motion.div>
-          <H h="h2">Technical Skills</H>
+          <H h="h2">{t('skills-title')}</H>
         </div>
-        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600 dark:text-gray-400">
-          Technologies and tools I use to bring ideas to life
-        </p>
+        <p className="mx-auto mt-4 max-w-3xl text-lg text-gray-600 dark:text-gray-400">{t('skills-text')}</p>
       </AnimatedWrapper>
 
       {/* Slider */}

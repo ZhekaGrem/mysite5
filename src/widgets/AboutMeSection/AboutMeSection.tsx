@@ -13,8 +13,10 @@ import {
   StaggeredItem,
   GeometricShape,
 } from '@/shared/ui/AnimatedComponents';
+import { useTranslations } from 'next-intl';
 
 const AboutMeSection = () => {
+  const t = useTranslations('Pages.home.section');
   const [imageHovered, setImageHovered] = useState(false);
   const sectionRef = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -27,17 +29,17 @@ const AboutMeSection = () => {
   const textY = useTransform(scrollYProgress, [0, 1], [0, -30]);
 
   const languages = [
-    { name: 'Ukrainian', level: 'Native', proficiency: 100 },
-    { name: 'English', level: 'Professional', proficiency: 90 },
-    { name: 'Polish', level: 'Intermediate', proficiency: 70 },
+    { name: t('uk'), level: t('native'), proficiency: 100 },
+    { name: t('en'), level: t('professional'), proficiency: 90 },
+    { name: t('pl'), level: t('intermediate'), proficiency: 40 },
   ];
 
   const advantages = [
-    { text: 'Технічна експертиза', icon: '⚡', color: 'rgb(42, 157, 143)' },
-    { text: 'Швидка адаптація', icon: '🚀', color: 'rgb(178, 255, 158)' },
-    { text: 'Комплексні рішення', icon: '🎯', color: 'rgb(175, 252, 65)' },
-    { text: 'Орієнтація на результат', icon: '📊', color: 'rgb(29, 211, 176)' },
-    { text: 'Комунікація', icon: '💬', color: 'rgb(231, 111, 81)' },
+    { text: t('tages-1'), icon: '⚡', color: 'rgb(42, 157, 143)' },
+    { text: t('tages-2'), icon: '🚀', color: 'rgb(178, 255, 158)' },
+    { text: t('tages-3'), icon: '🎯', color: 'rgb(175, 252, 65)' },
+    { text: t('tages-4'), icon: '📊', color: 'rgb(29, 211, 176)' },
+    { text: t('tages-5'), icon: '💬', color: 'rgb(231, 111, 81)' },
   ];
 
   return (
@@ -94,11 +96,11 @@ const AboutMeSection = () => {
               {/* Main image */}
               <motion.div className="relative overflow-hidden rounded-lg">
                 <Image
-                  src="/assets/myphoto.jpg"
+                  src="/assets/photo/my-photo-1.png"
                   alt="myphoto"
-                  width={500}
-                  height={1000}
-                  className="hover:contrast-110 z-10 h-auto object-contain transition-all duration-500"
+                  width={400}
+                  height={800}
+                  className="hover:contrast-110 z-10 h-auto object-cover transition-all duration-500"
                 />
 
                 {/* Animated overlay */}
@@ -157,7 +159,7 @@ const AboutMeSection = () => {
                   transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
                   <User className="h-6 w-6 text-h2-light dark:text-h2-dark" />
                 </motion.div>
-                <H h="h2">About me</H>
+                <H h="h2">{t('about-title')}</H>
               </div>
             </AnimatedWrapper>
 
@@ -168,7 +170,7 @@ const AboutMeSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-lg leading-relaxed">
-                Розробник з 4-річним досвідом створення високопродуктивних веб-рішень.
+                {t('about-text-1')}
               </motion.p>
 
               <motion.p
@@ -177,8 +179,7 @@ const AboutMeSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.4 }}
                 className="leading-relaxed">
-                Спеціалізуюсь на розробці реактивних інтерфейсів з використанням React.js, Next.js і
-                TypeScript, що забезпечують відмінний користувацький досвід.
+                {t('about-text-2')}
               </motion.p>
 
               <motion.p
@@ -187,9 +188,7 @@ const AboutMeSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="leading-relaxed">
-                Ключова цінність моєї роботи – поєднання технічної майстерності з розумінням бізнес-цілей, що
-                дозволяє створювати не просто красиві, але й функціональні рішення, які підвищують конверсію
-                та залученість користувачів.
+                {t('about-text-3')}
               </motion.p>
             </div>
 
@@ -214,7 +213,7 @@ const AboutMeSection = () => {
                 transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}>
                 <Globe className="h-5 w-5 text-h1-light dark:text-h1-dark" />
               </motion.div>
-              <H h="h3">Languages</H>
+              <H h="h3">{t('lang-title')}</H>
             </div>
 
             <ul className="space-y-3 pt-2">
@@ -251,7 +250,7 @@ const AboutMeSection = () => {
         <StaggeredItem className="col-span-2 row-span-2 p-4 md:col-span-1">
           <div className="h-full">
             <div className="mb-4 flex items-center gap-3">
-              <H h="h3">Переваги співпраці зі мною</H>
+              <H h="h3">{t('tages-title')}</H>
             </div>
 
             <ul className="space-y-4 pt-2">
@@ -299,7 +298,7 @@ const AboutMeSection = () => {
                 className="hidden md:block">
                 <Briefcase className="h-5 w-5 text-h1-light dark:text-h1-dark" />
               </motion.div>
-              <H h="h3">МОЄ Резуме</H>
+              <H h="h3">{t('my-cv')}</H>
             </div>
 
             <div className="pt-3">
@@ -316,7 +315,7 @@ const AboutMeSection = () => {
                   />
 
                   <span className="relative z-10 flex items-center gap-2">
-                    скачати
+                    {t('download')}
                     <motion.div
                       animate={{ y: [0, -3, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
