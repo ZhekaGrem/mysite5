@@ -150,7 +150,7 @@ export enum UserRole {
     weight?: string // Decimal як string
     quantity: number
     reservedQuantity: number
-    options: Record<string, any> // JSON
+    options: Record<string, undefined> // JSON
     isActive: boolean
     sortOrder: number
     createdAt: string
@@ -348,7 +348,7 @@ export enum UserRole {
     variant?: {
       id: string
       name: string
-      options: Record<string, any>
+      options: Record<string, undefined>
     }
   }
   
@@ -378,7 +378,7 @@ export enum UserRole {
     error: {
       code: string
       message: string
-      details?: any
+      details?: undefined
     }
   }
   
