@@ -14,7 +14,7 @@ import {
   ParallaxElement,
   GeometricShape,
 } from '@/shared/ui/AnimatedComponents';
-
+import { useTranslations } from 'next-intl';
 // Animation variants
 
 // Animated PDF viewer with loading states
@@ -36,6 +36,7 @@ const AnimatedPDFViewer = () => {
 const ResumeClient = () => {
   const [mounted, setMounted] = useState(false);
   const { scrollY } = useScroll();
+  const t = useTranslations('Pages.resume');
 
   // Parallax effects
   const headerY = useTransform(scrollY, [0, 300], [0, -50]);
@@ -107,7 +108,7 @@ const ResumeClient = () => {
                     transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}>
                     <FileText className="h-8 w-8 text-h1-light dark:text-h1-dark" />
                   </motion.div>
-                  <H h="h1">My Resume</H>
+                  <H h="h1">{t('title')}</H>
                 </motion.div>
               </AnimatedWrapper>
 
@@ -116,8 +117,7 @@ const ResumeClient = () => {
                   className="mx-auto mb-8 max-w-2xl text-lg text-gray-600 dark:text-gray-400"
                   whileInView={{ opacity: [0.7, 1, 0.7] }}
                   transition={{ duration: 3, repeat: Infinity }}>
-                  Comprehensive overview of my professional experience, technical skills, and achievements in
-                  web development
+                  {t('description-1')}
                 </motion.p>
               </AnimatedWrapper>
 
@@ -141,7 +141,7 @@ const ResumeClient = () => {
                         transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
                         <Download size={20} />
                       </motion.div>
-                      Download CV
+                      {t('btn-cv-1')}
                     </span>
                   </DownloadResumeButton>
 
@@ -180,22 +180,22 @@ const ResumeClient = () => {
         <div className="text-center">
           <AnimatedWrapper animation="fadeInUp">
             <H h="h3" className="mb-6">
-              Ready to collaborate?
+            {t('title-ready')}
             </H>
             <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-              Let's discuss how my skills and experience can contribute to your next project
+            {t('description-ready')}
             </p>
           </AnimatedWrapper>
 
           <StaggeredContainer className="flex flex-col items-center justify-center gap-6 sm:flex-row">
             <StaggeredItem>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <DownloadResumeButton variant="btn_primary_outline" className="group relative px-8 py-4">
+                <DownloadResumeButton variant="btn_primary_outline" className="group relative px-8 py-7 ">
                   <motion.span
-                    className="flex items-center gap-3"
+                    className="inline-flex items-center gap-3  "
                     whileHover={{ x: 2 }}
                     transition={{ duration: 0.2 }}>
-                    Download Resume
+                    {t('btn-cv-2')}
                     <motion.div
                       animate={{ x: [0, 3, 0] }}
                       transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}>
@@ -212,7 +212,7 @@ const ResumeClient = () => {
                 className="inline-flex items-center gap-3 bg-surface-light px-8 py-4 font-medium text-primary-light transition-colors hover:bg-surface-light/90 dark:bg-surface-dark dark:text-primary-dark dark:hover:bg-surface-dark/90"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}>
-                <span>Get In Touch</span>
+                <span>{t('btn-link')}</span>
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1, repeat: Infinity, ease: 'easeInOut' }}>

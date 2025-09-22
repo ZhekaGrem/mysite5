@@ -1,4 +1,4 @@
-import type { Hobbies, WorkValues, SkillData } from './types';
+import type { Hobbies, WorkValues, SkillData, Benefits } from './types';
 
 export const HOBBIES: Hobbies[] = [
   {
@@ -71,3 +71,20 @@ export const SKILLS_DATA: SkillData = {
     { name: 'Polish', level: 'Intermediate', proficiency: 70 },
   ],
 };
+
+
+export const BENEFITS_OF_WORKING:Benefits[]=[
+  {title: 'Technical Excellence',
+  desc: 'Deep expertise in modern web technologies and best practices',
+  color: 'rgb(42, 157, 143)',
+},
+{
+  title: 'Quick Adaptation',
+  desc: 'Fast learning and integration into new projects and teams',
+  color: 'rgb(178, 255, 158)',
+},
+{
+  title: 'Result-Oriented',
+  desc: 'Focus on delivering business value and meeting objectives',
+  color: 'rgb(175, 252, 65)',
+},]

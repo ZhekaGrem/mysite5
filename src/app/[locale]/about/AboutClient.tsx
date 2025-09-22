@@ -14,8 +14,8 @@ import {
   ParallaxElement,
   GeometricShape,
 } from '@/shared/ui/AnimatedComponents';
-
-import { WORK_VALUES, SKILLS_DATA, HOBBIES } from '@/entities/skill/model/constants';
+import { useTranslations } from 'next-intl';
+import { WORK_VALUES, SKILLS_DATA, HOBBIES,BENEFITS_OF_WORKING } from '@/entities/skill/model/constants';
 import type { Technical, WorkValues } from '@/entities/skill/model/types';
 
 // Enhanced skill bar component
@@ -159,6 +159,7 @@ const WorkValueCard = ({ value, index }: { value: WorkValues; index: number }) =
 };
 
 const AboutClient = () => {
+  const t = useTranslations('Pages.about');
   return (
     <>
       {/* Hero Section with Parallax */}
@@ -166,7 +167,7 @@ const AboutClient = () => {
         <Section className="grid min-h-[70vh] grid-cols-1 items-center gap-12 px-6 md:grid-cols-2">
           <AnimatedWrapper animation="fadeInLeft" className="order-2 md:order-1">
             <H h="h1" className="mb-8 text-center md:text-start">
-              About Me
+              {t("title")}
             </H>
 
             <motion.p
@@ -175,9 +176,7 @@ const AboutClient = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.3 }}>
-              Senior Frontend Developer with 4 years of experience crafting performant web solutions.
-              Specializing in React.js, Next.js, and TypeScript for building responsive interfaces that
-              deliver exceptional user experiences.
+             {t("description-1")}
             </motion.p>
             <motion.p
               className="text-lg leading-relaxed"
@@ -185,8 +184,7 @@ const AboutClient = () => {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.6 }}>
-              My core value lies in combining technical expertise with business understanding, creating
-              solutions that enhance user engagement and conversion rates.
+              {t("description-2")}
             </motion.p>
           </AnimatedWrapper>
 
@@ -219,7 +217,7 @@ const AboutClient = () => {
           <div className="col-span-2">
             <StaggeredItem>
               <H h="h2" className="mb-8 text-center md:text-start">
-                Technical Expertise
+                {t('expertise')}
               </H>
               <GeometricShape shape="line" size={80} className="mb-8 text-h2-light dark:text-h2-dark" />
             </StaggeredItem>
@@ -237,7 +235,7 @@ const AboutClient = () => {
           <div>
             <StaggeredItem>
               <H h="h2" className="mb-8 text-center md:text-start">
-                Languages
+              {t('languages')}
               </H>
               <GeometricShape shape="line" size={60} className="mb-8 text-h2-light dark:text-h2-dark" />
             </StaggeredItem>
@@ -276,7 +274,7 @@ const AboutClient = () => {
       {/* Work Values Section */}
       <Section className="my-12 md:my-24">
         <AnimatedWrapper animation="fadeInUp" className="mb-16 text-center">
-          <H h="h2">Work Values & Engineering Philosophy</H>
+          <H h="h2">{t('title-work')}</H>
           <motion.div
             className="mx-auto mt-4 h-1 w-24 bg-surface-light dark:bg-surface-dark"
             initial={{ scaleX: 0 }}
@@ -308,7 +306,7 @@ const AboutClient = () => {
           animation="fadeInUp"
           className="relative mb-16 bg-primary-light text-center dark:bg-primary-dark">
           <H h="h2" className="mb-4">
-            Interests & HOBBIES
+            {t('title-hobbies')}
           </H>
           <motion.div
             className="mx-auto h-1 w-24 bg-surface-light dark:bg-surface-dark"
@@ -400,30 +398,11 @@ const AboutClient = () => {
       {/* Advantages Section with Cards */}
       <Section className="my-12 px-6 md:my-24">
         <AnimatedWrapper animation="fadeInUp" className="mb-12 text-center">
-          <H h="h2">Why Work With Me</H>
+          <H h="h2">{t('title-work-with-me')}</H>
         </AnimatedWrapper>
 
         <StaggeredContainer className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {[
-            {
-              title: 'Technical Excellence',
-              desc: 'Deep expertise in modern web technologies and best practices',
-              icon: '⚡',
-              color: 'rgb(42, 157, 143)',
-            },
-            {
-              title: 'Quick Adaptation',
-              desc: 'Fast learning and integration into new projects and teams',
-              icon: '🚀',
-              color: 'rgb(178, 255, 158)',
-            },
-            {
-              title: 'Result-Oriented',
-              desc: 'Focus on delivering business value and meeting objectives',
-              icon: '🎯',
-              color: 'rgb(175, 252, 65)',
-            },
-          ].map((advantage, index) => (
+          {BENEFITS_OF_WORKING.map((advantage, index) => (
             <StaggeredItem key={index}>
               <HoverCard
                 hoverAnimation="lift"
@@ -437,12 +416,7 @@ const AboutClient = () => {
                   transition={{ duration: 0.3 }}
                 />
 
-                <motion.div
-                  className="mb-4 text-4xl"
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  transition={{ duration: 0.3 }}>
-                  {advantage.icon}
-                </motion.div>
+               
 
                 <H h="h3" className="relative z-10 mb-4 text-xl">
                   {advantage.title}

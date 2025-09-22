@@ -7,21 +7,22 @@ import SocialLinks from '@/features/SocialLinks/SocialLinks';
 import Logo from '@/shared/ui/Logo';
 import { H } from '@/shared/ui/Htag';
 const Footer = () => {
-  const t = useTranslations('navigation');
+  const t = useTranslations('footer');
 
   // Footer sections using grid system
   const sections = [
     {
-      title: 'Navigation',
+      title: t('navigation.title'),
       links: [
-        { href: '/', label: t('home') },
-        { href: '/projects', label: t('about') },
-        { href: '/contact', label: t('contact') },
+        { href: '/', label: t('navigation.home') },
+        { href: '/projects', label: t('navigation.projects') },
+        { href: '/about', label: t('navigation.about') },
+        { href: '/contact', label: t('navigation.contact') },
       ],
     },
 
     {
-      title: 'Contact',
+      title: t('contact.title'),
       links: [
         { href: 'mailto:info@example.com', label: 'info@example.com' },
         { href: 'tel:+380123456789', label: '+38 (012) 345-67-89' },
@@ -29,6 +30,11 @@ const Footer = () => {
     },
   ];
 
+  const links = [
+        { href: '/cookie', label: t('copyright-notice.cookie') },
+        { href: '/privacy', label: t('copyright-notice.privacy') },
+        { href: '/terms', label: t('copyright-notice.terms') }
+  ];
   const currentYear = new Date().getFullYear();
 
   return (
@@ -44,13 +50,12 @@ const Footer = () => {
               <Logo />
             </Link>
             <p className="max-w-md text-sm leading-relaxed">
-              Створюємо передові технологічні рішення, поєднуючи функціональність та естетику відповідно до
-              принципів швейцарського стилю.
+            {t('description')}
             </p>
           </div>
           <div>
             <H h="h3" className="text-center text-sm font-semibold uppercase tracking-widest md:text-start">
-              Social
+              {t('social')}
             </H>
             <SocialLinks position="footer" />
           </div>
@@ -77,19 +82,18 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col gap-4 border-t border-border-light px-6 pb-6 pt-6 dark:border-border-dark md:flex-row md:items-center md:justify-between">
-          <p className="text-sm">© {currentYear} Your Company. All rights reserved.</p>
+          <p className="text-sm">© {currentYear} {t('copyright-notice.title')}</p>
 
           {/* Bottom Links */}
           <ul className="flex flex-wrap gap-6">
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((label) => (
-              <li key={label}>
-                <Link
-                  href="#"
-                  className="text-sm transition-colors hover:text-primary-dark dark:hover:text-primary-light">
-                  {label}
-                </Link>
-              </li>
-            ))}
+{links.map((link=>(
+  <li key={link.label}> <Link
+  href={link.href}
+  className="text-sm transition-colors hover:text-primary-dark dark:hover:text-primary-light">
+  {link.label}
+</Link></li>
+)))}
+           
           </ul>
         </div>
       </div>

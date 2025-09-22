@@ -10,7 +10,7 @@ export async function generateMetadata({ params }: PropsPage): Promise<Metadata>
 
   return {
     title: t('title'),
-    description: t('description'),
+    description: t('og.description'),
     openGraph: {
       title: t('og.title'),
       description: t('og.description'),

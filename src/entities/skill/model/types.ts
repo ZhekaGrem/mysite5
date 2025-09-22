@@ -27,3 +27,10 @@ export interface Hobbies {
   details: string;
   color: string;
 }
+
+
+export interface Benefits{
+  title: string
+  desc: string
+  color:string
+}

@@ -2,7 +2,7 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
-import { H } from '@/shared/ui/Htag';
+import { H } from '../../shared/ui/Htag';
 import { motion } from 'framer-motion';
 import { Link as LocalizedLink } from '@/shared/i18n/routing';
 

@@ -29,6 +29,27 @@
     "contact": "Contact",
     "projects": "Projects"
   },
+  "footer":{
+    "description":"Створюємо передові технологічні рішення, поєднуючи функціональність та естетику відповідно до принципів швейцарського стилю.",
+    "social":"Social",
+    "navigation":{
+      "title":"Навігація",
+      "home":"Головна",
+      "about":"Про мене",
+       "projects":"Проекти",
+       "contact":"Контакти"
+    }, 
+    "contact":{
+      "title":"Контакти"
+    },
+    "copyright-notice":{
+      "title":"Hrem Studio. Всі права захищені.",
+      "terms":"Умови надання послуг",
+      "privacy":"Політика конфіденційності",
+      "cookie":"Політика щодо файлів cookie"
+    }
+
+  },
   "Pages": {
     "home": {
       "title": "Home | Frontend Developer",
@@ -95,11 +116,17 @@
       }
     },
     "about": {
-      "title": "About Me | Frontend Developer",
-      "description": "Learn about my journey, skills, and expertise in frontend development with 4+ years of experience",
+      "title": "About Me ",
+      "description-1": "Learn about my journey, skills, and expertise in frontend development with 4+ years of experience",
+      "description-2": "My core value lies in combining technical expertise with business understanding, creating solutions that enhance user engagement and conversion rates.",
+      "expertise":"Technical Expertise",
+      "languages":"Languages",
+      "title-work":"Work Values & Engineering Philosophy",
+      "title-hobbies":"Interests & HOBBIES",
+      "title-work-with-me":"Why work with me",
       "og": {
         "title": "About Frontend Developer - Skills & Experience",
-        "description": "Discover my professional journey, technical expertise, and passion for creating exceptional web experiences"
+        "description": "Frontend Developer with 4 years of experience crafting performant web solutions. Specializing in React.js, Next.js, and TypeScript for building responsive interfaces that deliver exceptional user experiences. My core value lies in combining technical expertise with business understanding, creating solutions that enhance user engagement and conversion rates."
       }
     },
     "projects": {
@@ -111,8 +138,14 @@
       }
     },
     "resume": {
-      "title": "Resume | Frontend Developer",
+      "title": "My Resume",
+      "btn-cv-1": "Download CV",
+      "btn-cv-2": "Download Resume",
+      "btn-link": "Get In Touch",
+      "title-ready": "Ready to collaborate?",
+      "description-ready": "Let's discuss how my skills and experience can contribute to your next project.",
       "description": "Professional resume showcasing my skills, experience, and achievements in frontend development",
+      "description-1": "Comprehensive overview of my professional experience, technical skills, and achievements in web development",
       "og": {
         "title": "Frontend Developer Resume - Skills & Experience",
         "description": "Comprehensive overview of my professional experience, technical skills, and achievements in web development"
@@ -150,6 +183,7 @@
         "description": "Details about our cookie usage and how they enhance your browsing experience"
       }
     },
+   
     "404": {
       "title": "Page Not Found | Frontend Developer",
       "description": "The page you're looking for cannot be found. Return to our homepage",

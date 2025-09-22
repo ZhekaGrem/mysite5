@@ -62,8 +62,8 @@ export const PROJECTS: ProjectType[] = [
     title: 'Apartment Rental Platform',
     description:
       'Розробив сучасну платформу для оренди квартир з інтерактивною мапою, системою фільтрації, та функціоналом онлайн-бронювання. Реалізував зручний кабінет користувача для орендарів та власників квартир.',
-    image: '/assets/projects/APARTMENT-RENTAL.png', // Зображення стильного інтерфейсу з картою міста та фотографіями квартир
-    tags: ['React.js', 'Next.js', 'Leaflet', 'Tailwind CSS', 'Firebase'],
+    image: '/assets/projects/APARTMENT-RENTAL.png', 
+    tags: ['React.js', 'Next.js', 'Leaflet', 'Tailwind CSS', 'MongoDB','Docker','OAuth2'],
     category: 'web',
 
     featured: true,
@@ -73,7 +73,7 @@ export const PROJECTS: ProjectType[] = [
     title: 'Event Management System with QR Verification',
     description:
       'Створив комплексну систему управління подіями з реєстрацією через Telegram-бота, адмін-панеллю для моніторингу відвідуваності, генерацією QR-кодів як електронних квитків, та веб-інтерфейсом для верифікації учасників на вході.',
-    image: '/assets/projects/EVENT-MANAGEMENT.png', // Комбіноване зображення з інтерфейсом Telegram-бота, QR-кодами та адмін-панеллю
+    image: '/assets/projects/EVENT-MANAGEMENT.png', 
     tags: ['Python', 'Next.js', 'Telegram API', 'MongoDB', 'QR Code Generation'],
     category: 'fullstack',
 
